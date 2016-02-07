@@ -1,10 +1,10 @@
-# СПП
+# hireThem  
 
-**[Задания](https://mefody.gitbooks.io/lab-tasks/content/spp_java_js_-_3_kurs_poit/index.html)**  
+**[Task](https://mefody.gitbooks.io/lab-tasks/content/spp_java_js_-_3_kurs_poit/index.html)**  
 
-## Автоматизация документооборота
+### Modern programming platforms task  
 
-**Сфера:** сервис поиска работников для найма.  
-**Актеры:** гость, пользователь, наниматель.    
-**Сущности:** пользователь, страница пользователя, резюме, страница нанимателя (фирмы/предприятия), вакансия.  
-**Документы:** отчет о количестве поданных резюме, открытых вакансиях, резюме, вакансия, письмо работнику о найме на работу,..  
+**Description:** professinal connections network.  
+**Actors:** guest, user, administrator.  
+**Entities:** user, employee profile, résumé, employer profile, vacancy.  
+**Документы:** résumé, vacancy, employment letter, report on submitted résumés and vacancies.  
