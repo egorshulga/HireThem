@@ -2,6 +2,7 @@ package com.github.hirethem.dao.factory;
 
 
 import com.github.hirethem.dao.GenericDao;
+import com.github.hirethem.dao.impl.UserSqlDao;
 import org.apache.log4j.Logger;
 
 public class SqlDaoFactory {
@@ -15,13 +16,15 @@ public class SqlDaoFactory {
 
     public GenericDao getDao(DaoType type) {
         switch (type) {
+            case USER:
+                return UserSqlDao.getInstance();
 
         }
         return null;
     }
 
     public enum DaoType {
-
+        USER
     }
 
 }
