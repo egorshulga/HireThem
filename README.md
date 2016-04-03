@@ -4,7 +4,7 @@
 
 ### Modern programming platforms task  
 
-**Description:** professinal connections network.  
+**Description:** professional connections network.  
 **Actors:** guest, user, administrator.  
 **Entities:** user, employee profile, résumé, employer profile, vacancy.  
 **Documents:** résumé, vacancy, employment letter, report on submitted résumés and vacancies.  
