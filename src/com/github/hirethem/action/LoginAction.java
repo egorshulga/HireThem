@@ -1,8 +1,7 @@
 package com.github.hirethem.action;
 
-import com.github.hirethem.model.dao.LoginDao;
-import com.github.hirethem.model.dao.exception.DaoException;
-import com.github.hirethem.model.service.PasswordEncryptionService;
+import com.github.hirethem.model.service.LoginService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
@@ -10,7 +9,6 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
-import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -19,6 +17,9 @@ import java.util.Map;
 public class LoginAction extends ActionSupport implements SessionAware {
 
     private SessionMap<String, Object> sessionMap;
+
+    private LoginService loginService = new LoginService();
+
     private String email;
     private String password;
 
@@ -33,35 +34,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
     }
 
     public void validate() {
-        LoginDao loginDao = new LoginDao();
-
-        byte[] salt;
         try {
-            salt = loginDao.getSalt(email);
-        } catch (DaoException e) {
-            addFieldError("email", e.getMessage());
-            return;
-        }
-
-        PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
-        byte[] encryptedInputPassword;
-        try {
-            encryptedInputPassword = passwordEncryptionService.getEncryptedPassword(password, salt);
-        } catch (Exception ignored) {
-            addActionError("Unable to perform password encryption");
-            return;
-        }
-
-        byte[] encryptedRealPassword;
-        try {
-            encryptedRealPassword = loginDao.getEncryptedPassword(email);
-        } catch (DaoException e) {
-            addFieldError("email", e.getMessage());
-            return;
-        }
-
-        if (!Arrays.equals(encryptedInputPassword, encryptedRealPassword)) {
-            addFieldError("email", "Wrong password");
+            loginService.authenticateUser(email, password);
+        } catch (ServiceException e) {
+            addActionError(e.getMessage());
         }
     }
 

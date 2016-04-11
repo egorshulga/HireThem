@@ -1,9 +1,8 @@
 package com.github.hirethem.action;
 
-import com.github.hirethem.model.dao.SignInDao;
-import com.github.hirethem.model.dao.exception.DaoException;
 import com.github.hirethem.model.entity.UserType;
-import com.github.hirethem.model.service.PasswordEncryptionService;
+import com.github.hirethem.model.service.SignInService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
@@ -12,8 +11,6 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,20 +20,13 @@ import java.util.Map;
 public class SignInAction extends ActionSupport implements SessionAware {
     private SessionMap<String, Object> sessionMap;
 
-    private SignInDao signInDao = new SignInDao();
-
     private String email;
     private String password;
     private String name;
     private String surname;
-    private String userType;
+    private UserType userType;
 
-    private List<String> userTypes = new ArrayList<>();
-
-    public SignInAction() {
-        userTypes.add("employee");
-        userTypes.add("employer");
-    }
+    private SignInService signInService = new SignInService();
 
     @Override
     public void setSession(Map<String, Object> map) {
@@ -44,22 +34,11 @@ public class SignInAction extends ActionSupport implements SessionAware {
     }
 
     public String execute() {
-        PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
-        byte[] salt;
         try {
-            salt = passwordEncryptionService.generateSalt();
-        } catch (NoSuchAlgorithmException e) {
+            signInService.signInNewUser(email, password, name, surname, userType);
+        } catch (ServiceException e) {
             return INPUT;
         }
-
-        byte[] encryptedPassword;
-        try {
-            encryptedPassword = passwordEncryptionService.getEncryptedPassword(password, salt);
-        } catch (Exception e) {
-            return INPUT;
-        }
-
-        signInDao.createNewUser(email, encryptedPassword, salt, name, surname, UserType.valueOf(userType));
 
         sessionMap.put("email", email);
         return SUCCESS;
@@ -67,10 +46,8 @@ public class SignInAction extends ActionSupport implements SessionAware {
 
     public void validate() {
         try {
-            if (signInDao.getUser(email) != null) {
-                addFieldError("email", "User with this email is already registered");
-            }
-        } catch (DaoException e) {
+            signInService.checkIsThisEmailRegistered(email);
+        } catch (ServiceException e) {
             addFieldError("email", e.getMessage());
         }
     }
@@ -114,20 +91,16 @@ public class SignInAction extends ActionSupport implements SessionAware {
         this.surname = surname;
     }
 
-    public String getUserType() {
+    @RequiredFieldValidator(message = "User type must be selected")
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
-    @RequiredFieldValidator(message = "User type must be selected")
-    public List<String> getUserTypes() {
-        return userTypes;
-    }
-
-    public void setUserTypes(List<String> userTypes) {
-        this.userTypes = userTypes;
+    public List<UserType> getUserTypes() {
+        return SignInService.getUserTypes();
     }
 }

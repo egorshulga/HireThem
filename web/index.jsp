@@ -14,6 +14,6 @@
     Professional connections network.
 </p>
 <a href="<s:url action="loginInquire"/>">Login</a><br>
-<a href="<s:url value="signin.jsp"/>">Sign-in</a>
+<a href="<s:url action="signInInquire"/>">Sign-in</a>
 </body>
 </html>

@@ -14,8 +14,7 @@
     <s:password label="Password " name="password"/>
     <s:textfield name="name" label="Name "/>
     <s:textfield name="surname" label="Surname "/>
-    <s:radio label="Register as " list="#{'employee' : 'employee', 'employer' : 'employer'}" name="userType"
-             value="employee"/>
+    <s:radio label="Register as " key="userType" list="userTypes"/>
     <s:submit type="button" label="Sign In"/>
 </s:form>
 </body>

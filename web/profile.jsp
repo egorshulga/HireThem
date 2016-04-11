@@ -10,7 +10,7 @@
 <body>
 <h1>
     PROFILE<br>
-    <a href="<s:url action="logout"/>">Logout</a>
 </h1>
+<a href="<s:url action="logout"/>">Logout</a>
 </body>
 </html>

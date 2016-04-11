@@ -41,7 +41,7 @@ public class LoginDao {
         } catch (ClassCastException e) {
             throw new DaoException("Non-user entities retrieved from `users` table.", e);
         } catch (IndexOutOfBoundsException e) {
-            throw new DaoException("There are no users with this email", e);
+            throw new DaoException("Wrong email or password", e);
         }
         return user;
     }

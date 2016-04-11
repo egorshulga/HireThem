@@ -15,6 +15,11 @@ public class ProjectException extends Exception{
         this.maskedException = maskedException;
     }
 
+    public ProjectException(Exception e) {
+        super(e.getMessage());
+        maskedException = e;
+    }
+
     public Exception getMaskedException() {
         return maskedException;
     }
