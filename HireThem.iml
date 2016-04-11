@@ -13,12 +13,22 @@
       <facet type="Struts2" name="Struts 2">
         <configuration>
           <fileset id="s2fileset" name="Default File Set " removed="false">
-            <file>file://$MODULE_DIR$/src/struts.xml</file>
             <file>jar://$MODULE_DIR$/lib/struts2-core.jar!/struts-default.xml</file>
+            <file>file://$MODULE_DIR$/src/struts.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" value="4c70ed93-a135-4e99-95b9-51211d76193a" />
+          <unit-entry name="resources:hibernate.cfg.xml" value="4c70ed93-a135-4e99-95b9-51211d76193a" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/resources/hibernate.cfg.xml" />
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -30,5 +40,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.32" level="application_server_libraries" />
     <orderEntry type="library" name="Struts 2-2.3.20.1" level="project" />
+    <orderEntry type="library" name="org.hibernate:hibernate-core:5.1.0.Final" level="application" />
+    <orderEntry type="library" name="mysql:mysql-connector-java:5.1.38" level="application" />
+    <orderEntry type="library" name="org.apache.struts:struts2-convention-plugin:2.3.28" level="project" />
   </component>
 </module>

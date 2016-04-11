@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `hire_them` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `hire_them`;
 -- MySQL dump 10.13  Distrib 5.7.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hire_them
@@ -31,10 +29,10 @@ CREATE TABLE `educations` (
   `end_year` int(11) DEFAULT NULL,
   `study_field` varchar(255) DEFAULT NULL,
   `description` text,
-  `id_resume` int(11) DEFAULT NULL,
+  `resume_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IXFK_educations_resumes` (`id_resume`),
-  CONSTRAINT `FK_educations_resumes` FOREIGN KEY (`id_resume`) REFERENCES `resumes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  KEY `IXFK_educations_resumes` (`resume_id`),
+  CONSTRAINT `FK_educations_resumes` FOREIGN KEY (`resume_id`) REFERENCES `resumes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,17 +84,15 @@ DROP TABLE IF EXISTS `resumes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resumes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_employee` int(11) DEFAULT NULL,
+  `employee_id` int(11) DEFAULT NULL,
   `contact_info` text,
   `summary` text NOT NULL,
   `description` text,
-  `education` text,
-  `experience` text,
   `interests` text,
-  `refences` text,
+  `references` text,
   PRIMARY KEY (`id`),
-  KEY `IXFK_resume_user` (`id_employee`),
-  CONSTRAINT `FK_resume_user` FOREIGN KEY (`id_employee`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  KEY `IXFK_resume_user` (`employee_id`),
+  CONSTRAINT `FK_resume_user` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -118,16 +114,17 @@ DROP TABLE IF EXISTS `skills`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `skills` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text,
-  `id_document` int(11) DEFAULT NULL,
+  `document_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IXFK_skills_resumes` (`id`),
-  KEY `IXFK_skills_resumes_02` (`id_document`),
-  KEY `IXFK_skills_vacancies` (`id_document`),
+  KEY `IXFK_skills_resumes_02` (`document_id`),
+  KEY `IXFK_skills_vacancies` (`document_id`),
+  KEY `IXFK_skills_vacancies_02` (`document_id`),
   KEY `FX_name` (`name`),
-  CONSTRAINT `FK_skills_resumes` FOREIGN KEY (`id_document`) REFERENCES `resumes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `FK_skills_vacancies` FOREIGN KEY (`id_document`) REFERENCES `vacancies` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `FK_skills_resumes` FOREIGN KEY (`document_id`) REFERENCES `resumes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_skills_vacancies` FOREIGN KEY (`document_id`) REFERENCES `vacancies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -149,17 +146,18 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` int(11) NOT NULL,
-  `password_hash` int(11) NOT NULL,
+  `user_type` enum('employee','employer','admin') NOT NULL DEFAULT 'employee',
+  `email` varchar(255) NOT NULL,
+  `encrypted_password` blob NOT NULL,
+  `password_salt` blob NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
-  `user_type` enum('employee','employer','administrator') NOT NULL DEFAULT 'employee',
   `about` text,
   PRIMARY KEY (`id`),
   KEY `IX_surname` (`surname`),
   KEY `IX_user_type` (`user_type`),
   KEY `IX_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,6 +166,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'employee','scrilan@gmail.com','\“N∏9’ôC a\n!©òn(+-Ú','4∑\në\⁄\0','Egor','Shulga',NULL),(2,'employer','egorshulga@outlook.com',':FÖ≠Òbe\'9.\÷H¯ù8’É','-ü7\ÿq…§n','Egor','Shulga',NULL),(3,'employee','alala@gmail.com','éµ \Ÿ¸E\÷M=CH;ªÕû¢T≤','\0^†%\‡Z','alala','alala',NULL),(4,'employer','ololo@gmail.com','µåH5Z¯@bJá{GÑˆ\¬\∆\'yX\"','¶á∑DcÒ\"(','ololo','ololo',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,14 +179,14 @@ DROP TABLE IF EXISTS `vacancies`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vacancies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_employer` int(11) DEFAULT NULL,
+  `employer_id` int(11) DEFAULT NULL,
   `contact_info` text,
   `summary` text NOT NULL,
   `description` text,
-  `wage` text,
+  `salary` text,
   PRIMARY KEY (`id`),
-  KEY `IXFK_vacancy_user` (`id_employer`),
-  CONSTRAINT `FK_vacancy_user` FOREIGN KEY (`id_employer`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  KEY `IXFK_vacancy_user` (`employer_id`),
+  CONSTRAINT `FK_vacancy_user` FOREIGN KEY (`employer_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -213,11 +212,11 @@ CREATE TABLE `work_experiences` (
   `organization` varchar(255) NOT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `id_resume` int(11) NOT NULL,
+  `resume_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `IXFK_work_experiences_resumes` (`id_resume`),
+  KEY `IXFK_work_experiences_resumes` (`resume_id`),
   KEY `IX_organization` (`organization`),
-  CONSTRAINT `FK_work_experiences_resumes` FOREIGN KEY (`id_resume`) REFERENCES `resumes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `FK_work_experiences_resumes` FOREIGN KEY (`resume_id`) REFERENCES `resumes` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -239,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-06 14:53:19
+-- Dump completed on 2016-04-11 12:43:54

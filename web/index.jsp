@@ -1,16 +1,19 @@
 <%--
-  Created by IntelliJ IDEA.
   User: egors
-  Date: 06-Apr-16
-  Time: 12:13
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  Hello world!
-  </body>
+<head>
+</head>
+
+<body>
+<h1>HireThem</h1>
+<p>
+    Professional connections network.
+</p>
+<a href="<s:url action="loginInquire"/>">Login</a><br>
+<a href="<s:url value="signin.jsp"/>">Sign-in</a>
+</body>
 </html>
