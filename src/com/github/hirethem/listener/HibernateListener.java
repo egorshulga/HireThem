@@ -2,6 +2,8 @@ package com.github.hirethem.listener;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -14,6 +16,7 @@ import java.net.URL;
 public class HibernateListener implements ServletContextListener {
     private Configuration config;
     private SessionFactory factory;
+    private static ServiceRegistry registry;
     private static final String KEY_NAME = HibernateListener.class.getName();
 
     @Override
@@ -22,7 +25,9 @@ public class HibernateListener implements ServletContextListener {
             String path = "/resources/hibernate.cfg.xml";
             URL url = HibernateListener.class.getResource(path);
             config = new Configuration().configure(url);
-            factory = config.buildSessionFactory();
+            registry = new ServiceRegistryBuilder().applySettings(
+                    config.getProperties()). buildServiceRegistry();
+            factory = config.buildSessionFactory(registry);
 
             //save the Hibernate session factory into serlvet context
             servletContextEvent.getServletContext().setAttribute(KEY_NAME, factory);
