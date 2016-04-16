@@ -6,38 +6,25 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
-
-import java.util.Map;
 
 /**
  * Created by egors.
  */
-public class LoginAction extends ActionSupport implements SessionAware {
-
-    private SessionMap<String, Object> sessionMap;
-
-    private LoginService loginService = new LoginService();
+public class LoginAction extends ActionSupport {
 
     private String email;
     private String password;
 
-    @Override
-    public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap<String, Object>) map;
-    }
-
     public String execute() {
-        sessionMap.put("email", email);
+        new LoginService().saveUserAuthetication(email);
         return SUCCESS;
     }
 
     public void validate() {
         try {
-            loginService.authenticateUser(email, password);
+            new LoginService().tryAuthenticateUser(email, password);
         } catch (ServiceException e) {
-            addActionError(e.getMessage());
+            addFieldError("email", e.getMessage());
         }
     }
 

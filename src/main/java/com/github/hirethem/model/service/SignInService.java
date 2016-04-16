@@ -1,50 +1,47 @@
 package com.github.hirethem.model.service;
 
-import com.github.hirethem.model.dao.SignInDao;
+import com.github.hirethem.model.dao.UserDao;
 import com.github.hirethem.model.dao.exception.DaoException;
-import com.github.hirethem.model.entity.UserType;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.github.hirethem.model.service.exception.ServiceErrorMessage.EMAIL_IS_REGISTERED;
 
 /**
  * Created by egors.
  */
 public class SignInService {
-    private static List<UserType> userTypes = new ArrayList<>();
+    private static List<User.UserType> userTypes = new ArrayList<>();
 
     static {
-        userTypes.add(UserType.employee);
-        userTypes.add(UserType.employer);
+        userTypes.add(User.UserType.employee);
+        userTypes.add(User.UserType.employer);
     }
 
-    public static List<UserType> getUserTypes() {
+    public static List<User.UserType> getUserTypes() {
         return userTypes;
     }
 
-    private SignInDao signInDao = new SignInDao();
-
     public void checkIsThisEmailRegistered(String email) throws ServiceException {
+        UserDao userDao = new UserDao();
         try {
-            if (signInDao.getUser(email) != null) {
-                throw new ServiceException("User with this email is already registered");
+            if (userDao.getUser(email) != null) {
+                throw new ServiceException(EMAIL_IS_REGISTERED);
             }
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
     }
 
-    public void signInNewUser(String email, String password, String name,
-                                     String surname, UserType userType) throws ServiceException {
+    public void createNewUser(String email, String password, String name,
+                              String surname, User.UserType userType) throws ServiceException {
+        UserDao userDao = new UserDao();
         PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
         byte[] salt;
-        try {
-            salt = passwordEncryptionService.generateSalt();
-        } catch (NoSuchAlgorithmException e) {
-            throw new ServiceException(e);
-        }
+        salt = passwordEncryptionService.generateSalt();
 
         byte[] encryptedPassword;
         try {
@@ -53,7 +50,7 @@ public class SignInService {
             throw new ServiceException(e);
         }
 
-        signInDao.createNewUser(email, encryptedPassword, salt, name, surname, userType);
+        userDao.createNewUser(email, encryptedPassword, salt, name, surname, userType);
 
     }
 }

@@ -1,24 +1,17 @@
 package com.github.hirethem.action;
 
+import com.github.hirethem.model.service.LogoutService;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
-
-import java.util.Map;
 
 /**
  * Created by egors.
  */
-public class LogoutAction extends ActionSupport implements SessionAware {
-    private SessionMap<String, Object> sessionMap;
+public class LogoutAction extends ActionSupport {
 
-    @Override
-    public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap<String, Object>) map;
-    }
+    private LogoutService logoutService = new LogoutService();
 
     public String execute() {
-        sessionMap.remove("email");
+        logoutService.logoutUser();
         return SUCCESS;
     }
 

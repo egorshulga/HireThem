@@ -1,6 +1,6 @@
 package com.github.hirethem.action;
 
-import com.github.hirethem.model.entity.UserType;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.SignInService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,11 +15,11 @@ public class SignInInquireAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public List<UserType> getUserTypes() {
+    public List<User.UserType> getUserTypes() {
         return SignInService.getUserTypes();
     }
 
-    public UserType getDefaultUserType() {
-        return UserType.employee;
+    public User.UserType getDefaultUserType() {
+        return User.UserType.employee;
     }
 }

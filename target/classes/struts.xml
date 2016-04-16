@@ -13,29 +13,30 @@
     <constant name="struts.action.extension" value=","/>
 
     <package namespace="/" name="hireThem" extends="struts-default">
+
         <action name="home" class="com.github.hirethem.action.HomeAction">
-            <result>/WEB-INF/content/home.html</result>
+            <result>/content/home.html</result>
         </action>
 
         <action name="loginInquire" class="com.github.hirethem.action.LoginInquireAction">
-            <result>/partials/profile.html</result>
-            <result name="login">/partials/login.html</result>
+            <result>/content/profile.jsp</result>
+            <result name="login">/content/login.jsp</result>
         </action>
         <action name="signInInquire" class="com.github.hirethem.action.SignInInquireAction">
-            <result>/partials/signin.html</result>
+            <result>/content/signin.jsp</result>
         </action>
 
         <action name="login" class="com.github.hirethem.action.LoginAction">
-            <result>/partials/profile.html</result>
-            <result name="input">/partials/login.html</result>
+            <result>/content/profile.jsp</result>
+            <result name="input">/content/login.jsp</result>
         </action>
         <action name="signin" class="com.github.hirethem.action.SignInAction">
-            <result>/partials/profile.html</result>
-            <result name="input">/partials/signin.html</result>
+            <result>/content/profile.jsp</result>
+            <result name="input">/content/signin.jsp</result>
         </action>
 
         <action name="logout" class="com.github.hirethem.action.LogoutAction">
-            <result>index.jsp</result>
+            <result type="redirectAction">home</result>
         </action>
 
     </package>

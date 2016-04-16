@@ -1,46 +1,54 @@
 package com.github.hirethem.model.service;
 
-import com.github.hirethem.model.dao.LoginDao;
+import com.github.hirethem.model.dao.UserDao;
 import com.github.hirethem.model.dao.exception.DaoException;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 
-import java.util.Arrays;
+import static com.github.hirethem.model.Const.TOKEN_COOKIE;
 
 /**
  * Created by egors.
  */
 public class LoginService {
 
-    private LoginDao loginDao = new LoginDao();
+    private CookieService cookieService = new CookieService();
+    private SessionService sessionService = new SessionService();
 
-    public void authenticateUser(String email, String password) throws ServiceException {
-        LoginDao loginDao = new LoginDao();
+    public void tryAuthenticateUser(String email, String password) throws ServiceException {
+        UserDao userDao = new UserDao();
 
         byte[] salt;
         try {
-            salt = loginDao.getSalt(email);
+            salt = userDao.getSalt(email);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
 
-        PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
         byte[] encryptedInputPassword;
         try {
-            encryptedInputPassword = passwordEncryptionService.getEncryptedPassword(password, salt);
-        } catch (Exception e) {
-            throw new ServiceException("Unable to perform password encryption", e);
-        }
-
-        byte[] encryptedRealPassword;
-        try {
-            encryptedRealPassword = loginDao.getEncryptedPassword(email);
+            encryptedInputPassword = userDao.getEncryptedPassword(email);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
 
-        if (!Arrays.equals(encryptedInputPassword, encryptedRealPassword)) {
-            throw new ServiceException("Wrong email or password");
+        new PasswordEncryptionService().tryAuthenticateUser(password, encryptedInputPassword, salt);
+    }
+
+    public User getAuthenticatedUser() throws ServiceException {
+        String token = cookieService.get(TOKEN_COOKIE);
+        String email = sessionService.getAuthenticatedUserEmailByToken(token);
+        try {
+            return new UserDao().getUser(email);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
     }
+
+    public void saveUserAuthetication(String email) {
+        String token = sessionService.saveUserAuthorization(email);
+        cookieService.add(TOKEN_COOKIE, token);
+    }
+
 
 }

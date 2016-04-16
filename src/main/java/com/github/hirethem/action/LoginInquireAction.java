@@ -1,29 +1,32 @@
 package com.github.hirethem.action;
 
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.LoginService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
-
-import java.util.Map;
 
 /**
  * Created by egors.
  */
 
-public class LoginInquireAction extends ActionSupport implements SessionAware {
+public class LoginInquireAction extends ActionSupport {
 
-    private SessionMap<String, Object> sessionMap;
-
-    @Override
-    public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap<String, Object>) map;
-    }
+    private User user;
 
     public String execute() {
-        if (sessionMap.containsKey("email")) {
-            return SUCCESS;
-        } else {
+        try {
+            user = new LoginService().getAuthenticatedUser();
+        } catch (ServiceException e) {
             return LOGIN;
         }
+        return SUCCESS;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

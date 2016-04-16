@@ -1,5 +1,6 @@
 package com.github.hirethem.listener;
 
+import com.github.hirethem.model.dao.SessionDao;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -19,7 +20,7 @@ public class HibernateListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         try {
-            String path = "/resources/hibernate.cfg.xml";
+            String path = "/hibernate.cfg.xml";
             URL url = HibernateListener.class.getResource(path);
             config = new Configuration().configure(url);
             factory = config.buildSessionFactory();

@@ -17,7 +17,7 @@ public class User {
     private int id;
     @Enumerated(EnumType.STRING)
     @Column(name = "user_type")
-    private UserType userType;
+    private User.UserType userType;
     @Column(name = "email")
     private String email;
     @Column(name = "encrypted_password")
@@ -32,7 +32,7 @@ public class User {
     private String about;
 
     public User(String email, byte[] encryptedPassword, byte[] passwordSalt,
-                String name, String surname, UserType userType) {
+                String name, String surname, User.UserType userType) {
         this.userType = userType;
         this.email = email;
         this.encryptedPassword = encryptedPassword;
@@ -106,5 +106,11 @@ public class User {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public enum UserType {
+        employee,
+        employer,
+        admin
     }
 }

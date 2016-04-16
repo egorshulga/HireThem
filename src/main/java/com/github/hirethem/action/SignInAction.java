@@ -1,6 +1,7 @@
 package com.github.hirethem.action;
 
-import com.github.hirethem.model.entity.UserType;
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.LoginService;
 import com.github.hirethem.model.service.SignInService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,30 +18,24 @@ import java.util.Map;
 /**
  * Created by egors.
  */
-public class SignInAction extends ActionSupport implements SessionAware {
-    private SessionMap<String, Object> sessionMap;
+public class SignInAction extends ActionSupport {
 
     private String email;
     private String password;
     private String name;
     private String surname;
-    private UserType userType;
+    private User.UserType userType;
 
     private SignInService signInService = new SignInService();
 
-    @Override
-    public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap<String, Object>) map;
-    }
-
     public String execute() {
         try {
-            signInService.signInNewUser(email, password, name, surname, userType);
+            signInService.createNewUser(email, password, name, surname, userType);
         } catch (ServiceException e) {
             return INPUT;
         }
 
-        sessionMap.put("email", email);
+        new LoginService().saveUserAuthetication(email);
         return SUCCESS;
     }
 
@@ -92,15 +87,15 @@ public class SignInAction extends ActionSupport implements SessionAware {
     }
 
     @RequiredFieldValidator(message = "User type must be selected")
-    public UserType getUserType() {
+    public User.UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(User.UserType userType) {
         this.userType = userType;
     }
 
-    public List<UserType> getUserTypes() {
+    public List<User.UserType> getUserTypes() {
         return SignInService.getUserTypes();
     }
 }

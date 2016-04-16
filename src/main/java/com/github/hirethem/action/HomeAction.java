@@ -14,7 +14,7 @@ public class HomeAction extends ActionSupport {
     }
 
     public String getMessage() {
-        return getText(MESSAGE);
+        return getText(MESSAGE);    //retrieve from resources
     }
 
 }
