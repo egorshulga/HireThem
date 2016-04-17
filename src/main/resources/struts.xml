@@ -11,6 +11,7 @@
     <package name="angularstruts" extends="json-default"/>
     <package name="data" extends="angularstruts" namespace="/data"/>
     <constant name="struts.action.extension" value=","/>
+    <constant name="struts.convention.result.path" value="/" />
 
     <package namespace="/" name="hireThem" extends="struts-default">
 

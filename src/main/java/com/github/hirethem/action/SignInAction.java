@@ -12,6 +12,9 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import java.util.List;
 
+import static com.github.hirethem.Const.EMPTY_FIELD;
+import static com.github.hirethem.Const.WRONG_EMAIL_FORMAT;
+
 /**
  * Created by egors.
  */
@@ -49,8 +52,8 @@ public class SignInAction extends ActionSupport {
     }
 
     @Validations(
-            requiredStrings = {@RequiredStringValidator(message = "Email field must not be empty")},
-            emails = {@EmailValidator(message = "Input email format is wrong")}
+            requiredStrings = {@RequiredStringValidator(message = EMPTY_FIELD)},
+            emails = {@EmailValidator(message = WRONG_EMAIL_FORMAT)}
     )
     public String getEmail() {
         return email;
@@ -60,7 +63,7 @@ public class SignInAction extends ActionSupport {
         this.email = email;
     }
 
-    @RequiredStringValidator(message = "Field must not be empty")
+    @RequiredStringValidator(message = EMPTY_FIELD)
     public String getPassword() {
         return password;
     }
@@ -69,7 +72,7 @@ public class SignInAction extends ActionSupport {
         this.password = password;
     }
 
-    @RequiredStringValidator(message = "Field must not be empty")
+    @RequiredStringValidator(message = EMPTY_FIELD)
     public String getName() {
         return name;
     }
@@ -78,7 +81,7 @@ public class SignInAction extends ActionSupport {
         this.name = name;
     }
 
-    @RequiredStringValidator(message = "Field must not be empty")
+    @RequiredStringValidator(message = EMPTY_FIELD)
     public String getSurname() {
         return surname;
     }
@@ -87,7 +90,7 @@ public class SignInAction extends ActionSupport {
         this.surname = surname;
     }
 
-    @RequiredFieldValidator(message = "User type must be selected")
+    @RequiredFieldValidator(message = EMPTY_FIELD)
     public User.UserType getUserType() {
         return userType;
     }

@@ -1,6 +1,6 @@
 package com.github.hirethem.model.service;
 
-import static com.github.hirethem.model.Const.TOKEN_COOKIE;
+import static com.github.hirethem.Const.TOKEN_COOKIE;
 
 /**
  * Created by egors.

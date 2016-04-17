@@ -7,6 +7,8 @@ import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 
+import static com.github.hirethem.Const.*;
+
 /**
  * Created by egors.
  */
@@ -33,8 +35,8 @@ public class LoginAction extends ActionSupport {
     }
 
     @Validations(
-            requiredStrings = {@RequiredStringValidator(message = "Email field must not be empty")},
-            emails = {@EmailValidator(message = "Input email format is wrong")}
+            requiredStrings = {@RequiredStringValidator(message = EMPTY_FIELD)},
+            emails = {@EmailValidator(message = WRONG_EMAIL_FORMAT)}
     )
     public String getEmail() {
         return email;
@@ -44,7 +46,7 @@ public class LoginAction extends ActionSupport {
         this.email = email;
     }
 
-    @RequiredStringValidator(message = "Field must not be empty")
+    @RequiredStringValidator(message = EMPTY_FIELD)
     public String getPassword() {
         return password;
     }

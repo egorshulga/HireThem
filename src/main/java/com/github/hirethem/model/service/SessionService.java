@@ -1,6 +1,6 @@
 package com.github.hirethem.model.service;
 
-import com.github.hirethem.model.Const;
+import com.github.hirethem.Const;
 import com.github.hirethem.model.dao.SessionDao;
 
 import java.util.UUID;
@@ -27,7 +27,11 @@ public class SessionService {
     }
 
     public String getAuthenticatedUserEmailByToken(String token) {
-        return (String) sessionDao.getValue(token);
+        String email = (String) sessionDao.getValue(token);
+        if (email == null) {
+            email = "";
+        }
+        return email;
     }
 
     public void logoutUser() {
