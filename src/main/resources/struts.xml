@@ -19,24 +19,35 @@
         </action>
 
         <action name="loginInquire" class="com.github.hirethem.action.LoginInquireAction">
-            <result>/content/profile.jsp</result>
-            <result name="login">/content/login.jsp</result>
+            <result type="redirectAction">profile</result>
+            <result name="login" type="redirectAction">login</result>
         </action>
         <action name="signInInquire" class="com.github.hirethem.action.SignInInquireAction">
-            <result>/content/signin.jsp</result>
+            <result type="redirectAction">signin</result>
         </action>
 
-        <action name="login" class="com.github.hirethem.action.LoginAction">
-            <result>/content/profile.jsp</result>
+        <action name="login" class="com.github.hirethem.action.LoginAction" method="input">
             <result name="input">/content/login.jsp</result>
         </action>
-        <action name="signin" class="com.github.hirethem.action.SignInAction">
-            <result>/content/profile.jsp</result>
+        <action name="signin" class="com.github.hirethem.action.SignInAction" method="input">
+            <result name="input">/content/signin.jsp</result>
+        </action>
+
+        <action name="submitLogin" class="com.github.hirethem.action.LoginAction">
+            <result type="redirectAction">profile</result>
+            <result name="input">/content/login.jsp</result>
+        </action>
+        <action name="submitSignIn" class="com.github.hirethem.action.SignInAction">
+            <result type="redirectAction">profile</result>
             <result name="input">/content/signin.jsp</result>
         </action>
 
         <action name="logout" class="com.github.hirethem.action.LogoutAction">
             <result type="redirectAction">home</result>
+        </action>
+
+        <action name="profile" class="com.github.hirethem.action.ProfileAction">
+            <result>/content/profile.jsp</result>
         </action>
 
     </package>

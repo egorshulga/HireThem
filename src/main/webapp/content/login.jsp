@@ -17,7 +17,7 @@
     </div>
 </s:if>
 
-<s:form action="login" method="post">
+<s:form action="submitLogin" method="post">
     <s:textfield name="email" label="Email "/>
     <s:password label="Password " name="password"/>
     <s:submit type="button" label="Login "/>

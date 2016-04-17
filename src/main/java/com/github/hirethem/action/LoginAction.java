@@ -15,6 +15,10 @@ public class LoginAction extends ActionSupport {
     private String email;
     private String password;
 
+    public String input() {
+        return INPUT;
+    }
+
     public String execute() {
         new LoginService().saveUserAuthetication(email);
         return SUCCESS;

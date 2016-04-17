@@ -9,11 +9,8 @@ import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by egors.
@@ -28,11 +25,15 @@ public class SignInAction extends ActionSupport {
 
     private SignInService signInService = new SignInService();
 
+    public String input() {
+        return INPUT;
+    }
+
     public String execute() {
         try {
             signInService.createNewUser(email, password, name, surname, userType);
         } catch (ServiceException e) {
-            return INPUT;
+            return ERROR;
         }
 
         new LoginService().saveUserAuthetication(email);
@@ -98,4 +99,9 @@ public class SignInAction extends ActionSupport {
     public List<User.UserType> getUserTypes() {
         return SignInService.getUserTypes();
     }
+
+    public User.UserType getDefaultUserType() {
+        return User.UserType.employee;
+    }
+
 }
