@@ -8,25 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Custom CSS -->
-    <link href="assets/css/grayscale.css" rel="stylesheet">
+    <link href="../assets/css/grayscale.css" rel="stylesheet">
 
 	
-    <link href="assets/css/app.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/app.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
 	
 	
 	
 	<!-- Main Style -->
-<link href="assets/css/main.css" rel="stylesheet">
+<link href="../assets/css/main.css" rel="stylesheet">
 
 <!-- Supersized -->
-<link href="assets/css/supersized.css" rel="stylesheet">
-<link href="assets/css/supersized.shutter.css" rel="stylesheet">
+<link href="../assets/css/supersized.css" rel="stylesheet">
+<link href="../assets/css/supersized.shutter.css" rel="stylesheet">
 
-<title>Contact</title>
+<title>About</title>
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -40,7 +40,7 @@
             <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
             <div class="logo-wrapper">
-                <a class="logo" href="/"><img src="assets/img/logo.png" alt="logo"></a>
+                <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
             </div>
 
         </div>
@@ -101,13 +101,12 @@
 
 
     <!-- Site header -->
-    <header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner2.jpg)">
-	      <div class="container">
-        <div class="col-xs-12">
-          <h1>Contact us</h1>
-		  <br><br>
-          <h5 class="font-alt">Say hi, drop a letter, and follow us in social media websites.</h5>
-        </div>
+    <header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-facts.jpg)">
+      <div class="container>
+		<div class="col-xs-12">
+			<br><br>
+			<h1 class="text-center">About us</h1>
+		</div>
       </div>
     </header>
     <!-- END Site header -->
@@ -115,71 +114,104 @@
 
     <!-- Main container -->
     <main>
-
-      <section>
+      <!-- Team -->
+      <section class="bg-alt">
         <div class="container">
+          <header class="section-header">
+            <span>Who we are</span>
+            <h2>Our team</h2>
+            <h6>Currently, we're three geek and will grow up soon</h6>
+          </header>
+		  
+		  
 
+        <div class="row">
 
-          <div class="row">
-            <div class="col-sm-12 col-md-8">
-              <h4>Contact form</h4>
-              <form>
-                <div class="form-group">
-                  <input type="text" class="form-control input-lg" placeholder="Name">
+          <!-- Team member -->
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="span4 profile">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">Teamlead</span>
                 </div>
-
-                <div class="form-group">
-                  <input type="email" class="form-control input-lg" placeholder="Email">
-                </div>
-
-                <div class="form-group">
-                  <textarea class="form-control" rows="5" placeholder="Message"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Send</button>
-              </form>
+                <img src="/assets/img/Egor.jpg" alt="John Doe">
             </div>
-
-            <div class="col-sm-12 col-md-4">
-              <h4>Information</h4>
-              <div class="highlighted-block">
-                <dl class="icon-holder">
-                  <dt><i class="fa fa-map-marker"></i></dt>
-                  <dd>3652 Seventh Avenue, Los Angeles, CA</dd>
-
-                  <dt><i class="fa fa-phone"></i></dt>
-                  <dd>(+1) 987 654 3210</dd>
-
-                  <dt><i class="fa fa-fax"></i></dt>
-                  <dd>(+1) 123 456 7890</dd>
-
-                  <dt><i class="fa fa-envelope"></i></dt>
-                  <dd>hi@yoursite.com</dd>
-                </dl>
-              </div>
-
-              <br>
-
-              <ul class="social-icons size-sm text-center">
-                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-              </ul>
-
+            <h3 class="profile-name">Shulga Egor</h3>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <div class="social">
+            	<ul class="social-icons">
+					<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+					<li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
+				</ul>
+            </div>
             </div>
           </div>
+          <!-- END Team member -->
+
+          <!-- Team member -->
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="span4 profile">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">QA Engeneer</span>
+                </div>
+                <img src="/assets/img/Luba.jpg" alt="John Doe">
+			  </div>
+            <h3 class="profile-name">Belousova Lubov</h3>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <div class="social">
+            	<ul class="social-icons">
+					<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
+					<li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+				</ul>
+            </div>
+            </div>
+          </div>
+          <!-- END Team member -->
+
+          <!-- Team member -->
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="span4 profile">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">Designer</span>
+                </div>
+                <img src="/assets/img/Kirill.jpg" alt="John Doe">
+			  </div>
+            <h3 class="profile-name">Korolko Kirill</h3>
+			  <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat. 
+				Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+				<div class="social">
+					<ul class="social-icons">
+					<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
+					<li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+					 </ul>
+				</div>
+            </div>
+          </div>
+          <!-- END Team member -->
+
+        </div>
 
         </div>
       </section>
+      <!-- END Team -->
+
 
 
     </main>
     <!-- END Main container -->
 
 
-   <!-- Site footer -->
+  <!-- Site footer -->
 	<footer class="site-footer">
 
 		<!-- Top section -->
@@ -234,14 +266,14 @@
     <!-- END Back to top button -->
 
 <!-- Scripts -->
-<script src="assets/js/app.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="assets/js/grayscale.js"></script>
+    <script src="../assets/js/grayscale.js"></script>
 
   </body>
 </html>

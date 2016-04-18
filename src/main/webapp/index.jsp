@@ -8,8 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="assets/css/grayscale.css" rel="stylesheet">
 
@@ -78,9 +76,9 @@
             <li>
                 <a href="#">Pages</a>
                 <ul>
-                    <li><a href="about.jsp">About</a></li>
-                    <li><a href="contact.jsp">Contact</a></li>
-                    <li><a href="faq.jsp">FAQ</a></li>
+                    <li><a href="content/about.jsp">About</a></li>
+                    <li><a href="content/contact.jsp">Contact</a></li>
+                    <li><a href="content/faq.jsp">FAQ</a></li>
                 </ul>
             </li>
         </ul>
@@ -182,9 +180,9 @@
             <div class="col-xs-6 col-md-3">
                 <h6>Company</h6>
                 <ul class="footer-links">
-                    <li><a href="about.jsp">About us</a></li>
-                    <li><a href="faq.jsp">Help center</a></li>
-                    <li><a href="contact.jsp">Contact us</a></li>
+                    <li><a href="content/about.jsp">About us</a></li>
+                    <li><a href="content/faq.jsp">Help center</a></li>
+                    <li><a href="content/contact.jsp">Contact us</a></li>
                 </ul>
             </div>
         </div>

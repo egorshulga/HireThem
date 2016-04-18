@@ -7,23 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
-    <link href="assets/css/grayscale.css" rel="stylesheet">
+    <link href="../assets/css/grayscale.css" rel="stylesheet">
 
 	
-    <link href="assets/css/app.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/app.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
 	
 	
 	
 	<!-- Main Style -->
-<link href="assets/css/main.css" rel="stylesheet">
+<link href="../assets/css/main.css" rel="stylesheet">
 
 <!-- Supersized -->
-<link href="assets/css/supersized.css" rel="stylesheet">
-<link href="assets/css/supersized.shutter.css" rel="stylesheet">
+<link href="../assets/css/supersized.css" rel="stylesheet">
+<link href="../assets/css/supersized.shutter.css" rel="stylesheet">
 
 <title>FAQ</title>
 
@@ -40,7 +38,7 @@
             <a class="navbar-toggle" href="/" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
             <div class="logo-wrapper">
-                <a class="logo" href="/"><img src="assets/img/logo.png" alt="logo"></a>
+                <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
             </div>
 
         </div>
@@ -100,7 +98,7 @@
 <!-- END Navigation bar -->
 
     <!-- Site header -->
-    <header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
+    <header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-banner1.jpg)">
       <div class="container">
         <div class="col-xs-12">
           <h2>Frequently asked questions</h2>
@@ -302,14 +300,14 @@
     <!-- END Back to top button -->
 
 <!-- Scripts -->
-<script src="assets/js/app.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="assets/js/grayscale.js"></script>
+    <script src="../assets/js/grayscale.js"></script>
 
   </body>
 </html>

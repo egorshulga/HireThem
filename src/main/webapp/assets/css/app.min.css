@@ -2958,15 +2958,22 @@ input[type=search] {
 .checkbox,.radio {
     position: relative;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+	margin-left: 40px;
+}
+
+.myradio {
+    margin-top: 5px;
+    margin-bottom: 5px;
+	margin-left: 10px;
 }
 
 .checkbox label,.radio label {
     min-height: 20px;
-    padding-left: 20px;
+    padding-left: 30px;
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: 300;
     cursor: pointer;
 }
 

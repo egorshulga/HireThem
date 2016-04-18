@@ -27,7 +27,7 @@
 
 
     <main>
-
+		<br><br><br>
       <div class="login-block">
         <a href="/"><img src="assets/img/logo_alt.png"></a>
         <h1>Create your account</h1>
@@ -64,11 +64,31 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" class="form-control" placeholder="Choose a password">
+              <input type="password" class="form-control" placeholder="Your password">
             </div>
           </div>
-
-          <button class="btn btn-primary btn-block" type="submit">Create</button>
+		  
+		  <hr class="hr-xs">
+		  
+		  <div class="form-group">
+			  <h6>Register as</h6>	
+			<div class="col-md-5">
+              <div class="radio">
+                <input type="radio" name="radio1" id="radio1" value="option1" checked>
+                <label for="radio1">Employee</label> 
+			  </div>
+			</div>
+			<div class="col-md-5">
+              <div class="radio">
+                <input type="radio" name="radio1" id="radio2" value="option2">
+                <label for="radio2">Employer</label>
+              </div>
+			</div>
+		  </div>
+		  <div class="form-group">
+			<br>
+			<button class="btn btn-primary btn-block" type="submit">Create</button>
+		  </div>
 
         </form>
       </div>

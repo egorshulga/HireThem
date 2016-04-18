@@ -50,9 +50,29 @@
               <input type="password" class="form-control" placeholder="Password">
             </div>
           </div>
+		  
+		  <hr class="hr-xs">
+		  
+		  <div class="form-group">
+			  <h6>Log in as</h6>	
+			<div class="col-md-5">
+              <div class="radio">
+                <input type="radio" name="radio1" id="radio1" value="option1" checked>
+                <label for="radio1">Employee</label> 
+			  </div>
+			</div>
+			<div class="col-md-5">
+              <div class="radio">
+                <input type="radio" name="radio1" id="radio2" value="option2">
+                <label for="radio2">Employer</label>
+              </div>
+			</div>
+		  </div>
 
-          <button class="btn btn-primary btn-block" type="submit">Login</button>
-
+          <div class="form-group">
+			<br>
+			<button class="btn btn-primary btn-block" type="submit">Create</button>
+		  </div>
         </form>
       </div>
 	  
