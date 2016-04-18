@@ -10,7 +10,10 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateDao {
 
-    protected Session session = ((SessionFactory) ServletActionContext.getServletContext()
+    protected static Session session = ((SessionFactory) ServletActionContext.getServletContext()
             .getAttribute(HibernateListener.getKeyName())).openSession();
+
+//    protected static Session session = ((SessionFactory) ActionContext.getContext().getSession().
+//            get(HibernateListener.getKeyName())).openSession();
 
 }
