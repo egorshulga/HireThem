@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
-</html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -11,11 +10,11 @@
     <!-- Custom CSS -->
     <link href="assets/css/grayscale.css" rel="stylesheet">
 
-	
+
     <link href="assets/css/app.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
-	
-	<title>HireThem</title>
+
+    <title>HireThem</title>
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -37,7 +36,8 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-            <a class="btn btn-sm btn-primary" href="<s:url action="loginInquire"/>">Login</a> or <a href="<s:url action="signInInquire"/>">register</a>
+            <a class="btn btn-sm btn-primary" href="<s:url action="login"/>">Login</a> or <a
+                href="<s:url action="signin"/>">register</a>
         </div>
         <!-- END User account -->
 
@@ -88,31 +88,34 @@
 </nav>
 <!-- END Navigation bar -->
 
-    <!-- Site header -->
-    <header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
-        <div class="container">
-            <div class="col-xs-12">
-                <br><br>
-                <h2>We offer <mark>1,259</mark> job vacancies right now!</h2>
-                <h5 class="font-alt">Find your desire one in a minute</h5>
-                <br><br><br>
-                <form class="header-job-search">
-                    <div class="input-keyword">
-                        <input type="text" class="form-control" placeholder="Job title, skills, or company">
-                    </div>
+<!-- Site header -->
+<header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
+    <div class="container">
+        <div class="col-xs-12">
+            <br><br>
+            <h2>We offer
+                <mark>1,259</mark>
+                job vacancies right now!
+            </h2>
+            <h5 class="font-alt">Find your desire one in a minute</h5>
+            <br><br><br>
+            <form class="header-job-search">
+                <div class="input-keyword">
+                    <input type="text" class="form-control" placeholder="Job title, skills, or company">
+                </div>
 
-                    <div class="input-location">
-                        <input type="text" class="form-control" placeholder="City, state or zip">
-                    </div>
+                <div class="input-location">
+                    <input type="text" class="form-control" placeholder="City, state or zip">
+                </div>
 
-                    <div class="btn-search">
-                        <button class="btn btn-primary" type="submit">Find jobs</button>
-                    </div>
-                </form>
-            </div>
-
+                <div class="btn-search">
+                    <button class="btn btn-primary" type="submit">Find jobs</button>
+                </div>
+            </form>
         </div>
-    </header>
+
+    </div>
+</header>
 
 
 <!-- Categories -->
@@ -174,7 +177,11 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>About</h6>
-                <p class="text-justify">An employment website is a web site that deals specifically with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position to be filled and are commonly known as job boards. Other employment sites offer employer reviews, career and job-search advice, and describe different job descriptions or employers. Through a job website a prospective employee can locate and fill out a job application.</p>
+                <p class="text-justify">An employment website is a web site that deals specifically with employment or
+                    careers. Many employment websites are designed to allow employers to post job requirements for a
+                    position to be filled and are commonly known as job boards. Other employment sites offer employer
+                    reviews, career and job-search advice, and describe different job descriptions or employers. Through
+                    a job website a prospective employee can locate and fill out a job application.</p>
             </div>
 
             <div class="col-xs-6 col-md-3">
@@ -226,7 +233,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="assets/js/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="assets/js/grayscale.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="assets/js/grayscale.js"></script>
 </body>
 </html>
