@@ -13,18 +13,23 @@
     <constant name="struts.action.extension" value=","/>
     <constant name="struts.convention.result.path" value="/" />
 
+
+
     <package namespace="/" name="hireThem" extends="struts-default">
+        <interceptors>
+            <interceptor name="login" class="com.github.hirethem.action.interceptor.AuthorizationInterceptor"/>
+            <interceptor-stack name="defaultWithAuthorizationCheckStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="login"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultWithAuthorizationCheckStack"/>
+        <global-results>
+            <result name="loginRedirect" type="redirectAction">login</result>
+        </global-results>
 
         <action name="home" class="com.github.hirethem.action.HomeAction">
             <result>/content/home.html</result>
-        </action>
-
-        <action name="loginInquire" class="com.github.hirethem.action.LoginInquireAction">
-            <result type="redirectAction">profile</result>
-            <result name="login" type="redirectAction">login</result>
-        </action>
-        <action name="signInInquire" class="com.github.hirethem.action.SignInInquireAction">
-            <result type="redirectAction">signin</result>
         </action>
 
         <action name="login" class="com.github.hirethem.action.LoginAction" method="input">

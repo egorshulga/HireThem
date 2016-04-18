@@ -20,6 +20,7 @@
 <s:form action="submitLogin" method="post">
     <s:textfield name="email" label="Email "/>
     <s:password label="Password " name="password"/>
+    <s:radio label="Login as " name="userType" value="defaultUserType" list="userTypes"/>
     <s:submit type="button" label="Login "/>
 </s:form>
 </body>

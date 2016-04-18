@@ -2,7 +2,7 @@ package com.github.hirethem.action;
 
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.LoginService;
-import com.github.hirethem.model.service.SignInService;
+import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.EmailValidator;
@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 import java.util.List;
 
 import static com.github.hirethem.Const.EMPTY_FIELD;
+import static com.github.hirethem.Const.SUCH_USER_REGISTERED;
 import static com.github.hirethem.Const.WRONG_EMAIL_FORMAT;
 
 /**
@@ -26,7 +27,7 @@ public class SignInAction extends ActionSupport {
     private String surname;
     private User.UserType userType;
 
-    private SignInService signInService = new SignInService();
+    private UserService userService = new UserService();
 
     public String input() {
         return INPUT;
@@ -34,20 +35,18 @@ public class SignInAction extends ActionSupport {
 
     public String execute() {
         try {
-            signInService.createNewUser(email, password, name, surname, userType);
+            userService.createNewUser(email, password, name, surname, userType);
         } catch (ServiceException e) {
-            return ERROR;
+            return INPUT;
         }
 
-        new LoginService().saveUserAuthetication(email);
+        new LoginService().saveUserAuthentication(email, userType);
         return SUCCESS;
     }
 
     public void validate() {
-        try {
-            signInService.checkIsThisEmailRegistered(email);
-        } catch (ServiceException e) {
-            addFieldError("email", e.getMessage());
+        if (userService.isSuchUserRegistered(email, userType)) {
+            addFieldError("email", SUCH_USER_REGISTERED);
         }
     }
 
@@ -100,7 +99,7 @@ public class SignInAction extends ActionSupport {
     }
 
     public List<User.UserType> getUserTypes() {
-        return SignInService.getUserTypes();
+        return UserService.getUserTypes();
     }
 
     public User.UserType getDefaultUserType() {

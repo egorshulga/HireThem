@@ -11,8 +11,8 @@ public class SessionDao {
 
     private static Map<String, Object> sessionMap = ActionContext.getContext().getSession();
 
-    public void put(String key, String token) {
-        sessionMap.put(key, token);
+    public void put(String key, Object value) {
+        sessionMap.put(key, value);
     }
 
     public Object getValue(String key) {

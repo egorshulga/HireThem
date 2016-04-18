@@ -8,12 +8,12 @@ import com.github.hirethem.model.service.exception.ServiceException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.hirethem.model.service.exception.ServiceErrorMessage.EMAIL_IS_REGISTERED;
-
 /**
  * Created by egors.
  */
-public class SignInService {
+public class UserService {
+    private UserDao userDao = new UserDao();
+
     private static List<User.UserType> userTypes = new ArrayList<>();
 
     static {
@@ -25,20 +25,30 @@ public class SignInService {
         return userTypes;
     }
 
-    public void checkIsThisEmailRegistered(String email) throws ServiceException {
-        UserDao userDao = new UserDao();
+    public boolean isSuchUserRegistered(String email, User.UserType userType) {
         try {
-            if (userDao.getUser(email) != null) {
-                throw new ServiceException(EMAIL_IS_REGISTERED);
-            }
+            User user = userDao.getUser(email, userType);
+            return user != null;
         } catch (DaoException e) {
-            throw new ServiceException(e);
+            return false;
         }
+    }
+
+    public User getUser(int id) throws DaoException {
+        return userDao.getUser(id);
+    }
+
+    public User getUser(String email, User.UserType userType) throws DaoException {
+        return userDao.getUser(email, userType);
+    }
+
+    public int getUserId(String email, User.UserType userType) throws DaoException {
+        User user = getUser(email, userType);
+        return user.getId();
     }
 
     public void createNewUser(String email, String password, String name,
                               String surname, User.UserType userType) throws ServiceException {
-        UserDao userDao = new UserDao();
         PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
         byte[] salt;
         salt = passwordEncryptionService.generateSalt();

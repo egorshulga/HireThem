@@ -15,19 +15,19 @@ public class LoginService {
     private CookieService cookieService = new CookieService();
     private SessionService sessionService = new SessionService();
 
-    public void tryAuthenticateUser(String email, String password) throws ServiceException {
+    public void tryAuthenticateUser(String email, String password, User.UserType userType) throws ServiceException {
         UserDao userDao = new UserDao();
 
         byte[] salt;
         try {
-            salt = userDao.getSalt(email);
+            salt = userDao.getSalt(email, userType);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
 
         byte[] encryptedInputPassword;
         try {
-            encryptedInputPassword = userDao.getEncryptedPassword(email);
+            encryptedInputPassword = userDao.getEncryptedPassword(email, userType);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
@@ -37,24 +37,38 @@ public class LoginService {
 
     public User getAuthenticatedUser() throws ServiceException {
         String token = cookieService.get(TOKEN_COOKIE);
-        String email = sessionService.getAuthenticatedUserEmailByToken(token);
+        int userId = sessionService.getAuthorizedUserIdByToken(token);
         try {
-            return new UserDao().getUser(email);
+            return new UserDao().getUser(userId);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
     }
 
     public boolean isUserAuthenticated() {
-        String token = cookieService.get(TOKEN_COOKIE);
-        String email = sessionService.getAuthenticatedUserEmailByToken(token);
-        return !email.equals("");
+        String token = null;
+        try {
+            token = cookieService.get(TOKEN_COOKIE);
+            int userId = sessionService.getAuthorizedUserIdByToken(token);
+            return true;
+        } catch (ServiceException e) {
+            return false;
+        }
     }
 
-    public void saveUserAuthetication(String email) {
-        String token = sessionService.saveUserAuthorization(email);
+    public void saveUserAuthentication(int userId) {
+        String token = sessionService.saveUserAuthorization(userId);
         cookieService.add(TOKEN_COOKIE, token);
     }
 
 
+    public void saveUserAuthentication(String email, User.UserType userType) {
+        int userId = 0;
+        try {
+            userId = new UserService().getUserId(email, userType);
+        } catch (DaoException ignored) {
+            // this check is redundant
+        }
+        saveUserAuthentication(userId);
+    }
 }
