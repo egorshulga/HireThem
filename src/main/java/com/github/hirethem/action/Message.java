@@ -1,11 +1,9 @@
-package com.github.hirethem;
+package com.github.hirethem.action;
 
 /**
  * Created by egors.
  */
-public class Const {
-
-    public static final String TOKEN_COOKIE = "hirethem-token";
+public class Message {
 
     public static final String EMPTY_FIELD = "Field must not be empty";
 

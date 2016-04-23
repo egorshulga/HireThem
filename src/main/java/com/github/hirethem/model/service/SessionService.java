@@ -1,6 +1,5 @@
 package com.github.hirethem.model.service;
 
-import com.github.hirethem.Const;
 import com.github.hirethem.model.dao.SessionDao;
 import com.github.hirethem.model.service.exception.ServiceException;
 
@@ -15,30 +14,29 @@ public class SessionService {
 
     private SessionDao sessionDao = new SessionDao();
 
-    private String generateSessionToken() {
+    public String generateSessionToken() {
         return UUID.randomUUID().toString();
     }
 
-    public String saveUserAuthorization(int id) {
-        String token = generateSessionToken();
-        sessionDao.put(token, id);     // token => user id
-        return token;
+    public void saveUserAuthentication(int id, String token) {
+        sessionDao.remove(String.valueOf(id));
+        sessionDao.put(String.valueOf(id), token);     // user id => token
     }
 
-//    public String getUserToken(int id) {
-//        return (String) new SessionDao().getValue(id);
-//    }
+    public boolean sessionContainsToken(String token) {
+            return sessionDao.containsKey(token);
+    }
 
-    public int getAuthorizedUserIdByToken(String token) throws ServiceException {
+    public String getUserToken(int id) throws ServiceException {
         try {
-            return (int) sessionDao.getValue(token);
+            return (String) sessionDao.getValue(Integer.toString(id));
         } catch (Exception e) {
             throw new ServiceException(COOKIE_NOT_FOUND);
         }
     }
 
-    public void logoutUser() {
-        sessionDao.remove(Const.TOKEN_COOKIE);
+    public void removeUser(int id) {
+        sessionDao.remove(Integer.toString(id));
     }
 
 }

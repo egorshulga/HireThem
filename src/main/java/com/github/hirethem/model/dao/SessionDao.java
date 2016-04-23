@@ -19,6 +19,10 @@ public class SessionDao {
         return sessionMap.get(key);
     }
 
+    public boolean containsKey(Object value) {
+        return sessionMap.containsValue(value);
+    }
+
     public void remove(String key) {
         sessionMap.remove(key);
     }

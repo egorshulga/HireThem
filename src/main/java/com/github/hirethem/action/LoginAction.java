@@ -12,7 +12,8 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import java.util.List;
 
-import static com.github.hirethem.Const.*;
+import static com.github.hirethem.action.Message.EMPTY_FIELD;
+import static com.github.hirethem.action.Message.WRONG_EMAIL_FORMAT;
 
 /**
  * Created by egors.
@@ -24,7 +25,11 @@ public class LoginAction extends ActionSupport {
     private User.UserType userType;
 
     public String input() {
-        return INPUT;
+        if (new LoginService().isUserAuthenticated()) {
+            return NONE;
+        } else {
+            return INPUT;
+        }
     }
 
     public String execute() {

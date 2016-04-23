@@ -5,7 +5,6 @@ import com.github.hirethem.model.dao.exception.DaoException;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 
-import static com.github.hirethem.Const.TOKEN_COOKIE;
 
 /**
  * Created by egors.
@@ -35,30 +34,21 @@ public class LoginService {
         new PasswordEncryptionService().tryAuthenticateUser(password, encryptedInputPassword, salt);
     }
 
-    public User getAuthenticatedUser() throws ServiceException {
-        String token = cookieService.get(TOKEN_COOKIE);
-        int userId = sessionService.getAuthorizedUserIdByToken(token);
-        try {
-            return new UserDao().getUser(userId);
-        } catch (DaoException e) {
-            throw new ServiceException(e);
-        }
-    }
-
     public boolean isUserAuthenticated() {
-        String token = null;
+        String token;
         try {
-            token = cookieService.get(TOKEN_COOKIE);
-            int userId = sessionService.getAuthorizedUserIdByToken(token);
-            return true;
+            token = cookieService.getUserToken();
+            return sessionService.sessionContainsToken(token);
         } catch (ServiceException e) {
             return false;
         }
     }
 
     public void saveUserAuthentication(int userId) {
-        String token = sessionService.saveUserAuthorization(userId);
-        cookieService.add(TOKEN_COOKIE, token);
+        String token = sessionService.generateSessionToken();
+        sessionService.saveUserAuthentication(userId, token);
+        cookieService.addUserIdCookie(userId);
+        cookieService.addUserTokenCookie(token);
     }
 
 

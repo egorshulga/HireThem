@@ -1,18 +1,24 @@
 package com.github.hirethem.model.service;
 
-import static com.github.hirethem.Const.TOKEN_COOKIE;
+import com.github.hirethem.model.service.exception.ServiceException;
+
 
 /**
  * Created by egors.
  */
 public class LogoutService {
 
-    CookieService cookieService = new CookieService();
-    SessionService sessionService = new SessionService();
+    private CookieService cookieService = new CookieService();
+    private SessionService sessionService = new SessionService();
 
     public void logoutUser() {
-        cookieService.remove(TOKEN_COOKIE);
-        sessionService.logoutUser();
+        try {
+            int userId = cookieService.getUserId();
+            sessionService.removeUser(userId);
+            cookieService.deleteAllCookies();
+        } catch (ServiceException ignored) {
+
+        }
     }
 
 }

@@ -12,9 +12,9 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import java.util.List;
 
-import static com.github.hirethem.Const.EMPTY_FIELD;
-import static com.github.hirethem.Const.SUCH_USER_REGISTERED;
-import static com.github.hirethem.Const.WRONG_EMAIL_FORMAT;
+import static com.github.hirethem.action.Message.EMPTY_FIELD;
+import static com.github.hirethem.action.Message.SUCH_USER_REGISTERED;
+import static com.github.hirethem.action.Message.WRONG_EMAIL_FORMAT;
 
 /**
  * Created by egors.
