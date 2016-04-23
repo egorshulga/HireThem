@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Sign In to HireThem</h1>
-<s:form name="signInForm" action="signin" method="POST">
+<s:form name="signInForm" action="submitSignIn" method="POST">
     <s:textfield name="email" label="Email "/>
     <s:password label="Password " name="password"/>
     <s:textfield name="name" label="Name "/>

@@ -12,26 +12,35 @@ import static com.github.hirethem.model.dao.exception.DaoErrorMessages.NOT_FOUND
  */
 public class UserDao extends HibernateDao {
 
-    public byte[] getSalt(String email) throws DaoException {
-        User user = getUser(email);
+    public byte[] getSalt(String email, User.UserType userType) throws DaoException {
+        User user = getUser(email, userType);
         return user.getPasswordSalt();
     }
 
-    public byte[] getEncryptedPassword(String email) throws DaoException {
-        User user = getUser(email);
+    public byte[] getEncryptedPassword(String email, User.UserType userType) throws DaoException {
+        User user = getUser(email, userType);
         return user.getEncryptedPassword();
     }
 
-    public User getUser(String email) throws DaoException {
+    public User getUser(String email, User.UserType userType) throws DaoException {
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.eq("email", email));
-        User user;
+        criteria.add(Restrictions.eq("userType", userType));
         try {
-            user = (User) criteria.list().get(0);
+            return (User) criteria.list().get(0);
         } catch (IndexOutOfBoundsException e) {
             throw new DaoException(NOT_FOUND_USER, e);
         }
-        return user;
+    }
+
+    public User getUser(int userId) throws DaoException {
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.add(Restrictions.eq("id", userId));
+        try {
+            return (User) criteria.list().get(0);
+        } catch (IndexOutOfBoundsException e) {
+            throw new DaoException(NOT_FOUND_USER, e);
+        }
     }
 
     public void createNewUser(String email, byte[] encryptedPassword, byte[] salt, String name,
@@ -41,6 +50,5 @@ public class UserDao extends HibernateDao {
         session.save(user);
         session.getTransaction().commit();
     }
-
 
 }

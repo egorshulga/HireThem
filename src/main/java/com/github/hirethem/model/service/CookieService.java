@@ -1,31 +1,42 @@
 package com.github.hirethem.model.service;
 
-import org.apache.struts2.ServletActionContext;
-
-import javax.servlet.http.Cookie;
+import com.github.hirethem.model.dao.CookieDao;
+import com.github.hirethem.model.service.exception.ServiceException;
 
 /**
- * Created by egors.
+ * Created by egors on 23-Apr-16.
  */
 public class CookieService {
 
-    public String get(String key) {
-        for(Cookie cookie : ServletActionContext.getRequest().getCookies()) {
-            if (cookie.getName().equals(key)) {
-                return cookie.getValue();
-            }
+    private CookieDao cookieDao = new CookieDao();
+
+    static private final String userIdCookieName = "user-id";
+    static private final String userTokenCookieName = "user-token";
+
+    public void addUserIdCookie(int userId) {
+        cookieDao.add(userIdCookieName, String.valueOf(userId));
+    }
+
+    public void addUserTokenCookie(String token) {
+        cookieDao.add(userTokenCookieName, token);
+    }
+
+    public void deleteAllCookies() {
+        cookieDao.remove(userIdCookieName);
+        cookieDao.remove(userTokenCookieName);
+    }
+
+    public int getUserId() throws ServiceException {
+        try {
+            return Integer.parseInt(cookieDao.get(userIdCookieName));
+        } catch (NumberFormatException e) {
+            throw new ServiceException(e);
         }
-        return "";
     }
 
-    public void add(String key, String value) {
-        Cookie cookie = new Cookie(key, value);
-        ServletActionContext.getResponse().addCookie(cookie);
+    public String getUserToken() throws ServiceException {
+        return cookieDao.get(userTokenCookieName);
     }
 
-    public void remove(String key) {
-        Cookie cookie = new Cookie(key, "");
-        cookie.setMaxAge(0);
-        ServletActionContext.getResponse().addCookie(cookie);
-    }
+
 }

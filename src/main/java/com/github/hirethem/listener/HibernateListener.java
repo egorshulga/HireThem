@@ -1,6 +1,5 @@
 package com.github.hirethem.listener;
 
-import com.github.hirethem.model.dao.SessionDao;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -15,7 +14,7 @@ import java.net.URL;
 public class HibernateListener implements ServletContextListener {
     private Configuration config;
     private SessionFactory factory;
-    private static final String KEY_NAME = HibernateListener.class.getName();
+    public static final String KEY_NAME = HibernateListener.class.getName();
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {

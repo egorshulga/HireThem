@@ -10,7 +10,6 @@
 <body>
 
 <h1>Login to HireThem</h1>
-<h1>Login to HireThem</h1>
 
 <s:if test="hasActionErrors()">
     <div class="errors">
@@ -18,9 +17,10 @@
     </div>
 </s:if>
 
-<s:form action="login" method="post">
+<s:form action="submitLogin" method="post">
     <s:textfield name="email" label="Email "/>
     <s:password label="Password " name="password"/>
+    <s:radio label="Login as " name="userType" value="defaultUserType" list="userTypes"/>
     <s:submit type="button" label="Login "/>
 </s:form>            
 </body>              

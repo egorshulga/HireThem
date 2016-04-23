@@ -1,9 +1,11 @@
 package com.github.hirethem.model.service;
 
-import com.github.hirethem.model.Const;
 import com.github.hirethem.model.dao.SessionDao;
+import com.github.hirethem.model.service.exception.ServiceException;
 
 import java.util.UUID;
+
+import static com.github.hirethem.model.service.exception.ServiceErrorMessage.COOKIE_NOT_FOUND;
 
 /**
  * Created by egors.
@@ -12,26 +14,29 @@ public class SessionService {
 
     private SessionDao sessionDao = new SessionDao();
 
-    private String generateSessionToken() {
+    public String generateSessionToken() {
         return UUID.randomUUID().toString();
     }
 
-    public String saveUserAuthorization(String email) {
-        String token = generateSessionToken();
-        sessionDao.put(token, email);     // token => user email
-        return token;
+    public void saveUserAuthentication(int id, String token) {
+        sessionDao.remove(String.valueOf(id));
+        sessionDao.put(String.valueOf(id), token);     // user id => token
     }
 
-    public String getUserToken(String email) {
-        return (String) new SessionDao().getValue(email);
+    public boolean sessionContainsToken(String token) {
+            return sessionDao.containsKey(token);
     }
 
-    public String getAuthenticatedUserEmailByToken(String token) {
-        return (String) sessionDao.getValue(token);
+    public String getUserToken(int id) throws ServiceException {
+        try {
+            return (String) sessionDao.getValue(Integer.toString(id));
+        } catch (Exception e) {
+            throw new ServiceException(COOKIE_NOT_FOUND);
+        }
     }
 
-    public void logoutUser() {
-        sessionDao.remove(Const.TOKEN_COOKIE);
+    public void removeUser(int id) {
+        sessionDao.remove(Integer.toString(id));
     }
 
 }
