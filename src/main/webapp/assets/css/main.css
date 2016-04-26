@@ -15,6 +15,25 @@ h6{
 	line-height:1.5em;
 }
 
+h11, h31{
+	margin:0 0 20px 0;
+	color:#6B6868;
+	font-weight:300;
+	font-family: 'Titillium Web', sans-serif;
+	line-height:1.5em;
+	font-size:48px;
+}
+
+.center-text{
+	margin:0 0 20px 0;
+	text-align: center;
+	color:#6B6868;
+	font-weight:300;
+	font-family: 'Titillium Web', sans-serif;
+	line-height:1.5em;
+	font-size:48px;
+}
+
 h3{
 	color:#000;
 }
@@ -34,7 +53,7 @@ h2{
 	font-size:36px;
 }
 
-h3{
+h3, h31{
 	font-size:24px;
 }
 

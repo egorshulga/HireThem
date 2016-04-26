@@ -9,8 +9,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Post a job position or create your online resume by TheJobs!">
-    <meta name="keywords" content="">
 
     <title>Login</title>
 
@@ -85,7 +83,7 @@
       </div>
 	  
 	  <div class="login-links">
-         <p class="text-center">Don't have an account? <a class="txt-brand" href="<s:url action="signInInquire"/>">Register</a></p>
+         <p class="text-center">Don't have an account? <a class="txt-brand" href="<s:url action="signin"/>">Register</a></p>
       </div>
 	
     </main>
