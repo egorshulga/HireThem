@@ -1475,6 +1475,14 @@ p {
 	color: #6B6868;
 }
 
+.lead-my {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+	color: #000;
+}
+
 @media (min-width:768px) {
     .lead {
         font-size: 21px;
@@ -14314,6 +14322,7 @@ dl.icon-holder dd {
 
 .skill-name,.skill-value {
     font-family: Montserrat,sans-serif;
+	color: #55595c;
 }
 
 @media (max-width:767px) {

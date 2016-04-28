@@ -99,13 +99,119 @@
 <!-- END Navigation bar -->
 
     <form action="#">
+	
+	 <!-- Page header -->
+	  <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
+	  <br><br>
+      <header class="page-header-my">
+        <div class="container page-name">
+          <h1 class="text-center">Edit your profile</h1>
+        </div>
 
+        <div class="container">
+
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Summary"></textarea>
+              </div>
+			  <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Interests"></textarea>
+              </div>
+			  <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="References"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+	  </section>
+      <!-- END Page header -->
+	  
       <!-- Main container -->
       <main>
 
+	  <!-- Skills -->
+         <section class="bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
+          <div class="container">
+            <header class="section-header">
+              <span>Expertise Areas</span>
+              <h2>Skills</h2>
+            </header>
+            
+            <div class="row">
+
+              <div class="col-xs-12">
+                <div class="item-block">
+                  <div class="item-form">
+  
+                    <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 col-sm-6">
+
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                            <span class="input-group-addon">%</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 duplicateable-content">
+                <div class="item-block">
+                  <div class="item-form">
+  
+                    <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 col-sm-6">
+
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                            <span class="input-group-addon">%</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 text-center">
+                <br>
+                <button class="btn btn-primary btn-duplicator">Add experience</button>
+              </div>
+
+
+            </div>
+
+          </div>
+        </section>
+        <!-- END Skills -->
+	  
         <!-- Education -->
         <section class="bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
-		<br><br>
           <div class="container">
 
             <header class="section-header">
@@ -329,7 +435,7 @@
           </div>
         </section>
         <!-- END Work Experience -->
-
+		
         <!-- Submit -->
         <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
           <div class="container">
