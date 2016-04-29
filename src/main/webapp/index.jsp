@@ -47,30 +47,25 @@
                 <a class="active" href="/">Home</a>
             </li>
             <li>
-                <a href="#">Position</a>
+                <a href="#">Profile</a>
                 <ul>
-                    <li><a>Browse jobs</a></li>
-                    <li><a>Job detail</a></li>
-                    <li><a href="content/vacancy.jsp">Post a job</a></li>
-                    <li><a>Manage jobs</a></li>
+                    <li><a>My profile</a></li>
+                    <li><a>Edit profile</a></li>
+                    <li><a>Log out</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Resume</a>
                 <ul>
                     <li><a>Browse resumes</a></li>
-                    <li><a href="content/employee_profile.jsp">Resume detail</a></li>
-                    <li><a href="content/resume.jsp">Create a resume</a></li>
-                    <li><a href="content/employee_edit.jsp">Edit profile</a></li>
+                    <li><a>Manage resumes</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Company</a>
+                <a href="#">Vacancy</a>
                 <ul>
-                    <li><a>Browse companies</a></li>
-                    <li><a href="content/employer_profile.jsp">Company detail</a></li>
-                    <li><a href="content/employer_edit.jsp">Create a company</a></li>
-                    <li><a>Manage companies</a></li>
+                    <li><a>Browse vacancies</a></li>
+                    <li><a>Manage vacancies</a></li>
                 </ul>
             </li>
             <li>
@@ -79,6 +74,14 @@
                     <li><a href="content/about.jsp">About</a></li>
                     <li><a href="content/contact.jsp">Contact</a></li>
                     <li><a href="content/faq.jsp">FAQ</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#">Admin</a>
+                <ul>
+                    <li><a>Manage users</a></li>
+                    <li><a>Manage resumes</a></li>
+                    <li><a>Manage vacancies</a></li>
                 </ul>
             </li>
         </ul>
