@@ -1,19 +1,13 @@
 package com.github.hirethem.model.dao;
 
-import com.github.hirethem.listener.HibernateListener;
-import org.apache.struts2.ServletActionContext;
+import com.github.hirethem.model.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
- * Created by egors.
+ * Created by egorshulga on 29-Apr-16.
  */
 public class HibernateDao {
 
-    protected static Session session = ((SessionFactory) ServletActionContext.getServletContext()
-            .getAttribute(HibernateListener.getKeyName())).openSession();
-
-//    protected static Session session = ((SessionFactory) ActionContext.getContext().getSession().
-//            get(HibernateListener.getKeyName())).openSession();
+    protected Session session = HibernateUtil.getSession();
 
 }

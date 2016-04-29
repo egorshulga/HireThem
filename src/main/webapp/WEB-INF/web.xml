@@ -18,9 +18,4 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <listener>
-        <listener-class>
-            com.github.hirethem.listener.HibernateListener
-        </listener-class>
-    </listener>
 </web-app>

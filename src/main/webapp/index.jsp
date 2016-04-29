@@ -51,7 +51,7 @@
                 <ul>
                     <li><a>Browse jobs</a></li>
                     <li><a>Job detail</a></li>
-                    <li><a>Post a job</a></li>
+                    <li><a href="content/vacancy.jsp">Post a job</a></li>
                     <li><a>Manage jobs</a></li>
                 </ul>
             </li>
@@ -59,17 +59,17 @@
                 <a href="#">Resume</a>
                 <ul>
                     <li><a>Browse resumes</a></li>
-                    <li><a>Resume detail</a></li>
-                    <li><a>Create a resume</a></li>
-                    <li><a>Manage resumes</a></li>
+                    <li><a href="content/employee_profile.jsp">Resume detail</a></li>
+                    <li><a href="content/resume.jsp">Create a resume</a></li>
+                    <li><a href="content/employee_edit.jsp">Edit profile</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Company</a>
                 <ul>
                     <li><a>Browse companies</a></li>
-                    <li><a>Company detail</a></li>
-                    <li><a>Create a company</a></li>
+                    <li><a href="content/employer_profile.jsp">Company detail</a></li>
+                    <li><a href="content/employer_edit.jsp">Create a company</a></li>
                     <li><a>Manage companies</a></li>
                 </ul>
             </li>

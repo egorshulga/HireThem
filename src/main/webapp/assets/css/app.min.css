@@ -1472,6 +1472,15 @@ p {
     font-size: 16px;
     font-weight: 300;
     line-height: 1.4;
+	color: #6B6868;
+}
+
+.lead-my {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+	color: #000;
 }
 
 @media (min-width:768px) {
@@ -13886,17 +13895,34 @@ dl.icon-holder dd {
 
 .page-header {
     position: relative;
-    z-index: 0;
-    background-attachment: fixed;
-    background-size: cover;
+	background-size: cover;
     background-repeat: no-repeat;
-    background-color: rgba(41,170,254,.8);
+    background-color: #7e8890;
     margin: 0;
     padding: 0;
-    margin-bottom: 120px;
-    padding-top: 100px;
     border: none;
 }
+
+.page-header-my {
+    position: relative;
+    z-index: 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.page-header-myclass {
+    position: relative;
+    z-index: 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+	background-color: #7e8890;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 
 .page-header.bg-repeat {
     background-repeat: repeat;
@@ -13945,6 +13971,22 @@ dl.icon-holder dd {
     transform: translateY(84px);
 }
 
+.page-header-my .container {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 30px 30px 20px;
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,.07);
+
+}
+.page-header-myclass .container {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 30px 30px 20px;
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,.07);
+
+}
 .page-header .container.no-shadow {
     border: 1px solid #eee;
     box-shadow: none;
@@ -13964,6 +14006,29 @@ dl.icon-holder dd {
     color: #fff;
     padding-top: 60px;
 }
+
+.page-header-my .container.page-name {
+    background-color: transparent;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    color: #fff;
+    padding-top: 60px;
+}
+
+.page-header-myclass .container.page-name {
+    background-color: transparent;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    color: #fff;
+    padding-top: 60px;
+}
+
 
 .page-header .header-detail .logo {
     float: left;
@@ -14257,6 +14322,7 @@ dl.icon-holder dd {
 
 .skill-name,.skill-value {
     font-family: Montserrat,sans-serif;
+	color: #55595c;
 }
 
 @media (max-width:767px) {
@@ -14268,9 +14334,9 @@ dl.icon-holder dd {
 
 .item-block {
     display: block;
-    margin-top: 30px;
+    margin-top: 0px;
     background-color: #fff;
-    border: 1px solid #eee;
+    border: 5px solid #eee;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
     transition: .3s ease-in-out;
 }
@@ -15124,13 +15190,14 @@ dl.icon-holder dd {
 
 section {
     position: relative;
-    padding: 96px 32px;
+    padding: 50px 32px;
     z-index: 0;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #fff;
 }
+
 
 section.bg-alt {
     background-color: #fafafa;

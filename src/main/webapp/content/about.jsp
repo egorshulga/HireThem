@@ -46,8 +46,8 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-            <a class="btn btn-sm btn-primary" href="<s:url action="login"/>">Login</a> or <a
-                href="<s:url action="signin"/>">register</a>
+            <a class="btn btn-sm btn-primary" href="/login"/>Login</a> or <a
+                href="/signin"/>register</a>
         </div>
         <!-- END User account -->
 
@@ -61,7 +61,7 @@
                 <ul>
                     <li><a>Browse jobs</a></li>
                     <li><a>Job detail</a></li>
-                    <li><a>Post a job</a></li>
+                    <li><a href="vacancy.jsp">Post a job</a></li>
                     <li><a>Manage jobs</a></li>
                 </ul>
             </li>
@@ -69,24 +69,24 @@
                 <a href="#">Resume</a>
                 <ul>
                     <li><a>Browse resumes</a></li>
-                    <li><a>Resume detail</a></li>
-                    <li><a>Create a resume</a></li>
-                    <li><a>Manage resumes</a></li>
+                    <li><a href="employee_profile.jsp">Resume detail</a></li>
+                    <li><a href="resume.jsp">Create a resume</a></li>
+                    <li><a href="employee_edit.jsp">Edit profile</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Company</a>
                 <ul>
                     <li><a>Browse companies</a></li>
-                    <li><a>Company detail</a></li>
-                    <li><a>Create a company</a></li>
+                    <li><a href="employer_profile.jsp">Company detail</a></li>
+                    <li><a href="employer_edit.jsp">Create a company</a></li>
                     <li><a>Manage companies</a></li>
                 </ul>
             </li>
             <li>
-                <a class="active" href="#">Pages</a>
+                <a href="#" class="active">Pages</a>
                 <ul>
-                    <li><a href="about.jsp">About</a></li>
+                    <li><a class="active" href="about.jsp">About</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                     <li><a href="faq.jsp">FAQ</a></li>
                 </ul>
