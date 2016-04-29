@@ -110,7 +110,6 @@ public class User {
 
     public enum UserType {
         employee,
-        employer,
-        admin
+        employer
     }
 }
