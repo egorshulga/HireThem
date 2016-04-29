@@ -4,6 +4,7 @@ import com.github.hirethem.model.dao.UserDao;
 import com.github.hirethem.model.dao.exception.DaoException;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.github.hirethem.model.util.PasswordEncryptionService;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.github.hirethem.model.service;
+package com.github.hirethem.model.util;
 
 import com.github.hirethem.model.service.exception.ServiceException;
 
