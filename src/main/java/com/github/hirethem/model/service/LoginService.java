@@ -57,7 +57,7 @@ public class LoginService {
         int userId = 0;
         try {
             userId = new UserService().getUserId(email, userType);
-        } catch (DaoException ignored) {
+        } catch (ServiceException ignored) {
             // this check is redundant
         }
         saveUserAuthentication(userId);

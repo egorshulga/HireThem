@@ -61,4 +61,43 @@ public class UserDao extends HibernateDao {
         session.getTransaction().commit();
     }
 
+    public void deleteUser(int userId) {
+        session.beginTransaction();
+        Query query = session.createQuery("delete User where id = :userId");
+        query.setParameter("userId", userId);
+        int result = query.executeUpdate();
+        session.getTransaction().commit();
+    }
+
+    public void updateUser(int userId, String name, String surname, String about, String contactInfo, byte[] avatar) {
+        session.beginTransaction();
+
+        User user = session.get(User.class, userId);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setAbout(about);
+        user.setContactInfo(contactInfo);
+        user.setAvatar(avatar);
+
+        session.getTransaction().commit();
+    }
+
+    public void promoteUserAsAdmin(int userId) {
+        session.beginTransaction();
+
+        User user = session.get(User.class, userId);
+        user.setAsAdmin(true);
+
+        session.getTransaction().commit();
+    }
+
+    public void demoteUser(int userId) {
+        session.beginTransaction();
+
+        User user = session.get(User.class, userId);
+        user.setAsAdmin(false);
+
+        session.getTransaction().commit();
+    }
+
 }

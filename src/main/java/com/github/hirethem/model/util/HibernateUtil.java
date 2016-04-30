@@ -10,18 +10,21 @@ import java.net.URL;
  * Created by egorshulga.
  */
 public class HibernateUtil {
+    private static Configuration config;
 
     private static SessionFactory sessionFactory;
-    private static Configuration config;
+
+    private static Session session;
 
     static {
         String path = "/hibernate.cfg.xml";
         URL url = HibernateUtil.class.getResource(path);
         config = new Configuration().configure(url);
         sessionFactory = config.buildSessionFactory();
+        session = sessionFactory.openSession();
     }
 
     public static Session getSession() {
-        return sessionFactory.openSession();
+        return session;
     }
 }

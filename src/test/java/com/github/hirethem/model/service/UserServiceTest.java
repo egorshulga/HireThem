@@ -28,7 +28,7 @@ public class UserServiceTest {
 
     @After
     public void tearDown() throws Exception {
-        userService.deleteUser(email, userType);
+        userService.deleteUserWithoutRightsCheck(userService.getUserId(email, userType));
     }
 
     @Test

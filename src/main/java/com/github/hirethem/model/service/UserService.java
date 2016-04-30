@@ -15,6 +15,9 @@ import java.util.List;
 public class UserService {
     private UserDao userDao = new UserDao();
 
+    private CookieService cookieService = new CookieService();
+    private SessionService sessionService = new SessionService();
+
     private static List<User.UserType> userTypes = new ArrayList<>();
 
     static {
@@ -35,15 +38,23 @@ public class UserService {
         }
     }
 
-    public User getUser(int id) throws DaoException {
-        return userDao.getUser(id);
+    public User getUser(int id) throws ServiceException {
+        try {
+            return userDao.getUser(id);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
-    public User getUser(String email, User.UserType userType) throws DaoException {
-        return userDao.getUser(email, userType);
+    public User getUser(String email, User.UserType userType) throws ServiceException {
+        try {
+            return userDao.getUser(email, userType);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
-    public int getUserId(String email, User.UserType userType) throws DaoException {
+    public int getUserId(String email, User.UserType userType) throws ServiceException {
         User user = getUser(email, userType);
         return user.getId();
     }
@@ -64,8 +75,61 @@ public class UserService {
         userDao.createNewUser(email, encryptedPassword, salt, name, surname, userType);
     }
 
+    public User getCurrentUserEntity() throws ServiceException {
+        int userId = getCurrentUserId();
+        try {
+            return userDao.getUser(userId);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
 
-    public void deleteUser(String email, User.UserType userType) {
+    public int getCurrentUserId() throws ServiceException {
+        return cookieService.getUserId();
+    }
+
+    public void changeCurrentUserInfo(String name, String surname, String about,
+                               String contactInfo, byte[] avatar) throws ServiceException {
+        int userId = getCurrentUserId();
+        userDao.updateUser(userId, name, surname, about, contactInfo, avatar);
+    }
+
+    public void verifyIsCurrentUserAdmin() throws ServiceException {
+        if (!getCurrentUserEntity().isAdmin()) {
+            throw new ServiceException("Current user is not authorized to perform the task");
+        }
+    }
+
+    public void verifyCurrentUserToken() throws ServiceException {
+        String userToken = cookieService.getUserToken();
+        int userId = cookieService.getUserId();
+        if (!userToken.equals(sessionService.getUserToken(userId))) {
+            throw new ServiceException("User has provided wrong token");
+        }
+    }
+
+    public void promoteUser(String email, User.UserType userType) throws ServiceException {
+        verifyIsCurrentUserAdmin();
+        userDao.promoteUserAsAdmin(getUserId(email, userType));
+    }
+
+    public void demoteUser(String email, User.UserType userType) throws ServiceException {
+        verifyIsCurrentUserAdmin();
+        userDao.demoteUser(getUserId(email, userType));
+    }
+
+    public void deleteUser(String email, User.UserType userType) throws ServiceException {
+        verifyIsCurrentUserAdmin();
+        int userToDeleteId = getUserId(email, userType);
+        if (userToDeleteId != getCurrentUserId()) {
+            throw new ServiceException("User has no rights to perform the task");
+        }
         userDao.deleteUser(email, userType);
     }
+
+    // implemented for test purposes
+    public void deleteUserWithoutRightsCheck(int userId) {
+        userDao.deleteUser(userId);
+    }
+
 }

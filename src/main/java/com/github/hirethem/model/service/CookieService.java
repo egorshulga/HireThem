@@ -1,7 +1,6 @@
 package com.github.hirethem.model.service;
 
 import com.github.hirethem.model.dao.CookieDao;
-import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 
 /**
@@ -13,7 +12,6 @@ public class CookieService {
 
     static private final String userIdCookieName = "user-id";
     static private final String userTokenCookieName = "user-token";
-    static private final String userTypeCookieName = "user-type";
 
     public void addUserIdCookie(int userId) {
         cookieDao.add(userIdCookieName, String.valueOf(userId));
@@ -21,10 +19,6 @@ public class CookieService {
 
     public void addUserTokenCookie(String token) {
         cookieDao.add(userTokenCookieName, token);
-    }
-
-    public void addUserTypeCookie(User.UserType userType) {
-        cookieDao.add(userTypeCookieName, userType.toString());
     }
 
     public void deleteAllCookies() {
@@ -42,10 +36,6 @@ public class CookieService {
 
     public String getUserToken() throws ServiceException {
         return cookieDao.get(userTokenCookieName);
-    }
-
-    public String getUserType() throws ServiceException {
-        return cookieDao.get(userTypeCookieName);
     }
 
 }
