@@ -11,8 +11,7 @@
     <package name="angularstruts" extends="json-default"/>
     <package name="data" extends="angularstruts" namespace="/data"/>
     <constant name="struts.action.extension" value=","/>
-    <constant name="struts.convention.result.path" value="/" />
-
+    <constant name="struts.convention.result.path" value="/"/>
 
 
     <package namespace="/" name="hireThem" extends="struts-default">
@@ -36,13 +35,13 @@
             <result name="input">/content/login.jsp</result>
             <result name="none" type="redirectAction">profile</result>
         </action>
-        <action name="signin" class="com.github.hirethem.action.SignInAction" method="input">
-            <result name="input">/content/signin.jsp</result>
-        </action>
-
         <action name="submitLogin" class="com.github.hirethem.action.LoginAction">
             <result type="redirectAction">profile</result>
             <result name="input">/content/login.jsp</result>
+        </action>
+
+        <action name="signin" class="com.github.hirethem.action.SignInAction" method="input">
+            <result name="input">/content/signin.jsp</result>
         </action>
         <action name="submitSignIn" class="com.github.hirethem.action.SignInAction">
             <result type="redirectAction">profile</result>
@@ -55,6 +54,17 @@
 
         <action name="profile" class="com.github.hirethem.action.ProfileAction">
             <result>/content/profile.jsp</result>
+        </action>
+
+        <action name="about" class="com.github.hirethem.action.PagesAction" method="about">
+            <result name="about">/content/about.jsp</result>
+        </action>
+
+        <action name="contact" class="com.github.hirethem.action.PagesAction" method="contact">
+            <result name="contact">/content/contact.jsp</result>
+        </action>
+        <action name="faq" class="com.github.hirethem.action.PagesAction" method="faq">
+            <result name="faq">/content/faq.jsp</result>
         </action>
 
     </package>
