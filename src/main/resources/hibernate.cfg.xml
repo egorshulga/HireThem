@@ -23,7 +23,6 @@
         <mapping class="com.github.hirethem.model.entity.User"/>
         <mapping class="com.github.hirethem.model.entity.Education"/>
         <mapping class="com.github.hirethem.model.entity.Resume"/>
-        <mapping class="com.github.hirethem.model.entity.Skill"/>
         <mapping class="com.github.hirethem.model.entity.Vacancy"/>
         <mapping class="com.github.hirethem.model.entity.WorkExperience"/>
         <mapping class="com.github.hirethem.model.entity.Message"/>

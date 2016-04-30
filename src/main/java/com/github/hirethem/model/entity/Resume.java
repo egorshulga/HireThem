@@ -30,8 +30,11 @@ public class Resume {
     @Column(name = "interests")
     private String interests;
 
-    @Column(name = "references")
+    @Column(name = "`references`")
     private String references;
+
+    @Column(name = "skills")
+    private String skills;
 
     @OneToMany(mappedBy = "resume")
     private Set<WorkExperience> workExperiences;
@@ -112,5 +115,13 @@ public class Resume {
 
     public void setEducations(Set<WorkExperience> educations) {
         this.educations = educations;
+    }
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
     }
 }

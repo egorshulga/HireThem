@@ -84,19 +84,15 @@ public class UserDao extends HibernateDao {
 
     public void promoteUserAsAdmin(int userId) {
         session.beginTransaction();
-
         User user = session.get(User.class, userId);
-        user.setAsAdmin(true);
-
+        user.setAdmin(true);
         session.getTransaction().commit();
     }
 
     public void demoteUser(int userId) {
         session.beginTransaction();
-
         User user = session.get(User.class, userId);
-        user.setAsAdmin(false);
-
+        user.setAdmin(false);
         session.getTransaction().commit();
     }
 

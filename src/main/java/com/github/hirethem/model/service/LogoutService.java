@@ -13,7 +13,7 @@ public class LogoutService {
 
     public void logoutUser() {
         try {
-            int userId = cookieService.getUserId();
+            int userId = cookieService.getCurrentUserId();
             sessionService.removeUser(userId);
             cookieService.deleteAllCookies();
         } catch (ServiceException ignored) {

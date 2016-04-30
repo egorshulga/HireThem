@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -51,15 +52,14 @@ public class User {
     @Column(name = "avatar")
     private byte[] avatar;
 
-    @NotEmpty
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
 
-    @OneToMany(mappedBy = "employee")
-    private Set<Resume> resumes;
+    @OneToMany(mappedBy = "employee", cascade = { CascadeType.ALL }, orphanRemoval = true)
+    private Set<Resume> resumes = new HashSet<>();
 
-    @OneToMany(mappedBy = "employer")
-    private Set<Vacancy> vacancies;
+    @OneToMany(mappedBy = "employer", cascade = { CascadeType.ALL }, orphanRemoval = true)
+    private Set<Vacancy> vacancies = new HashSet<>();
 
     public User(String email, byte[] encryptedPassword, byte[] passwordSalt,
                 String name, String surname, User.UserType userType) {
@@ -158,12 +158,28 @@ public class User {
         return isAdmin;
     }
 
-    public void setAsAdmin(boolean admin) {
+    public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
 
+    public Set<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(Set<Resume> resumes) {
+        this.resumes = resumes;
+    }
+
+    public Set<Vacancy> getVacancies() {
+        return vacancies;
+    }
+
+    public void setVacancies(Set<Vacancy> vacancies) {
+        this.vacancies = vacancies;
+    }
+
     public enum UserType {
-        employee,
-        employer
+        EMPLOYEE,
+        EMPLOYER
     }
 }

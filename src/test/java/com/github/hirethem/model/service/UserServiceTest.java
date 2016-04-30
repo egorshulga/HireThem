@@ -17,7 +17,7 @@ public class UserServiceTest {
     private String password = "ololo";
     private String name = "Mr";
     private String surname = "Ololo";
-    private User.UserType userType = User.UserType.employee;
+    private User.UserType userType = User.UserType.EMPLOYEE;
 
     @Before
     public void setUp() throws Exception {

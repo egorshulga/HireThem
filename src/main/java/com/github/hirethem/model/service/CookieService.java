@@ -26,7 +26,7 @@ public class CookieService {
         cookieDao.remove(userTokenCookieName);
     }
 
-    public int getUserId() throws ServiceException {
+    public int getCurrentUserId() throws ServiceException {
         try {
             return Integer.parseInt(cookieDao.get(userIdCookieName));
         } catch (NumberFormatException e) {

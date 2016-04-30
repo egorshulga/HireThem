@@ -15,14 +15,14 @@ import java.util.List;
 public class UserService {
     private UserDao userDao = new UserDao();
 
-    private CookieService cookieService = new CookieService();
-    private SessionService sessionService = new SessionService();
+//    private CookieService cookieService = new CookieService();
+//    private SessionService sessionService = new SessionService();
 
     private static List<User.UserType> userTypes = new ArrayList<>();
 
     static {
-        userTypes.add(User.UserType.employee);
-        userTypes.add(User.UserType.employer);
+        userTypes.add(User.UserType.EMPLOYEE);
+        userTypes.add(User.UserType.EMPLOYER);
     }
 
     public static List<User.UserType> getUserTypes() {
@@ -76,7 +76,7 @@ public class UserService {
     }
 
     public User getCurrentUserEntity() throws ServiceException {
-        int userId = getCurrentUserId();
+        int userId = new CookieService().getCurrentUserId();
         try {
             return userDao.getUser(userId);
         } catch (DaoException e) {
@@ -84,13 +84,9 @@ public class UserService {
         }
     }
 
-    public int getCurrentUserId() throws ServiceException {
-        return cookieService.getUserId();
-    }
-
     public void changeCurrentUserInfo(String name, String surname, String about,
                                String contactInfo, byte[] avatar) throws ServiceException {
-        int userId = getCurrentUserId();
+        int userId = new CookieService().getCurrentUserId();
         userDao.updateUser(userId, name, surname, about, contactInfo, avatar);
     }
 
@@ -101,8 +97,10 @@ public class UserService {
     }
 
     public void verifyCurrentUserToken() throws ServiceException {
+        CookieService cookieService = new CookieService();
+        SessionService sessionService = new SessionService();
         String userToken = cookieService.getUserToken();
-        int userId = cookieService.getUserId();
+        int userId = cookieService.getCurrentUserId();
         if (!userToken.equals(sessionService.getUserToken(userId))) {
             throw new ServiceException("User has provided wrong token");
         }
@@ -121,7 +119,7 @@ public class UserService {
     public void deleteUser(String email, User.UserType userType) throws ServiceException {
         verifyIsCurrentUserAdmin();
         int userToDeleteId = getUserId(email, userType);
-        if (userToDeleteId != getCurrentUserId()) {
+        if (userToDeleteId != new CookieService().getCurrentUserId()) {
             throw new ServiceException("User has no rights to perform the task");
         }
         userDao.deleteUser(email, userType);

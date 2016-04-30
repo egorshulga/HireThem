@@ -80,7 +80,7 @@ public class LoginAction extends ActionSupport {
     }
 
     public User.UserType getDefaultUserType() {
-        return User.UserType.employee;
+        return User.UserType.EMPLOYEE;
     }
 
 }
