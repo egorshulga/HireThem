@@ -51,7 +51,7 @@ public class VacancyService {
     }
 
     public void deleteVacancy(int vacancyId) {
-        vacancyDao.deleteResume(vacancyId);
+        vacancyDao.deleteVacancy(vacancyId);
     }
 
 
