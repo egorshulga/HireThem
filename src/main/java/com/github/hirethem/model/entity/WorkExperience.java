@@ -18,14 +18,16 @@ public class WorkExperience {
     private int id;
     @Column(name = "resume_id")
     private int resumeId;
-    @Column(name = "title")
-    private String title;
-    @Column(name = "organization")
-    private String organization;
+    @Column(name = "company_name")
+    private String companyName;
+    @Column(name = "position")
+    private String position;
     @Column(name = "start_date")
     private Date startDate;
     @Column(name = "end_date")
     private Date endDate;
+    @Column(name = "description")
+    private String description;
 
     public WorkExperience() {
     }
@@ -46,20 +48,20 @@ public class WorkExperience {
         this.resumeId = resumeId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getOrganization() {
-        return organization;
+    public String getPosition() {
+        return position;
     }
 
-    public void setOrganization(String organization) {
-        this.organization = organization;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public Date getStartDate() {
@@ -76,5 +78,13 @@ public class WorkExperience {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

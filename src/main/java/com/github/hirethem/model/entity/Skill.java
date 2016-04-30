@@ -19,6 +19,8 @@ public class Skill {
     private int documentId;
     @Column(name = "name")
     private String name;
+    @Column(name = "proficiency")
+    private String proficiency;
     @Column(name = "description")
     private String description;
 
@@ -55,5 +57,13 @@ public class Skill {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getProficiency() {
+        return proficiency;
+    }
+
+    public void setProficiency(String proficiency) {
+        this.proficiency = proficiency;
     }
 }

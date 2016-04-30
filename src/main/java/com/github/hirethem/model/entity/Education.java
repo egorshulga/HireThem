@@ -3,6 +3,7 @@ package com.github.hirethem.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by egors.
@@ -19,12 +20,14 @@ public class Education {
     private int resumeId;
     @Column(name = "university")
     private String university;
-    @Column(name = "start_year")
-    private int startYear;
-    @Column(name = "end_year")
-    private int endYear;
-    @Column(name = "study_field")
-    private String studyField;
+    @Column(name = "start_date")
+    private Date startYear;
+    @Column(name = "end_date")
+    private Date endYear;
+    @Column(name = "specialty")
+    private String specialty;
+    @Column(name = "degree")
+    private String degree;
     @Column(name = "description")
     private String description;
 
@@ -47,36 +50,44 @@ public class Education {
         this.resumeId = resumeId;
     }
 
-    public String getUnivercity() {
+    public String getUniversity() {
         return university;
     }
 
-    public void setUnivercity(String univercity) {
-        this.university = univercity;
+    public void setUniversity(String university) {
+        this.university = university;
     }
 
-    public int getStartYear() {
+    public Date getStartYear() {
         return startYear;
     }
 
-    public void setStartYear(int startYear) {
+    public void setStartYear(Date startYear) {
         this.startYear = startYear;
     }
 
-    public int getEndYear() {
+    public Date getEndYear() {
         return endYear;
     }
 
-    public void setEndYear(int endYear) {
+    public void setEndYear(Date endYear) {
         this.endYear = endYear;
     }
 
-    public String getStudyField() {
-        return studyField;
+    public String getSpecialty() {
+        return specialty;
     }
 
-    public void setStudyField(String studyField) {
-        this.studyField = studyField;
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
     }
 
     public String getDescription() {

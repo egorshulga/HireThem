@@ -17,14 +17,18 @@ public class Vacancy {
     private int id;
     @Column(name = "employer_id")
     private int employerId;
-    @Column(name = "contact_info")
-    private String contactInfo;
+    @Column(name = "title")
+    private String title;
     @Column(name = "summary")
     private String summary;
     @Column(name = "description")
     private String description;
     @Column(name = "salary")
     private String salary;
+    @Column(name = "required_experience")
+    private String requiredExperience;
+    @Column(name = "contact_info")
+    private String contactInfo;
 
     public Vacancy() {
     }
@@ -77,6 +81,19 @@ public class Vacancy {
         this.salary = salary;
     }
 
+    public String getTitle() {
+        return title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public String getRequiredExperience() {
+        return requiredExperience;
+    }
+
+    public void setRequiredExperience(String requiredExperience) {
+        this.requiredExperience = requiredExperience;
+    }
 }

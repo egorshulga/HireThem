@@ -30,6 +30,13 @@ public class User {
     private String surname;
     @Column(name = "about")
     private String about;
+    @Column(name = "contact_info")
+    private String contactInfo;
+    @Column(name = "avatar")
+    private byte[] avatar;
+    @Column(name = "is_admin")
+    private boolean isAdmin;
+
 
     public User(String email, byte[] encryptedPassword, byte[] passwordSalt,
                 String name, String surname, User.UserType userType) {
@@ -106,6 +113,30 @@ public class User {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
     public enum UserType {
