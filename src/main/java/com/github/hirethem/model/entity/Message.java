@@ -1,7 +1,5 @@
 package com.github.hirethem.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -11,16 +9,19 @@ import javax.persistence.*;
 @Table(name="messages")
 public class Message {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
     @Column(name = "from")
     private int from;
+
     @Column(name = "to")
     private String to;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "text")
     private String text;
 

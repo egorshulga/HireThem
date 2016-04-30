@@ -1,7 +1,5 @@
 package com.github.hirethem.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -11,22 +9,29 @@ import javax.persistence.*;
 @Table(name = "vacancies")
 public class Vacancy {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "employer_id")
-    private int employerId;
+
+    @ManyToOne
+    @JoinColumn(name = "employer_id")
+    private User employer;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "summary")
     private String summary;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "salary")
     private String salary;
+
     @Column(name = "required_experience")
     private String requiredExperience;
+
     @Column(name = "contact_info")
     private String contactInfo;
 
@@ -41,20 +46,20 @@ public class Vacancy {
         this.id = id;
     }
 
-    public int getEmployerId() {
-        return employerId;
+    public User getEmployer() {
+        return employer;
     }
 
-    public void setEmployerId(int employerId) {
-        this.employerId = employerId;
+    public void setEmployer(User employer) {
+        this.employer = employer;
     }
 
-    public String getContactInfo() {
-        return contactInfo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getSummary() {
@@ -81,19 +86,19 @@ public class Vacancy {
         this.salary = salary;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getRequiredExperience() {
         return requiredExperience;
     }
 
     public void setRequiredExperience(String requiredExperience) {
         this.requiredExperience = requiredExperience;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

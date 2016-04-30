@@ -1,7 +1,5 @@
 package com.github.hirethem.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -12,22 +10,29 @@ import java.sql.Date;
 @Table(name = "educations")
 public class Education {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "resume_id")
-    private int resumeId;
+
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resumeId;
+
     @Column(name = "university")
     private String university;
+
     @Column(name = "start_date")
     private Date startYear;
+
     @Column(name = "end_date")
     private Date endYear;
+
     @Column(name = "specialty")
     private String specialty;
+
     @Column(name = "degree")
     private String degree;
+
     @Column(name = "description")
     private String description;
 
@@ -42,11 +47,11 @@ public class Education {
         this.id = id;
     }
 
-    public int getResumeId() {
+    public Resume getResumeId() {
         return resumeId;
     }
 
-    public void setResumeId(int resumeId) {
+    public void setResumeId(Resume resumeId) {
         this.resumeId = resumeId;
     }
 

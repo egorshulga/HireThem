@@ -1,11 +1,13 @@
 package com.github.hirethem.model.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
- * Created by egors.
+ * Created by egorshulga.
  */
 @Entity
 @Table(name = "users")
@@ -15,28 +17,49 @@ public class User {
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id")
     private int id;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "user_type")
+    @Column(name = "user_type", nullable = false)
     private User.UserType userType;
-    @Column(name = "email")
+
+    @NotEmpty
+    @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "encrypted_password")
+
+    @NotEmpty
+    @Column(name = "encrypted_password", nullable = false)
     private byte[] encryptedPassword;
-    @Column(name = "password_salt")
+
+    @NotEmpty
+    @Column(name = "password_salt", nullable = false)
     private byte[] passwordSalt;
-    @Column(name = "name")
+
+    @NotEmpty
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @NotEmpty
     @Column(name = "surname")
     private String surname;
+
     @Column(name = "about")
     private String about;
+
     @Column(name = "contact_info")
     private String contactInfo;
+
     @Column(name = "avatar")
     private byte[] avatar;
-    @Column(name = "is_admin")
+
+    @NotEmpty
+    @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
 
+    @OneToMany(mappedBy = "employee")
+    private Set<Resume> resumes;
+
+    @OneToMany(mappedBy = "employer")
+    private Set<Vacancy> vacancies;
 
     public User(String email, byte[] encryptedPassword, byte[] passwordSalt,
                 String name, String surname, User.UserType userType) {
@@ -135,7 +158,7 @@ public class User {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAsAdmin(boolean admin) {
         isAdmin = admin;
     }
 

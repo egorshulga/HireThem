@@ -1,8 +1,7 @@
 package com.github.hirethem.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by egors.
@@ -11,22 +10,34 @@ import javax.persistence.*;
 @Table(name = "resumes")
 public class Resume {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "employee_id")
-    private int employeeId;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private User employee;
+
     @Column(name = "contact_info")
     private String contactInfo;
+
     @Column(name = "summary")
     private String summary;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "interests")
     private String interests;
+
     @Column(name = "references")
     private String references;
+
+    @OneToMany(mappedBy = "resume")
+    private Set<WorkExperience> workExperiences;
+
+    @OneToMany(mappedBy = "resume")
+    private Set<WorkExperience> educations;
 
     public Resume() {
     }
@@ -39,12 +50,12 @@ public class Resume {
         this.id = id;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public User getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(User employee) {
+        this.employee = employee;
     }
 
     public String getContactInfo() {
@@ -85,5 +96,21 @@ public class Resume {
 
     public void setReferences(String references) {
         this.references = references;
+    }
+
+    public Set<WorkExperience> getWorkExperiences() {
+        return workExperiences;
+    }
+
+    public void setWorkExperiences(Set<WorkExperience> workExperiences) {
+        this.workExperiences = workExperiences;
+    }
+
+    public Set<WorkExperience> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(Set<WorkExperience> educations) {
+        this.educations = educations;
     }
 }
