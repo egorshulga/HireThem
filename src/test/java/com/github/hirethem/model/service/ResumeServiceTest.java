@@ -30,7 +30,7 @@ public class ResumeServiceTest {
     public void setUp() throws Exception {
         userService = new UserService();
         resumeService = new ResumeService();
-        userService.createNewUser(email, password, name, surname, userType);
+        userService.createNewUser(email, userType, name, surname, password);
     }
 
     @Test
@@ -42,6 +42,6 @@ public class ResumeServiceTest {
 
     @After
     public void tearDown() throws Exception {
-        userService.deleteUserWithoutRightsCheck(userService.getUserId(email, userType));
+        userService.deleteUser(userService.getUserId(email, userType));
     }
 }
