@@ -62,7 +62,7 @@ public class ResumeServiceTest {
         assertNotNull(resume);
         assertEquals(resume.getContactInfo(), contactInfo);
         assertEquals(resume.getDescription(), description);
-        assertNull(resume.getEducations());
+        assertNotNull(resume.getEducations());
         assertEquals(resume.getEmployee().getId(), userService.getUserId(email, userType));
         assertEquals(resume.getSkills(), skills);
         assertEquals(resume.getInterests(), interests);

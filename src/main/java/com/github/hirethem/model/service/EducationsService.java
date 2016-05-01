@@ -35,9 +35,9 @@ public class EducationsService {
         educationDao.addEducation(resume, education);
     }
 
-    public void modifyEducation(int resumeId, String university, Date startDate, Date endDate,
+    public void modifyEducation(int educationId, String university, Date startDate, Date endDate,
                                 String specialty, String degree, String description) {
-        educationDao.modifyEducation(resumeId, university, startDate, endDate, specialty, degree,
+        educationDao.modifyEducation(educationId, university, startDate, endDate, specialty, degree,
                 description);
     }
 

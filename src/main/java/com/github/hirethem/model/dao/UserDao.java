@@ -46,8 +46,7 @@ public class UserDao extends HibernateDao {
         }
     }
 
-    public void createNewUser(String email, byte[] encryptedPassword, byte[] salt, String name,
-                              String surname, User.UserType userType) {
+    public void createNewUser(String email, User.UserType userType, byte[] encryptedPassword, byte[] salt, String surname, String name) {
         session.beginTransaction();
         User user = new User(email, encryptedPassword, salt, name, surname, userType);
         session.saveOrUpdate(user);
@@ -84,7 +83,17 @@ public class UserDao extends HibernateDao {
         session.getTransaction().commit();
     }
 
-    public void promoteUserAsAdmin(int userId) {
+    public void changeUserPassword(int userId, byte[] encryptedPassword, byte[] salt) {
+        session.beginTransaction();
+
+        User user = session.get(User.class, userId);
+        user.setPasswordSalt(salt);
+        user.setEncryptedPassword(encryptedPassword);
+
+        session.getTransaction().commit();
+    }
+
+    public void promoteUser(int userId) {
         session.beginTransaction();
         User user = session.get(User.class, userId);
         user.setAdmin(true);
@@ -98,7 +107,7 @@ public class UserDao extends HibernateDao {
         session.getTransaction().commit();
     }
 
-    public List<User> getUsers() {
+    public List<User> getAllUsers() {
         Criteria criteria = session.createCriteria(User.class);
         return criteria.list();
     }

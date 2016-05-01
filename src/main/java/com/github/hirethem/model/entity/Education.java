@@ -14,7 +14,7 @@ public class Education {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "resume_id")
     private Resume resume;
 
@@ -37,6 +37,16 @@ public class Education {
     private String description;
 
     public Education() {
+    }
+
+    public Education(String university, Date startDate, Date endDate, String specialty, String degree, String description, Resume resume) {
+        this.university = university;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.specialty = specialty;
+        this.degree = degree;
+        this.description = description;
+        this.resume = resume;
     }
 
     public int getId() {
