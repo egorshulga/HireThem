@@ -1,5 +1,4 @@
 "use strict";
-
 //
 // Draw map in page-contact
 //
