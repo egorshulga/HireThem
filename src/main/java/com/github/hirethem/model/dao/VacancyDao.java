@@ -50,9 +50,9 @@ public class VacancyDao extends HibernateDao {
         return session.get(Vacancy.class, vacancyId);
     }
 
-    public List<Vacancy> getVacancies(int userId) {
+    public List<Vacancy> getVacancies(User user) {
         Criteria criteria = session.createCriteria(Vacancy.class);
-        criteria.add(Restrictions.eq("id", userId));
+        criteria.add(Restrictions.eq("employer", user));
         return criteria.list();
     }
 

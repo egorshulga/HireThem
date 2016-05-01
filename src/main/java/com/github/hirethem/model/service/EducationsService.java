@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by egorshulga on 01-May-16.
  */
-public class EducationService {
+public class EducationsService {
 
     private ResumeService resumeService = new ResumeService();
 
@@ -45,8 +45,8 @@ public class EducationService {
         return educationDao.getEducation(educationId);
     }
 
-    public List<Education> getVacancies(int userId) {
-        return educationDao.getEducations(userId);
+    public List<Education> getEducations(int resumeId) {
+        return educationDao.getEducations(resumeService.getResume(resumeId));
     }
 
     public void deleteEducation(int educationId) {

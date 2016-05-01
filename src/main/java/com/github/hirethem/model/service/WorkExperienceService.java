@@ -43,8 +43,8 @@ public class WorkExperienceService {
         return workExperienceDao.getWorkExperience(workExperienceId);
     }
 
-    public List<WorkExperience> getVacancies(int userId) {
-        return workExperienceDao.getWorkExperiences(userId);
+    public List<WorkExperience> getVacancies(int resumeId) {
+        return workExperienceDao.getWorkExperiences(resumeService.getResume(resumeId));
     }
 
     public void deleteWorkExperience(int workExperienceId) {

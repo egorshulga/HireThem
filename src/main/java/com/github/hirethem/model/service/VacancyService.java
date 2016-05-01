@@ -46,8 +46,8 @@ public class VacancyService {
         return vacancyDao.getVacancy(vacancyId);
     }
 
-    public List<Vacancy> getVacancies(int userId) {
-        return vacancyDao.getVacancies(userId);
+    public List<Vacancy> getVacancies(int userId) throws ServiceException {
+        return vacancyDao.getVacancies(userService.getUser(userId));
     }
 
     public void deleteVacancy(int vacancyId) {

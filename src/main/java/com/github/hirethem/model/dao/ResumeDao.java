@@ -30,7 +30,7 @@ public class ResumeDao extends HibernateDao {
     }
 
     public void modifyResume(int resumeId, String summary, String description, String skills,
-                             String interests, String references) {
+                             String interests, String contactInfo, String references) {
         session.beginTransaction();
 
         Resume resume = session.get(Resume.class, resumeId);
@@ -38,6 +38,7 @@ public class ResumeDao extends HibernateDao {
         resume.setDescription(description);
         resume.setSkills(skills);
         resume.setInterests(interests);
+        resume.setContactInfo(contactInfo);
         resume.setReferences(references);
 
         session.getTransaction().commit();
@@ -47,9 +48,14 @@ public class ResumeDao extends HibernateDao {
         return session.get(Resume.class, resumeId);
     }
 
-    public List<Resume> getResumes(int userId) {
+    public List<Resume> getResumes(User user) {
         Criteria criteria = session.createCriteria(Resume.class);
-        criteria.add(Restrictions.eq("id", userId));
+        criteria.add(Restrictions.eq("employee", user));
+        return criteria.list();
+    }
+
+    public List<Resume> getAllResumes() {
+        Criteria criteria = session.createCriteria(Resume.class);
         return criteria.list();
     }
 

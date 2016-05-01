@@ -49,9 +49,9 @@ public class EducationDao extends HibernateDao {
         return session.get(Education.class, educationId);
     }
 
-    public List<Education> getEducations(int resumeId) {
+    public List<Education> getEducations(Resume resume) {
         Criteria criteria = session.createCriteria(Education.class);
-        criteria.add(Restrictions.eq("id", resumeId));
+        criteria.add(Restrictions.eq("resume", resume));
         return criteria.list();
     }
 

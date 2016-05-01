@@ -48,9 +48,9 @@ public class WorkExperienceDao extends HibernateDao {
         return session.get(WorkExperience.class, workExperienceId);
     }
 
-    public List<WorkExperience> getWorkExperiences(int resumeId) {
+    public List<WorkExperience> getWorkExperiences(Resume resume) {
         Criteria criteria = session.createCriteria(WorkExperience.class);
-        criteria.add(Restrictions.eq("id", resumeId));
+        criteria.add(Restrictions.eq("resume", resume));
         return criteria.list();
     }
     

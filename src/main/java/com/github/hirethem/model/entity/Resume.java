@@ -124,4 +124,6 @@ public class Resume {
     public void setSkills(String skills) {
         this.skills = skills;
     }
+
+
 }
