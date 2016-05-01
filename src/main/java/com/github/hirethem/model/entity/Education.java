@@ -16,16 +16,16 @@ public class Education {
 
     @ManyToOne
     @JoinColumn(name = "resume_id")
-    private Resume resumeId;
+    private Resume resume;
 
     @Column(name = "university")
     private String university;
 
     @Column(name = "start_date")
-    private Date startYear;
+    private Date startDate;
 
     @Column(name = "end_date")
-    private Date endYear;
+    private Date endDate;
 
     @Column(name = "specialty")
     private String specialty;
@@ -47,12 +47,12 @@ public class Education {
         this.id = id;
     }
 
-    public Resume getResumeId() {
-        return resumeId;
+    public Resume getResume() {
+        return resume;
     }
 
-    public void setResumeId(Resume resumeId) {
-        this.resumeId = resumeId;
+    public void setResume(Resume resume) {
+        this.resume = resume;
     }
 
     public String getUniversity() {
@@ -63,20 +63,20 @@ public class Education {
         this.university = university;
     }
 
-    public Date getStartYear() {
-        return startYear;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStartYear(Date startYear) {
-        this.startYear = startYear;
+    public void setStartDate(Date startYear) {
+        this.startDate = startYear;
     }
 
-    public Date getEndYear() {
-        return endYear;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEndYear(Date endYear) {
-        this.endYear = endYear;
+    public void setEndDate(Date endYear) {
+        this.endDate = endYear;
     }
 
     public String getSpecialty() {
@@ -102,4 +102,6 @@ public class Education {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

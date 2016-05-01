@@ -40,7 +40,7 @@ public class Resume {
     private Set<WorkExperience> workExperiences;
 
     @OneToMany(mappedBy = "resume")
-    private Set<WorkExperience> educations;
+    private Set<Education> educations;
 
     public Resume() {
     }
@@ -109,11 +109,11 @@ public class Resume {
         this.workExperiences = workExperiences;
     }
 
-    public Set<WorkExperience> getEducations() {
+    public Set<Education> getEducations() {
         return educations;
     }
 
-    public void setEducations(Set<WorkExperience> educations) {
+    public void setEducations(Set<Education> educations) {
         this.educations = educations;
     }
 

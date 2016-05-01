@@ -1,0 +1,58 @@
+package com.github.hirethem.model.dao;
+
+import com.github.hirethem.model.entity.Education;
+import com.github.hirethem.model.entity.Resume;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
+
+import java.sql.Date;
+import java.util.List;
+
+/**
+ * Created by egorshulga on 01-May-16.
+ */
+public class EducationDao extends HibernateDao {
+
+    public void addEducation(Resume resume, Education education) {
+        session.beginTransaction();
+
+        resume.getEducations().add(education);
+
+        session.getTransaction().commit();
+    }
+
+    public void deleteEducation(int educationId) {
+        session.beginTransaction();
+        Query query = session.createQuery("delete Education where id = :educationId");
+        query.setParameter("educationId", educationId);
+        int result = query.executeUpdate();
+        session.getTransaction().commit();
+    }
+
+    public void modifyEducation(int educationId, String university, Date startDate, Date endDate,
+                                String specialty, String degree, String description) {
+        session.beginTransaction();
+
+        Education education = session.get(Education.class, educationId);
+        education.setUniversity(university);
+        education.setStartDate(startDate);
+        education.setEndDate(endDate);
+        education.setSpecialty(specialty);
+        education.setDegree(degree);
+        education.setDescription(description);
+
+        session.getTransaction().commit();
+    }
+
+    public Education getEducation(int educationId) {
+        return session.get(Education.class, educationId);
+    }
+
+    public List<Education> getEducations(int resumeId) {
+        Criteria criteria = session.createCriteria(Education.class);
+        criteria.add(Restrictions.eq("id", resumeId));
+        return criteria.list();
+    }
+
+}
