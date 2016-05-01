@@ -15,7 +15,7 @@ public class Resume {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private User employee;
 

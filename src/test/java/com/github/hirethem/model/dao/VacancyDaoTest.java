@@ -1,8 +1,8 @@
-package com.github.hirethem.model.service;
+package com.github.hirethem.model.dao;
 
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.Vacancy;
-import org.apache.commons.lang3.StringUtils;
+import com.github.hirethem.model.service.UserService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +16,10 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by egorshulga on 01-May-16.
  */
-public class VacancyServiceTest {
+public class VacancyDaoTest {
 
-    private VacancyService vacancyService;
+    private VacancyDao vacancyDao;
+
     private UserService userService;
 
     private String email = "mr@ololo.com";
@@ -40,36 +41,39 @@ public class VacancyServiceTest {
             "Web containers(preferably Tomcat)";
     private String contactInfo = "+375 44 1234567";
 
+    private User user;
+    private Vacancy vacancy;
+
+    private String nothing = "nothing";
+
     @Before
     public void setUp() throws Exception {
-        vacancyService = new VacancyService();
+        vacancyDao = new VacancyDao();
         userService = new UserService();
 
         userService.createNewUser(email, userType, name, surname, password);
-        int userId = userService.getUserId(email, userType);
-        vacancyService.createVacancy(userId, title, summary, description, salary, requiredExperience, requiredSkills,
-                contactInfo);
+        user = userService.getUser(email, userType);
+        vacancy = new Vacancy();
+        vacancy.setTitle(title);
+        vacancy.setSummary(summary);
+        vacancy.setDescription(description);
+        vacancy.setSalary(salary);
+        vacancy.setRequiredExperience(requiredExperience);
+        vacancy.setRequiredSkills(requiredSkills);
+        vacancy.setContactInfo(contactInfo);
+        vacancy.setEmployer(user);
+        vacancyDao.addVacancy(user, vacancy);
     }
 
     @After
     public void tearDown() throws Exception {
-        userService.deleteUser(email, userType);
-    }
-
-    @Test
-    public void deleteAndCreateVacancy() throws Exception {
-        Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
-        vacancyService.deleteVacancy(vacancy.getId());
-        vacancyService.createVacancy(userService.getUserId(email, userType), title, summary, description, salary, requiredExperience, requiredSkills,
-                contactInfo);
+        userService.deleteUser(user.getId());
     }
 
     @Test
     public void modifyVacancy() throws Exception {
-        String nothing = "nothing";
-        Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
-        vacancyService.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing, nothing);
-        vacancy = vacancyService.findVacanciesUsingTitle(nothing).get(0);
+        vacancyDao.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing, nothing);
+        vacancy = vacancyDao.getVacancy(vacancy.getId());
         assertEquals(vacancy.getTitle(), nothing);
         assertEquals(vacancy.getSummary(), nothing);
         assertEquals(vacancy.getDescription(), nothing);
@@ -81,50 +85,20 @@ public class VacancyServiceTest {
 
     @Test
     public void getVacancy() throws Exception {
-        Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
+        vacancy = vacancyDao.getVacancy(vacancy.getId());
         assertNotNull(vacancy);
     }
 
     @Test
     public void getVacancies() throws Exception {
-        List<Vacancy> vacancies = vacancyService.getVacancies(userService.getUserId(email, userType));
+        List<Vacancy> vacancies = vacancyDao.getVacancies(user);
         assertTrue(vacancies.size() > 0);
-    }
-
-    @Test
-    public void findVacanciesUsingTitle() throws Exception {
-        Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
-        assertTrue(StringUtils.containsIgnoreCase(vacancy.getTitle(), title));
-    }
-
-    @Test
-    public void findVacanciesUsingSummary() throws Exception {
-        Vacancy vacancy = vacancyService.findVacanciesUsingSummary(summary).get(0);
-        assertTrue(StringUtils.containsIgnoreCase(vacancy.getSummary(), summary));
-    }
-
-    @Test
-    public void findResumesUsingDescription() throws Exception {
-        Vacancy vacancy = vacancyService.findResumesUsingDescription(description).get(0);
-        assertTrue(StringUtils.containsIgnoreCase(vacancy.getDescription(), description));
-    }
-
-    @Test
-    public void findResumesUsingRequiredSkills() throws Exception {
-        Vacancy vacancy = vacancyService.findResumesUsingRequiredSkills(requiredSkills).get(0);
-        assertTrue(StringUtils.containsIgnoreCase(vacancy.getRequiredSkills(), requiredSkills));
-    }
-
-    @Test
-    public void findResumesUsingRequiredExperience() throws Exception {
-        Vacancy vacancy = vacancyService.findResumesUsingRequiredExperience(requiredExperience).get(0);
-        assertTrue(StringUtils.containsIgnoreCase(vacancy.getRequiredExperience(), requiredExperience));
     }
 
     @Test
     public void getAllVacancies() throws Exception {
-        List<Vacancy> vacancies = vacancyService.getAllVacancies();
+        List<Vacancy> vacancies = vacancyDao.getAllVacancies();
         assertTrue(vacancies.size() > 0);
-    }
+   }
 
 }

@@ -1,7 +1,10 @@
-package com.github.hirethem.model.service;
+package com.github.hirethem.model.dao;
 
 import com.github.hirethem.model.entity.Education;
+import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.ResumeService;
+import com.github.hirethem.model.service.UserService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,17 +12,15 @@ import org.junit.Test;
 import java.sql.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by egorshulga on 01-May-16.
  */
-public class EducationsServiceTest {
-
+public class EducationDaoTest {
+    private EducationDao educationDao;
     private UserService userService;
     private ResumeService resumeService;
-    private EducationsService educationsService;
 
     private String email = "mr@ololo.com";
     private String password = "ololo";
@@ -42,35 +43,41 @@ public class EducationsServiceTest {
     private String degree = "Студент";
     private String description = "обучается";
 
-    private String nothing = "nothing";
-
-    private int userId;
-    private int resumeId;
     private int educationId;
+    private User user;
+    private Resume resume;
+
+    String nothing  = "nothing";
 
     @Before
     public void setUp() throws Exception {
         userService = new UserService();
         resumeService = new ResumeService();
-        educationsService = new EducationsService();
+        educationDao = new EducationDao();
 
         userService.createNewUser(email, userType, name, surname, password);
-        userId = userService.getUserId(email, userType);
-        resumeService.createResume(userId, summary, resumeDescription, skills, interests, contactInfo, references);
-        resumeId = resumeService.findResumesUsingSummary(summary).get(0).getId();
-        educationsService.createEducation(resumeId, university, startDate, endDate, specialty, degree, description);
-        educationId = educationsService.getEducations(resumeId).get(0).getId();
+        user = userService.getUser(email, userType);
+        resumeService.createResume(user.getId(), summary, resumeDescription, skills, interests, contactInfo, references);
+        resume = resumeService.findResumesUsingSummary(summary).get(0);
+
+        educationDao.addEducation(resume, new Education(university, startDate, endDate, specialty, degree, description, resume));
+        educationId = educationDao.getEducations(resume).get(0).getId();
     }
 
     @After
     public void tearDown() throws Exception {
-        userService.deleteUser(email, userType);
+        userService.deleteUser(user.getId());
+    }
+
+    @Test
+    public void deleteEducation() throws Exception {
+        educationDao.deleteEducation(educationId);
     }
 
     @Test
     public void modifyEducation() throws Exception {
-        educationsService.modifyEducation(educationId, nothing, endDate, endDate, nothing, nothing, nothing);
-        Education education = educationsService.getEducation(educationId);
+        educationDao.modifyEducation(educationId, nothing, endDate, endDate, nothing, nothing, nothing);
+        Education education = educationDao.getEducation(educationId);
         assertEquals(education.getUniversity(), nothing);
         assertEquals(education.getDescription(), nothing);
         assertEquals(education.getStartDate(), endDate);
@@ -81,7 +88,7 @@ public class EducationsServiceTest {
 
     @Test
     public void getEducation() throws Exception {
-        Education education = educationsService.getEducation(educationId);
+        Education education = educationDao.getEducation(educationId);
         assertEquals(education.getUniversity(), university);
         assertEquals(education.getDescription(), description);
         assertEquals(education.getStartDate(), startDate);
@@ -92,13 +99,8 @@ public class EducationsServiceTest {
 
     @Test
     public void getEducations() throws Exception {
-        List<Education> educations = educationsService.getEducations(resumeId);
+        List<Education> educations = educationDao.getEducations(resume);
         assertTrue(educations.size() > 0);
     }
 
-    @Test
-    public void deleteEducation() throws Exception {
-        educationsService.deleteEducation(educationId);
-        assertTrue(educationsService.getEducations(resumeId).size() == 0);
-    }
 }

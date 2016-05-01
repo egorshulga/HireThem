@@ -13,7 +13,7 @@ public class Vacancy {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "employer_id")
     private User employer;
 
