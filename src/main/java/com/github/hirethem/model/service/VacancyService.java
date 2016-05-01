@@ -4,8 +4,10 @@ import com.github.hirethem.model.dao.VacancyDao;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.exception.ServiceException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by egorshulga on 30-Apr-16.
@@ -13,7 +15,6 @@ import java.util.List;
 public class VacancyService {
 
     private UserService userService = new UserService();
-
     private VacancyDao vacancyDao = new VacancyDao();
 
     public void createVacancy(int userId, String title, String summary, String description,
@@ -52,6 +53,41 @@ public class VacancyService {
 
     public void deleteVacancy(int vacancyId) {
         vacancyDao.deleteVacancy(vacancyId);
+    }
+
+
+    public List<Vacancy> findVacanciesUsingTitle(String searchText) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getTitle(), searchText))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findVacanciesUsingSummary(String searchText) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getSummary(), searchText))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findResumesUsingDescription(String searchText) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getDescription(), searchText))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findResumesUsingRequiredSkills(String searchText) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getRequiredSkills(), searchText))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findResumesUsingRequiredExperience(String searchText) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getRequiredExperience(), searchText))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> getAllVacancies() {
+        return vacancyDao.getAllVacancies();
     }
 
 

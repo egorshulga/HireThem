@@ -56,4 +56,8 @@ public class VacancyDao extends HibernateDao {
         return criteria.list();
     }
 
+    public List<Vacancy> getAllVacancies() {
+        Criteria criteria = session.createCriteria(Vacancy.class);
+        return criteria.list();
+    }
 }
