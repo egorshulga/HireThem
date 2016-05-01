@@ -57,8 +57,7 @@ public class UserService {
         return user.getId();
     }
 
-    public void createNewUser(String email, String password, String name,
-                              String surname, User.UserType userType) throws ServiceException {
+    public void createNewUser(String email, User.UserType userType, String name, String surname, String password) throws ServiceException {
         PasswordEncryptionService passwordEncryptionService = new PasswordEncryptionService();
         byte[] salt;
         salt = passwordEncryptionService.generateSalt();
@@ -90,6 +89,14 @@ public class UserService {
 
     public void deleteUser(int userId) {
         userDao.deleteUser(userId);
+    }
+
+    public void deleteUser(String email, User.UserType userType) throws ServiceException {
+        userDao.deleteUser(getUserId(email, userType));
+    }
+
+    public List<User> getAllUsers() {
+        return userDao.getUsers();
     }
 
 }

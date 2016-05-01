@@ -8,6 +8,8 @@ import com.github.hirethem.model.service.exception.ServiceException;
  */
 public class AuthenticationService {
 
+    private UserService userService = new UserService();
+
     public void authenticateCurrentUserAsAdmin() throws ServiceException {
         if (!isCurrentUserAdmin()) {
             throw new ServiceException("Current user is not authorized to perform the task");
@@ -35,7 +37,7 @@ public class AuthenticationService {
     }
 
     public boolean isThereUserWithSuchCredentials(int userId, String email, User.UserType userType) throws ServiceException {
-        return userId == new UserService().getUserId(email, userType);
+        return userId == userService.getUserId(email, userType);
     }
 
     public void authenticateCurrentUser(String email, User.UserType userType) throws ServiceException {
@@ -46,7 +48,11 @@ public class AuthenticationService {
 
     public boolean isUserCurrent(String email, User.UserType userType) throws ServiceException {
         int userId = new CurrentUserService().getCurrentUserId();
-        return new UserService().getUserId(email, userType) != userId;
+        return userService.getUserId(email, userType) != userId;
+    }
+
+    public boolean isUserAdmin(String email, User.UserType userType) throws ServiceException {
+        return userService.getUser(email, userType).isAdmin();
     }
 
 }

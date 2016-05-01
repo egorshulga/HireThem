@@ -35,7 +35,7 @@ public class SignInAction extends ActionSupport {
 
     public String execute() {
         try {
-            userService.createNewUser(email, password, name, surname, userType);
+            userService.createNewUser(email, userType, name, surname, password);
         } catch (ServiceException e) {
             return INPUT;
         }

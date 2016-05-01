@@ -6,6 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.List;
+
 import static com.github.hirethem.model.dao.exception.DaoErrorMessages.NOT_FOUND_USER;
 
 /**
@@ -48,7 +50,7 @@ public class UserDao extends HibernateDao {
                               String surname, User.UserType userType) {
         session.beginTransaction();
         User user = new User(email, encryptedPassword, salt, name, surname, userType);
-        session.save(user);
+        session.saveOrUpdate(user);
         session.getTransaction().commit();
     }
 
@@ -94,6 +96,11 @@ public class UserDao extends HibernateDao {
         User user = session.get(User.class, userId);
         user.setAdmin(false);
         session.getTransaction().commit();
+    }
+
+    public List<User> getUsers() {
+        Criteria criteria = session.createCriteria(User.class);
+        return criteria.list();
     }
 
 }
