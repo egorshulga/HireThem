@@ -13,10 +13,8 @@ import java.util.List;
  * Created by egors.
  */
 public class UserService {
-    private UserDao userDao = new UserDao();
 
-//    private CookieService cookieService = new CookieService();
-//    private SessionService sessionService = new SessionService();
+    private UserDao userDao = new UserDao();
 
     private static List<User.UserType> userTypes = new ArrayList<>();
 
@@ -75,58 +73,22 @@ public class UserService {
         userDao.createNewUser(email, encryptedPassword, salt, name, surname, userType);
     }
 
-    public User getCurrentUserEntity() throws ServiceException {
-        int userId = new CookieService().getCurrentUserId();
-        try {
-            return userDao.getUser(userId);
-        } catch (DaoException e) {
-            throw new ServiceException(e);
-        }
-    }
-
-    public void changeCurrentUserInfo(String name, String surname, String about,
+    public void changeUserInfo(String email, User.UserType userType, String name, String surname, String about,
                                String contactInfo, byte[] avatar) throws ServiceException {
-        int userId = new CookieService().getCurrentUserId();
+        int userId = getUserId(email, userType);
         userDao.updateUser(userId, name, surname, about, contactInfo, avatar);
     }
 
-    public void verifyIsCurrentUserAdmin() throws ServiceException {
-        if (!getCurrentUserEntity().isAdmin()) {
-            throw new ServiceException("Current user is not authorized to perform the task");
-        }
-    }
-
-    public void verifyCurrentUserToken() throws ServiceException {
-        CookieService cookieService = new CookieService();
-        SessionService sessionService = new SessionService();
-        String userToken = cookieService.getUserToken();
-        int userId = cookieService.getCurrentUserId();
-        if (!userToken.equals(sessionService.getUserToken(userId))) {
-            throw new ServiceException("User has provided wrong token");
-        }
-    }
-
     public void promoteUser(String email, User.UserType userType) throws ServiceException {
-        verifyIsCurrentUserAdmin();
         userDao.promoteUserAsAdmin(getUserId(email, userType));
     }
 
+
     public void demoteUser(String email, User.UserType userType) throws ServiceException {
-        verifyIsCurrentUserAdmin();
         userDao.demoteUser(getUserId(email, userType));
     }
 
-    public void deleteUser(String email, User.UserType userType) throws ServiceException {
-        verifyIsCurrentUserAdmin();
-        int userToDeleteId = getUserId(email, userType);
-        if (userToDeleteId != new CookieService().getCurrentUserId()) {
-            throw new ServiceException("User has no rights to perform the task");
-        }
-        userDao.deleteUser(email, userType);
-    }
-
-    // implemented for test purposes
-    public void deleteUserWithoutRightsCheck(int userId) {
+    public void deleteUser(int userId) {
         userDao.deleteUser(userId);
     }
 
