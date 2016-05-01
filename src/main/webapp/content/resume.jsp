@@ -105,7 +105,7 @@
 	  <br><br>
       <header class="page-header-my">
         <div class="container page-name">
-          <h1 class="text-center">Edit your profile</h1>
+          <h1 class="text-center">Edit your resume</h1>
         </div>
 
         <div class="container">
@@ -228,14 +228,8 @@
                     <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
 
                     <div class="row">
-                      <div class="col-xs-12 col-sm-4">
-                        <div class="form-group">
-                          <input type="file" class="dropify" data-default-file="../assets/img/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
-                        </div>
-                      </div>
-
-                      <div class="col-xs-12 col-sm-8">
+                      
+                      <div class="col-xs-12">
                         <div class="form-group">
                           <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
                         </div>
@@ -341,14 +335,8 @@
                     <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
 
                     <div class="row">
-                      <div class="col-xs-12 col-sm-4">
-                        <div class="form-group">
-                          <input type="file" class="dropify" data-default-file="../assets/img/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
-                        </div>
-                      </div>
 
-                      <div class="col-xs-12 col-sm-8">
+                      <div class="col-xs-12">
                         <div class="form-group">
                           <input type="text" class="form-control" placeholder="Company name">
                         </div>

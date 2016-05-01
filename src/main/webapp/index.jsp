@@ -42,14 +42,18 @@
         <!-- END User account -->
 
         <!-- Navigation menu -->
-        <ul class="nav-menu">
+        <ul id="nav-menu-id" class="nav-menu">
             <li>
                 <a class="active" href="/">Home</a>
             </li>
             <li>
                 <a href="#">Profile</a>
                 <ul>
+<<<<<<< HEAD
                     <li><a>My profile</a></li>
+=======
+                    <li><a href="content/employee_profile.jsp">My profile</a></li>
+>>>>>>> view
                     <li><a href="content/employee_edit.jsp">Edit profile</a></li>
                     <li><a>Log out</a></li>
                 </ul>
@@ -58,15 +62,19 @@
                 <a href="#">Resume</a>
                 <ul>
                     <li><a>Browse resumes</a></li>
+<<<<<<< HEAD
                     <li><a href="content/employee_profile.jsp">Resume detail</a></li>
                     <li><a href="content/resume.jsp">Create a resume</a></li>
+=======
+                    <li><a href="content/resume.jsp">Manage resumes</a></li>
+>>>>>>> view
                 </ul>
             </li>
             <li>
                 <a href="#">Vacancy</a>
                 <ul>
                     <li><a>Browse vacancies</a></li>
-                    <li><a>Manage vacancies</a></li>
+                    <li><a href="content/vacancy.jsp">Manage vacancies</a></li>
                 </ul>
             </li>
             <li>
