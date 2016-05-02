@@ -1,6 +1,7 @@
 package com.github.hirethem.model.dao;
 
 import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.UserService;
 import org.junit.After;
 import org.junit.Before;
@@ -8,9 +9,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by egorshulga on 01-May-16.
