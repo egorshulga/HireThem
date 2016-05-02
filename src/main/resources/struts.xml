@@ -27,8 +27,12 @@
             <result name="loginRedirect" type="redirectAction">login</result>
         </global-results>
 
+        <action name="">
+            <result type="redirectAction">home</result>
+        </action>
+
         <action name="home" class="com.github.hirethem.action.HomeAction">
-            <result>/index.jsp</result>
+            <result>/content/index.jsp</result>
         </action>
 
         <action name="login" class="com.github.hirethem.action.LoginAction" method="input">
