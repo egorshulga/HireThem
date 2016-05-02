@@ -1,4 +1,15 @@
 "use strict";
+function deleteEducation(){
+	//alert("delete");
+	var elem = document.getElementById("duplicator");	
+
+	elem.parentNode.removeChild(elem);
+	//console.log(elem);
+}
+
+
+
+
 
 //
 // Draw map in page-contact
