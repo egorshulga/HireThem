@@ -86,6 +86,12 @@ public class PdfGenerationUtil {
         paragraph.add(new Chunk(user.getName() + " " + user.getSurname()));
         document.add(paragraph);
 
+        paragraph = new Paragraph();
+        paragraph.setFont(normalFont);
+        paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+        paragraph.add(new Chunk(user.getContactInfo()));
+        document.add(paragraph);
+
         document.add(new LineSeparator());
         paragraph = new Paragraph();
         paragraph.setFont(bigFont);
