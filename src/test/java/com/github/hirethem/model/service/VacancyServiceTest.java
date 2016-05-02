@@ -1,7 +1,6 @@
 package com.github.hirethem.model.service;
 
 import com.github.hirethem.model.entity.User;
-import com.github.hirethem.model.entity.Vacancy;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;

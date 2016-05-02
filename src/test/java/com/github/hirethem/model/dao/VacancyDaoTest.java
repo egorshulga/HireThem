@@ -1,7 +1,6 @@
 package com.github.hirethem.model.dao;
 
 import com.github.hirethem.model.entity.User;
-import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.UserService;
 import org.junit.After;
 import org.junit.Before;
