@@ -43,7 +43,7 @@ public class WorkExperienceService {
         return workExperienceDao.getWorkExperience(workExperienceId);
     }
 
-    public List<WorkExperience> getVacancies(int resumeId) {
+    public List<WorkExperience> getWorkExperiences(int resumeId) {
         return workExperienceDao.getWorkExperiences(resumeService.getResume(resumeId));
     }
 

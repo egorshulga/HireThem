@@ -1,6 +1,7 @@
 package com.github.hirethem.model.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ public class Resume {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private User employee;
 
@@ -36,11 +37,11 @@ public class Resume {
     @Column(name = "skills")
     private String skills;
 
-    @OneToMany(mappedBy = "resume")
-    private Set<WorkExperience> workExperiences;
+    @OneToMany(mappedBy = "resume", cascade = { CascadeType.ALL }, orphanRemoval = true)
+    private Set<WorkExperience> workExperiences = new HashSet<>();
 
-    @OneToMany(mappedBy = "resume")
-    private Set<Education> educations;
+    @OneToMany(mappedBy = "resume", cascade = { CascadeType.ALL }, orphanRemoval = true)
+    private Set<Education> educations = new HashSet<>();
 
     public Resume() {
     }

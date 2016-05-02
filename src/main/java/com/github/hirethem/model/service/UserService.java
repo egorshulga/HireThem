@@ -69,7 +69,7 @@ public class UserService {
             throw new ServiceException(e);
         }
 
-        userDao.createNewUser(email, encryptedPassword, salt, name, surname, userType);
+        userDao.createNewUser(email, userType, encryptedPassword, salt, surname, name);
     }
 
     public void changeUserInfo(String email, User.UserType userType, String name, String surname, String about,
@@ -79,7 +79,7 @@ public class UserService {
     }
 
     public void promoteUser(String email, User.UserType userType) throws ServiceException {
-        userDao.promoteUserAsAdmin(getUserId(email, userType));
+        userDao.promoteUser(getUserId(email, userType));
     }
 
 
@@ -96,7 +96,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userDao.getUsers();
+        return userDao.getAllUsers();
     }
 
 }
