@@ -7,4 +7,4 @@
 **Description:** professional connections network.  
 **Actors:** employee, employer, administrator.
 **Entities:** user, résumé, vacancy, education, work_experience.
-**Documents:** résumé, vacancy, employment letter, report on submitted résumés and vacancies, report on registered users.
+**Documents:** résumé, vacancy, report on submitted résumés and vacancies, report on registered users.
