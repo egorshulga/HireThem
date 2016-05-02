@@ -1,8 +1,6 @@
 package com.github.hirethem.model.util;
 
-import com.github.hirethem.model.entity.Education;
-import com.github.hirethem.model.entity.Resume;
-import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.entity.*;
 import com.github.hirethem.model.service.*;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
@@ -31,7 +29,7 @@ public class PdfGenerationUtil {
     private static int FONT_SIZE_BIG = 20;
     private static int VERTICAL_SPACE_TINY = 5;
     private static int VERTICAL_SPACE_SMALL = 20;
-    private static int VERTICAL_SPACE_MEDIUM = 40;
+    private static int VERTICAL_SPACE_MEDIUM = 50;
     private static int VERTICAL_SPACE_BIG = 80;
     private static int HEIGHT_SMALL_LINE = FONT_SIZE_SMALL + 1;
     private static int HEIGHT_NORMAL_LINE = FONT_SIZE_NORMAL + VERTICAL_SPACE_TINY + 2;
@@ -46,7 +44,7 @@ public class PdfGenerationUtil {
     private static Font bigFont = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED, FONT_SIZE_BIG, Font.BOLD);
     private static Font bigBoldFont = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED, FONT_SIZE_BIG + 2, Font.BOLD);
 
-    synchronized static public ByteArrayOutputStream createResumeDocument(Resume resume) throws DocumentException, IOException {
+    synchronized static public ByteArrayOutputStream getResumeDocument(Resume resume) throws DocumentException, IOException {
 
         Document document = new Document(PageSize.A4);
         ByteArrayOutputStream stream;
@@ -87,14 +85,6 @@ public class PdfGenerationUtil {
         paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
         paragraph.add(new Chunk(user.getName() + " " + user.getSurname()));
         document.add(paragraph);
-
-        if (user.getContactInfo() != null) {
-            paragraph = new Paragraph();
-            paragraph.setFont(normalFont);
-            paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
-            paragraph.add(new Chunk(user.getContactInfo()));
-            document.add(paragraph);
-        }
 
         document.add(new LineSeparator());
         paragraph = new Paragraph();
@@ -212,6 +202,49 @@ public class PdfGenerationUtil {
 
 
         //work experiences
+        if (!resume.getWorkExperiences().isEmpty()) {
+            document.add(new LineSeparator());
+            paragraph = new Paragraph();
+            paragraph.setFont(bigFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.add(new Chunk("Work experience"));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+
+            Iterator<WorkExperience> workExperienceIterator = resume.getWorkExperiences().iterator();
+            while (workExperienceIterator.hasNext()) {
+                WorkExperience workExperience = workExperienceIterator.next();
+
+                paragraph = new Paragraph();
+                paragraph.setFont(normalBoldFont);
+                paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+                paragraph.add(new Chunk(workExperience.getCompanyName()));
+                document.add(paragraph);
+
+                paragraph = new Paragraph();
+                paragraph.setFont(normalFont);
+                paragraph.add(new Chunk(StringUtils.capitalize(workExperience.getPosition())));
+                document.add(paragraph);
+
+                paragraph = new Paragraph();
+                paragraph.setFont(normalFont);
+                paragraph.add(new Chunk("From " + workExperience.getStartDate() + " to " + workExperience.getEndDate() + "."));
+                if (StringUtils.isBlank(workExperience.getDescription())) {
+                    paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+                }
+                document.add(paragraph);
+
+                if (StringUtils.isNotBlank(workExperience.getDescription())) {
+                    paragraph = new Paragraph();
+                    paragraph.setFont(normalFont);
+                    paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+                    paragraph.add(new Chunk(workExperience.getDescription()));
+                    document.add(paragraph);
+                }
+            }
+        }
+
 
 
         if (StringUtils.isNotBlank(resume.getReferences())) {
@@ -233,6 +266,131 @@ public class PdfGenerationUtil {
         }
 
         document.add(new LineSeparator());
+        document.close();
+        return stream;
+    }
+
+    public static ByteArrayOutputStream getVacancyDocument(Vacancy vacancy) throws DocumentException, IOException {
+
+        Document document = new Document(PageSize.A4);
+        ByteArrayOutputStream stream;
+        User user = vacancy.getEmployer();
+
+        stream = new ByteArrayOutputStream();
+        PdfWriter writer = PdfWriter.getInstance(document, stream);
+        writer.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
+        writer.createXmpMetadata();
+        document.open();
+
+        PdfContentByte canvas = writer.getDirectContentUnder();
+        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE));
+        image.scaleAbsolute(PageSize.A4);
+        image.setAbsolutePosition(0, 0);
+        canvas.addImage(image);
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
+        paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+        paragraph.add(new Chunk("Vacancy"));
+        document.add(paragraph);
+        document.add(new LineSeparator());
+
+        if (user.getAvatar() != null) {
+            image = Image.getInstance(user.getAvatar());
+            image.scaleToFit(120, 160);
+            image.setAlignment(Element.ALIGN_RIGHT | Image.TEXTWRAP | Element.ALIGN_TOP);
+            document.add(image);
+        }
+
+        paragraph = new Paragraph(" ");
+        paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+        document.add(paragraph);
+
+        paragraph = new Paragraph();
+        paragraph.setFont(bigBoldFont);
+        paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+        paragraph.add(new Chunk(vacancy.getTitle()));
+        document.add(paragraph);
+
+        paragraph = new Paragraph();
+        paragraph.setFont(normalFont);
+        paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+        paragraph.setSpacingAfter(VERTICAL_SPACE_MEDIUM);
+        paragraph.add(new Chunk(vacancy.getSummary()));
+        document.add(paragraph);
+
+        if (StringUtils.isNotBlank(vacancy.getDescription())) {
+            document.add(new LineSeparator());
+            paragraph = new Paragraph();
+            paragraph.setFont(bigFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.add(new Chunk("Description"));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+
+            paragraph = new Paragraph();
+            paragraph.setFont(normalFont);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+            paragraph.add(new Chunk(vacancy.getDescription()));
+            document.add(paragraph);
+        }
+
+        if (StringUtils.isNotBlank(vacancy.getRequiredSkills())) {
+            document.add(new LineSeparator());
+            paragraph = new Paragraph();
+            paragraph.setFont(bigFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.add(new Chunk("Required skills"));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+
+            paragraph = new Paragraph();
+            paragraph.setFont(normalFont);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+            paragraph.add(new Chunk(vacancy.getRequiredSkills()));
+            document.add(paragraph);
+        }
+
+        if (StringUtils.isNotBlank(vacancy.getRequiredExperience())) {
+            document.add(new LineSeparator());
+            paragraph = new Paragraph();
+            paragraph.setFont(bigFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.add(new Chunk("Required experience"));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+
+            paragraph = new Paragraph();
+            paragraph.setFont(normalFont);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+            paragraph.add(new Chunk(vacancy.getRequiredExperience()));
+            document.add(paragraph);
+        }
+
+        if (user.getContactInfo() != null) {
+            document.add(new LineSeparator());
+            paragraph = new Paragraph();
+            paragraph.setFont(bigFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_TINY);
+            paragraph.setSpacingBefore(VERTICAL_SPACE_TINY);
+            paragraph.add(new Chunk("Contact info"));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+
+            paragraph = new Paragraph();
+            paragraph.setFont(normalFont);
+            paragraph.setSpacingAfter(VERTICAL_SPACE_SMALL);
+            paragraph.add(new Chunk(user.getContactInfo()));
+            document.add(paragraph);
+            document.add(new LineSeparator());
+        }
+
         document.close();
         return stream;
     }
