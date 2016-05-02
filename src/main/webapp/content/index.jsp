@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Custom CSS -->
-    <link href="assets/css/grayscale.css" rel="stylesheet">
+    <link href="../assets/css/grayscale.css" rel="stylesheet">
 
 
-    <link href="assets/css/app.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/app.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
 
     <title>HireThem</title>
 
@@ -28,7 +28,7 @@
             <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
             <div class="logo-wrapper">
-                <a class="logo" href="/"><img src="assets/img/logo.png" alt="logo"></a>
+                <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
             </div>
 
         </div>
@@ -52,9 +52,9 @@
 <<<<<<< HEAD
                     <li><a>My profile</a></li>
 =======
-                    <li><a href="content/employee_profile.jsp">My profile</a></li>
+                    <li><a href="employee_profile.jsp">My profile</a></li>
 >>>>>>> view
-                    <li><a href="content/employee_edit.jsp">Edit profile</a></li>
+                    <li><a href="employee_edit.jsp">Edit profile</a></li>
                     <li><a>Log out</a></li>
                 </ul>
             </li>
@@ -63,10 +63,10 @@
                 <ul>
                     <li><a>Browse resumes</a></li>
 <<<<<<< HEAD
-                    <li><a href="content/employee_profile.jsp">Resume detail</a></li>
-                    <li><a href="content/resume.jsp">Create a resume</a></li>
+                    <li><a href="employee_profile.jsp">Resume detail</a></li>
+                    <li><a href="resume.jsp">Create a resume</a></li>
 =======
-                    <li><a href="content/resume.jsp">Manage resumes</a></li>
+                    <li><a href="resume.jsp">Manage resumes</a></li>
 >>>>>>> view
                 </ul>
             </li>
@@ -74,7 +74,7 @@
                 <a href="#">Vacancy</a>
                 <ul>
                     <li><a>Browse vacancies</a></li>
-                    <li><a href="content/vacancy.jsp">Manage vacancies</a></li>
+                    <li><a href="vacancy.jsp">Manage vacancies</a></li>
                 </ul>
             </li>
             <li>
@@ -101,7 +101,7 @@
 <!-- END Navigation bar -->
 
 <!-- Site header -->
-<header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
+<header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-banner1.jpg)">
     <div class="container">
         <div class="col-xs-12">
             <br><br>
@@ -199,9 +199,9 @@
             <div class="col-xs-6 col-md-3">
                 <h6>Company</h6>
                 <ul class="footer-links">
-                    <li><a href="content/about.jsp">About us</a></li>
-                    <li><a href="content/faq.jsp">Help center</a></li>
-                    <li><a href="content/contact.jsp">Contact us</a></li>
+                    <li><a href="about.jsp">About us</a></li>
+                    <li><a href="faq.jsp">Help center</a></li>
+                    <li><a href="contact.jsp">Contact us</a></li>
                 </ul>
             </div>
         </div>
@@ -239,13 +239,13 @@
 <!-- END Back to top button -->
 
 <!-- Scripts -->
-<script src="assets/js/app.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="assets/js/grayscale.js"></script>
+<script src="../assets/js/grayscale.js"></script>
 </body>
 </html>

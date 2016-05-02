@@ -27,75 +27,6 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<!-- Navigation bar -->
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Logo -->
-        <div class="pull-left">
-            <a class="navbar-toggle" href="/" data-toggle="offcanvas"><i class="ti-menu"></i></a>
-
-            <div class="logo-wrapper">
-                <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
-            </div>
-
-        </div>
-        <!-- END Logo -->
-
-		<!-- User account -->
-        <div class="pull-right user-login">
-            <a class="btn btn-sm btn-primary" href="/login"/>Login</a> or <a
-                href="/signin"/>register</a>
-        </div>
-        <!-- END User account -->
-
-        <!-- Navigation menu -->
-        <ul class="nav-menu">
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="#">Position</a>
-                <ul>
-                    <li><a>Browse jobs</a></li>
-                    <li><a>Job detail</a></li>
-                    <li><a href="vacancy.jsp">Post a job</a></li>
-                    <li><a>Manage jobs</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Resume</a>
-                <ul>
-                    <li><a>Browse resumes</a></li>
-                    <li><a href="employee_profile.jsp">Resume detail</a></li>
-                    <li><a href="resume.jsp">Create a resume</a></li>
-                    <li><a href="employee_edit.jsp">Edit profile</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Company</a>
-                <ul>
-                    <li><a>Browse companies</a></li>
-                    <li><a href="employer_profile.jsp">Company detail</a></li>
-                    <li><a href="employer_edit.jsp">Create a company</a></li>
-                    <li><a>Manage companies</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="active">Pages</a>
-                <ul>
-                    <li><a href="about.jsp">About</a></li>
-                    <li><a class="active" href="contact.jsp">Contact</a></li>
-                    <li><a href="faq.jsp">FAQ</a></li>
-                </ul>
-            </li>
-        </ul>
-        <!-- END Navigation menu -->
-
-    </div>
-</nav>
-<!-- END Navigation bar -->
-
 
 <!-- Site header -->
 <header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-banner2.jpg)">
@@ -174,58 +105,8 @@
 <!-- END Main container -->
 
 
-<!-- Site footer -->
-<footer class="site-footer">
-
-    <!-- Top section -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>About</h6>
-                <p class="text-justify">An employment website is a web site that deals specifically with employment or
-                    careers. Many employment websites are designed to allow employers to post job requirements for a
-                    position to be filled and are commonly known as job boards. Other employment sites offer employer
-                    reviews, career and job-search advice, and describe different job descriptions or employers. Through
-                    a job website a prospective employee can locate and fill out a job application.</p>
-            </div>
-
-            <div class="col-xs-6 col-md-3">
-                <h6>Company</h6>
-                <ul class="footer-links">
-                    <li><a href="about.jsp">About us</a></li>
-                    <li><a href="faq.jsp">Help center</a></li>
-                    <li><a href="contact.jsp">Contact us</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr>
-    </div>
-    <!-- END Top section -->
-
-    <!-- Bottom section -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">2016 Belousova Lubov, Korolko Kirill, Shulga Egor.</p>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- END Bottom section -->
-
-</footer>
-<!-- END Site footer -->
-
+<script src="footer.js"></script>
+<script src="header.js"></script>
 
 <!-- Back to top button -->
 <a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>

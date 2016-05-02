@@ -1,0 +1,45 @@
+var S = new Array (); 
+
+S[0] = '<footer class="site-footer">                                                                                            ';
+S[1] = '    <!-- Top section -->                                                                                                ';
+S[2] = '    <div class="container">                                                                                             ';
+S[3] = '        <div class="row">                                                                                               ';
+S[4] = '            <div class="col-sm-12 col-md-6">                                                                            ';
+S[5] = '                <h6>About</h6>                                                                                          ';
+S[6] = '                <p class="text-justify">An employment website is a web site that deals specifically with employment or  ';
+S[7] = '                    careers. Many employment websites are designed to allow employers to post job requirements for a    ';
+S[8] = '                    position to be filled and are commonly known as job boards. Other employment sites offer employer   ';
+S[9] = '                    reviews, career and job-search advice, and describe different job descriptions or employers. Through';
+S[10] = '                    a job website a prospective employee can locate and fill out a job application.</p>                 ';
+S[11] = '            </div>                                                                                                      ';
+S[12] = '            <div class="col-xs-6 col-md-3">                                                                             ';
+S[13] = '                <h6>Company</h6>                                                                                        ';
+S[14] = '                <ul class="footer-links">                                                                               ';
+S[15] = '                    <li><a href="content/about.jsp">About us</a></li>                                                   ';
+S[16] = '                    <li><a href="content/faq.jsp">Help center</a></li>                                                  ';
+S[17] = '                    <li><a href="content/contact.jsp">Contact us</a></li>                                               ';
+S[18] = '                </ul>                                                                                                   ';
+S[19] = '            </div>                                                                                                      ';
+S[20] = '        </div>                                                                                                          ';
+S[21] = '        <hr>                                                                                                            ';
+S[22] = '    </div>                                                                                                              ';
+S[23] = '    <div class="container">                                                                                             ';
+S[24] = '        <div class="row">                                                                                               ';
+S[25] = '            <div class="col-md-8 col-sm-6 col-xs-12">                                                                   ';
+S[26] = '                <p class="copyright-text">2016 Belousova Lubov, Korolko Kirill, Shulga Egor.</p>                        ';
+S[27] = '            </div>                                                                                                      ';
+S[28] = '                                                                                                                        ';
+S[29] = '            <div class="col-md-4 col-sm-6 col-xs-12">                                                                   ';
+S[30] = '                <ul class="social-icons">                                                                               ';
+S[31] = '                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>                            ';
+S[32] = '                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>                              ';
+S[33] = '                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>                            ';
+S[34] = '                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>                            ';
+S[35] = '                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>                          ';
+S[36] = '                </ul>                                                                                                   ';
+S[37] = '            </div>                                                                                                      ';
+S[38] = '        </div>                                                                                                          ';
+S[39] = '    </div>                                                                                                              ';
+S[40] = '</footer>                                                                                                               ';
+
+with (document) {open (); write (S.join ('\n')); close ()}
