@@ -41,36 +41,31 @@
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Title">
+			  <button class="btn btn-primary">Apply filter</button>
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Summary">
+			  <button class="btn btn-primary">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Working day">
+			  <button class="btn btn-primary">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Salary">
+			  <button class="btn btn-primary">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Experience">
-            </div>
-
-          </div>
-
-          <div class="button-group">
-            <div class="action-buttons">
-              <button class="btn btn-primary">Apply filter</button>
+			  <button class="btn btn-primary">Apply filter</button>
             </div>
           </div>
-
         </form>
-
       </div>
-
     </header>
     <!-- END Page header -->
 

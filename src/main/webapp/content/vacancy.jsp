@@ -46,6 +46,10 @@
           <div class="form-group col-xs-12">
             <input type="text" class="form-control input-lg" placeholder="Vacancy title, e.g. Front-end developer">
           </div>
+		  
+		  <div class="form-group col-xs-12">
+            <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+          </div>
 
           <div class="form-group col-xs-12">
             <textarea class="form-control" rows="3" placeholder="Summary"></textarea>
