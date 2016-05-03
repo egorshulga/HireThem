@@ -75,11 +75,11 @@
 		<header class="page-header-my">
             <div class="row">
 
-              <div class="col-xs-12">
+               <div id="duplicator" class="col-xs-12 duplicateable-content">
                 <div class="item-block">
                   <div class="item-form">
   
-                  <!--  <button class="btn btn-danger btn-float btn-remove" onclick="deleteEducation()"><i class="ti-close"></i></button> -->
+                   <button class="btn btn-danger btn-float btn-remove" onclick="deleteEducation(this)"><i class="ti-close"></i></button>
 
                     <div class="row">
                       
@@ -114,46 +114,7 @@
                 </div>
               </div>
 
-              <div id="duplicator" class="col-xs-12 duplicateable-content">
-                <div class="item-block">
-                  <div class="item-form">
-  
-                    <button id="duplicator-button" class="btn btn-danger btn-float btn-remove" onclick="deleteEducation()"><i class="ti-close"></i></button>
-
-                    <div class="row">
-                      
-                      <div class="col-xs-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
-                        </div>
-
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
-                        </div>
-
-                        <div class="form-group">
-                          <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2016">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xs-12 text-center">
+             <div class="col-xs-12 text-center">
                 <br>
                 <button class="btn btn-primary btn-duplicator">Add education</button>
               </div>
@@ -176,11 +137,11 @@
             
             <div class="row">
 
-              <div class="col-xs-12">
+               <div id="duplicator" class="col-xs-12 duplicateable-content">
                 <div class="item-block">
                   <div class="item-form">
   
-                    <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+                    <button class="btn btn-danger btn-float btn-remove" onclick="deleteEducation(this)"><i class="ti-close"></i></button>
 
                     <div class="row">
 
@@ -215,44 +176,7 @@
                 </div>
               </div>
 
-              <div class="col-xs-12 duplicateable-content">
-               <div class="item-block">
-                  <div class="item-form">
-  
-                    <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                    <div class="row">
-
-                      <div class="col-xs-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Company name">
-                        </div>
-
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
-                        </div>
-
-                        <div class="form-group">
-                          <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2016">
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="col-xs-12">
-                        <div class="form-group">
-                          <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+            
 
               <div class="col-xs-12 text-center">
                 <br>
@@ -287,7 +211,7 @@
 
     </form>
 
-   <script src="footer.js"></script>
+<script src="footer.js"></script>
 <script src="header.js"></script>
 
 

@@ -32,19 +32,21 @@ public class ResumeServiceTest {
     private String contactInfo = "+375 44 1234567";
     private String references = "Nikita Dubko mefody93@gmail.com";
 
+    int userId;
+
     @Before
     public void setUp() throws Exception {
         userService = new UserService();
         resumeService = new ResumeService();
         userService.createNewUser(email, userType, name, surname, password);
-        int userId = userService.getUserId(email, userType);
+        userId = userService.getUserId(email, userType);
         resumeService.createResume(userId, summary, description, skills, interests, contactInfo, references);
     }
 
     @Test
     public void modifyResume() throws Exception {
         String nothing = "nothing";
-        int resumeId = resumeService.findResumesUsingSkills("Delphi").get(0).getId();
+        int resumeId = resumeService.findResumesUsingInterests("Ololo ololo").get(0).getId();
         resumeService.modifyResume(resumeId, nothing, nothing, nothing, nothing, nothing, nothing);
         Resume resume = resumeService.findResumesUsingSummary(nothing).get(0);
         assertEquals(resume.getSummary(), nothing);
@@ -57,8 +59,7 @@ public class ResumeServiceTest {
 
     @Test
     public void getResume() throws Exception {
-        Resume resume = resumeService.findResumesUsingSkills("C++").get(0);
-        resume = resumeService.getResume(resume.getId());
+        Resume resume = resumeService.findResumesUsingInterests("Ololo ololo").get(0);
         assertNotNull(resume);
         assertEquals(resume.getContactInfo(), contactInfo);
         assertEquals(resume.getDescription(), description);

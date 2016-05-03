@@ -1,10 +1,6 @@
 "use strict";
-function deleteEducation(){
-	//alert("delete");
-	var elem = document.getElementById("duplicator");	
-
-	elem.parentNode.removeChild(elem);
-	//console.log(elem);
+function deleteEducation(obj){
+	obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
 }
 
 

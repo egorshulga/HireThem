@@ -25,7 +25,6 @@
         <mapping class="com.github.hirethem.model.entity.Resume"/>
         <mapping class="com.github.hirethem.model.entity.Vacancy"/>
         <mapping class="com.github.hirethem.model.entity.WorkExperience"/>
-        <mapping class="com.github.hirethem.model.entity.Message"/>
 
     </session-factory>
 </hibernate-configuration>
