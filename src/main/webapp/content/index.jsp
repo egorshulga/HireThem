@@ -44,45 +44,36 @@
         <!-- Navigation menu -->
         <ul id="nav-menu-id" class="nav-menu">
             <li>
-                <a class="active" href="/">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="#">Profile</a>
                 <ul>
-<<<<<<< HEAD
-                    <li><a>My profile</a></li>
-=======
-                    <li><a href="employee_profile.jsp">My profile</a></li>
->>>>>>> view
-                    <li><a href="employee_edit.jsp">Edit profile</a></li>
+                    <li><a href="content/employee_profile.jsp">My profile</a></li>
+                    <li><a href="content/employee_edit.jsp">Edit profile</a></li>
                     <li><a>Log out</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Resume</a>
                 <ul>
-                    <li><a>Browse resumes</a></li>
-<<<<<<< HEAD
-                    <li><a href="employee_profile.jsp">Resume detail</a></li>
-                    <li><a href="resume.jsp">Create a resume</a></li>
-=======
-                    <li><a href="resume.jsp">Manage resumes</a></li>
->>>>>>> view
+                    <li><a href="content/resume-list.jsp">Browse resumes</a></li>
+                    <li><a href="content/resume-manage.jsp">Manage resumes</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Vacancy</a>
                 <ul>
-                    <li><a>Browse vacancies</a></li>
-                    <li><a href="vacancy.jsp">Manage vacancies</a></li>
+                    <li><a href="content/vacancy-list.jsp">Browse vacancies</a></li>
+                    <li><a href="content/vacancy-manage.jsp">Manage vacancies</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Pages</a>
                 <ul>
-                    <li><a href=<s:url action="about"/>>About</a></li>
-                    <li><a href=<s:url action="contact"/>>Contact</a></li>
-                    <li><a href=<s:url action="faq"/>>FAQ</a></li>
+                    <li><a href="content/about.jsp"/>About</a></li>
+                    <li><a href="content/contact.jsp"/>Contact</a></li>
+                    <li><a href="content/faq.jsp"/>FAQ</a></li>
                 </ul>
             </li>
 			<li>
@@ -105,28 +96,12 @@
     <div class="container">
         <div class="col-xs-12">
             <br><br>
-            <h2>We offer
-                <mark>1,259</mark>
-                job vacancies right now!
+            <h2>We offer <mark>1,259</mark> job vacancies right now!
             </h2>
             <h5 class="font-alt">Find your desire one in a minute</h5>
-            <br><br><br>
-            <form class="header-job-search">
-                <div class="input-keyword">
-                    <input type="text" class="form-control" placeholder="Job title, skills, or company">
-                </div>
-
-                <div class="input-location">
-                    <input type="text" class="form-control" placeholder="City, state or zip">
-                </div>
-
-                <div class="btn-search">
-                    <button class="btn btn-primary" type="submit">Find jobs</button>
-                </div>
-            </form>
         </div>
-
     </div>
+	<br><br>
 </header>
 
 

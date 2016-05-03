@@ -28,7 +28,18 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+ <!-- Site header -->
+    <header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-banner1.jpg)">
+      <div class="container">
+        <div class="col-xs-12">
+          <h2>Frequently asked questions</h2>
+          <h5 class="font-alt">Probably you'll find your answer here. Contact us if you don't find what you're looking for.</h5>
+          <br>
+        </div>
 
+      </div>
+    </header>
+    <!-- END Site header -->
 
 <!-- Main container -->
 <main id="faq-result">
