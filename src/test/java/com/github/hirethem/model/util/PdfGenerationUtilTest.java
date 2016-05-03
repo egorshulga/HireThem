@@ -15,6 +15,9 @@ import java.io.OutputStream;
  * Created by egorshulga on 02-May-16.
  */
 public class PdfGenerationUtilTest {
+
+
+
     @Before
     public void setUp() throws Exception {
         new File("test").mkdir();
@@ -36,5 +39,22 @@ public class PdfGenerationUtilTest {
         PdfGenerationUtil.getVacancyDocument(vacancy).writeTo(stream);
     }
 
+    @Test
+    public void getUsersReport() throws Exception {
+        OutputStream stream = new FileOutputStream("test\\users-report.pdf");
+        PdfGenerationUtil.getUsersReport().writeTo(stream);
+    }
+
+    @Test
+    public void getResumesReport() throws Exception {
+        OutputStream stream = new FileOutputStream("test\\resumes-report.pdf");
+        PdfGenerationUtil.getResumesReport().writeTo(stream);
+    }
+
+    @Test
+    public void getVacanciesReport() throws Exception {
+        OutputStream stream = new FileOutputStream("test\\vacancies-report.pdf");
+        PdfGenerationUtil.getVacanciesReport().writeTo(stream);
+    }
 
 }
