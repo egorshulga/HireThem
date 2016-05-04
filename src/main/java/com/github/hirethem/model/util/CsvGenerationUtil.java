@@ -10,35 +10,35 @@ import org.apache.commons.io.output.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 /**
  * Created by Kirill on 03.05.2016.
  */
-public class SVNGenerationUtil {
+public class CsvGenerationUtil {
 
     public static ByteArrayOutputStream generateVacanciesInCSV() throws IOException {
-        String[] fileHeader = {"Number", "Title", "Summary", "Salary", "Skills", "Experience"};
+        String[] fileHeader = {"N", "Employer", "Title", "Summary", "Salary", "Skills", "Experience"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        OutputStreamWriter os = new OutputStreamWriter(stream, Charset.forName("cp1251"));
+        CSVWriter writer = new CSVWriter(os, ',');
         writer.writeNext(fileHeader);
-        List<String[]> vacanciesInString = new LinkedList<String[]>();
+        List<String[]> vacanciesInString = new ArrayList<>();
         VacancyDao vacancyDao = new VacancyDao();
         List<Vacancy> vacancyList = vacancyDao.getAllVacancies();
         for (int i = 0; i < vacancyList.size(); i++) {
             Vacancy vacancy = vacancyList.get(i);
-            String[] tempArray = { Integer.toString(
-                                  vacancy.getId()),
-                                  vacancy.getEmployer().getEmail(),
-                                  vacancy.getTitle(),
-                                  vacancy.getSummary(),
-                                  vacancy.getSalary(),
-                                  vacancy.getRequiredSkills(),
-                                  vacancy.getRequiredExperience()};
-            vacanciesInString.add(tempArray);
+            vacanciesInString.add(new String[]{
+                    Integer.toString(i + 1),
+                    vacancy.getEmployer().getEmail(),
+                    vacancy.getTitle(),
+                    vacancy.getSummary(),
+                    vacancy.getSalary(),
+                    vacancy.getRequiredSkills(),
+                    vacancy.getRequiredExperience()});
         }
 
         writer.writeAll(vacanciesInString);
@@ -47,26 +47,26 @@ public class SVNGenerationUtil {
     }
 
     public static ByteArrayOutputStream generateUsersInCSV() throws IOException {
-        String[] fileHeader = {"Number", "E-mail", "Usertype", "Name", "Surname", "About", "Contact info", "Is Admin"};
+        String[] fileHeader = {"N", "E-mail", "User type", "Name", "Surname", "About", "Contact info", "Is Admin"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("cp1251")), ',');
         writer.writeNext(fileHeader);
-        List<String[]> usersInString = new LinkedList<String[]>();
+        List<String[]> usersInString = new ArrayList<>();
         UserDao userDao = new UserDao();
         List<User> userList = userDao.getAllUsers();
         for (int i = 0; i < userList.size(); i++) {
             User user = userList.get(i);
-            String[] tempArray = { Integer.toString(
-                    user.getId()),
+            usersInString.add(new String[]{
+                    Integer.toString(i + 1),
                     user.getEmail(),
                     user.getUserType().toString(),
                     user.getName(),
                     user.getSurname(),
                     user.getAbout(),
                     user.getContactInfo(),
-                    Boolean.toString(user.isAdmin())};
-            usersInString.add(tempArray);
+                    Boolean.toString(user.isAdmin())
+            });
         }
 
         writer.writeAll(usersInString);
@@ -75,34 +75,33 @@ public class SVNGenerationUtil {
     }
 
     public static ByteArrayOutputStream generateResumesInCSV() throws IOException {
-        String[] fileHeader = {"Number", "Employee", "Summary", "Skills", "Education", "Experience"};
+        String[] fileHeader = {"N", "Employee", "Summary", "Skills", "Education", "Experience"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("cp1251")), ',');
         writer.writeNext(fileHeader);
-        List<String[]> resumesInString = new LinkedList<String[]>();
+        List<String[]> resumesInString = new ArrayList<>();
         ResumeDao resumeDao = new ResumeDao();
         List<Resume> resumeList = resumeDao.getAllResumes();
         for (int i = 0; i < resumeList.size(); i++) {
             Resume resume = resumeList.get(i);
             Set<Education> educationList = resume.getEducations();
             String newTempEducation = "";
-            for (Education temp : educationList){
+            for (Education temp : educationList) {
                 newTempEducation = temp.getUniversity() + "\n" + temp.getSpecialty();
             }
             Set<WorkExperience> workExperiencesSet = resume.getWorkExperiences();
             String newTempExperience = "";
-            for (WorkExperience temp : workExperiencesSet){
+            for (WorkExperience temp : workExperiencesSet) {
                 newTempExperience = temp.getCompanyName() + "\n" + temp.getDescription();
             }
-            String[] tempArray = { Integer.toString(
-                    resume.getId()),
+            resumesInString.add(new String[]{
+                    Integer.toString(i + 1),
                     resume.getEmployee().getEmail(),
                     resume.getSummary(),
                     resume.getSkills(),
                     newTempEducation,
-                    newTempExperience};
-            resumesInString.add(tempArray);
+                    newTempExperience});
         }
 
         writer.writeAll(resumesInString);
@@ -111,27 +110,26 @@ public class SVNGenerationUtil {
     }
 
     public static ByteArrayOutputStream generateResumeInCSV(int resumeId) throws IOException {
-        String[] fileHeader = {"Number", "Employee", "Summary", "Skills", "Education", "Experience", "Description", "Interests"};
+        String[] fileHeader = {"Employee", "Summary", "Skills", "Education", "Experience", "Description", "Interests"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("cp1251")), ',');
         writer.writeNext(fileHeader);
-        List<String[]> resumeInString = new LinkedList<String[]>();
+        List<String[]> resumeInString = new ArrayList<>();
         ResumeDao resumeDao = new ResumeDao();
 
-        Resume resume =  resumeDao.getResume(resumeId);
+        Resume resume = resumeDao.getResume(resumeId);
         Set<Education> educationList = resume.getEducations();
         String newTempEducation = "";
-        for (Education temp : educationList){
+        for (Education temp : educationList) {
             newTempEducation = temp.getUniversity() + "\n" + temp.getSpecialty();
         }
         Set<WorkExperience> workExperiencesSet = resume.getWorkExperiences();
         String newTempExperience = "";
-        for (WorkExperience temp : workExperiencesSet){
+        for (WorkExperience temp : workExperiencesSet) {
             newTempExperience = temp.getCompanyName() + "\n" + temp.getDescription();
         }
-        String[] tempArray = { Integer.toString(
-                resume.getId()),
+        String[] tempArray = {
                 resume.getEmployee().getEmail(),
                 resume.getSummary(),
                 resume.getSkills(),
@@ -147,18 +145,17 @@ public class SVNGenerationUtil {
     }
 
     public static ByteArrayOutputStream generateVacancyInCSV(int vacancyId) throws IOException {
-        String[] fileHeader = {"Number", "Employeer", "Title", "Summary", "Salary", "Experience", "Description", "Skills"};
+        String[] fileHeader = {"Employeer", "Title", "Summary", "Salary", "Experience", "Description", "Skills"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("cp1251")), ',');
         writer.writeNext(fileHeader);
-        List<String[]> vacancyInString = new LinkedList<String[]>();
+        List<String[]> vacancyInString = new ArrayList<>();
         VacancyDao vacancyDao = new VacancyDao();
 
-        Vacancy vacancy =  vacancyDao.getVacancy(vacancyId);
+        Vacancy vacancy = vacancyDao.getVacancy(vacancyId);
 
-        String[] tempArray = { Integer.toString(
-                vacancy.getId()),
+        String[] tempArray = {
                 vacancy.getEmployer().getEmail(),
                 vacancy.getTitle(),
                 vacancy.getSummary(),

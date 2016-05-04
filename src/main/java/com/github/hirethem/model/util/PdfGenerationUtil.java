@@ -494,8 +494,7 @@ public class PdfGenerationUtil {
         int i = 1;
         for (Resume resume : resumes) {
             table.addCell(new Phrase(String.valueOf(i++), NORMAL_FONT));
-            table.addCell(new Phrase(resume.getEmployee().getEmail() + " " +
-                    resume.getEmployee().getUserType(), NORMAL_FONT));
+            table.addCell(new Phrase(resume.getEmployee().getEmail(), NORMAL_FONT));
             table.addCell(new Phrase(resume.getSummary(), NORMAL_FONT));
             if (StringUtils.isNotEmpty(resume.getSkills())) {
                 table.addCell(new Phrase(resume.getSkills(), NORMAL_FONT));
@@ -576,8 +575,7 @@ public class PdfGenerationUtil {
         int i = 1;
         for (Vacancy vacancy : vacancies) {
             table.addCell(new Phrase(String.valueOf(i++), NORMAL_FONT));
-            table.addCell(new Phrase(vacancy.getEmployer().getEmail() + " " +
-                    vacancy.getEmployer().getUserType(), NORMAL_FONT));
+            table.addCell(new Phrase(vacancy.getEmployer().getEmail(), NORMAL_FONT));
             table.addCell(new Phrase(vacancy.getTitle(), NORMAL_FONT));
             table.addCell(new Phrase(vacancy.getSummary(), NORMAL_FONT));
             if (StringUtils.isNotBlank(vacancy.getSalary())) {

@@ -35,9 +35,6 @@ public class Vacancy {
     @Column(name = "required_skills")
     private String requiredSkills;
 
-    @Column(name = "contact_info")
-    private String contactInfo;
-
     public Vacancy() {
     }
 
@@ -95,14 +92,6 @@ public class Vacancy {
 
     public void setRequiredExperience(String requiredExperience) {
         this.requiredExperience = requiredExperience;
-    }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
     }
 
     public String getRequiredSkills() {

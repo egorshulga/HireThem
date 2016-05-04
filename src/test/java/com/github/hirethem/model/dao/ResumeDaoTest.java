@@ -51,7 +51,6 @@ public class ResumeDaoTest {
         resume.setDescription(description);
         resume.setSkills(skills);
         resume.setInterests(interests);
-        resume.setContactInfo(contactInfo);
         resume.setReferences(references);
 
         userService = new UserService();
@@ -70,13 +69,12 @@ public class ResumeDaoTest {
 
     @Test
     public void modifyResume() throws Exception {
-        resumeDao.modifyResume(resumeId, nothing, nothing, nothing, nothing, nothing, nothing);
+        resumeDao.modifyResume(resumeId, nothing, nothing, nothing, nothing, nothing);
         Resume resume = resumeDao.getResume(resumeId);
         assertEquals(resume.getSummary(), nothing);
         assertEquals(resume.getDescription(), nothing);
         assertEquals(resume.getSkills(), nothing);
         assertEquals(resume.getInterests(), nothing);
-        assertEquals(resume.getContactInfo(), nothing);
         assertEquals(resume.getReferences(), nothing);
     }
 

@@ -40,7 +40,7 @@ public class ResumeServiceTest {
         resumeService = new ResumeService();
         userService.createNewUser(email, userType, name, surname, password);
         userId = userService.getUserId(email, userType);
-        resumeService.createResume(userId, summary, description, skills, interests, contactInfo, references);
+        resumeService.createResume(userId, summary, description, skills, interests, references);
     }
 
     @Test
@@ -53,7 +53,6 @@ public class ResumeServiceTest {
         assertEquals(resume.getDescription(), nothing);
         assertEquals(resume.getSkills(), nothing);
         assertEquals(resume.getInterests(), nothing);
-        assertEquals(resume.getContactInfo(), nothing);
         assertEquals(resume.getReferences(), nothing);
     }
 
@@ -61,7 +60,6 @@ public class ResumeServiceTest {
     public void getResume() throws Exception {
         Resume resume = resumeService.findResumesUsingInterests("Ololo ololo").get(0);
         assertNotNull(resume);
-        assertEquals(resume.getContactInfo(), contactInfo);
         assertEquals(resume.getDescription(), description);
         assertNotNull(resume.getEducations());
         assertEquals(resume.getEmployee().getId(), userService.getUserId(email, userType));

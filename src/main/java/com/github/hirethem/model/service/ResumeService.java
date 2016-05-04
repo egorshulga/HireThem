@@ -19,14 +19,13 @@ public class ResumeService {
     private ResumeDao resumeDao = new ResumeDao();
 
     public void createResume(int userId, String summary, String description, String skills, String interests,
-                             String contactInfo, String references) throws ServiceException {
+                             String references) throws ServiceException {
         Resume resume = new Resume();
         resume.setSummary(summary);
         resume.setDescription(description);
         resume.setSkills(skills);
         resume.setInterests(interests);
         resume.setReferences(references);
-        resume.setContactInfo(contactInfo);
 
         User currentUser = userService.getUser(userId);
 
@@ -37,7 +36,7 @@ public class ResumeService {
 
     public void modifyResume(int resumeId, String summary, String description, String skills, String interests,
                              String contactInfo, String references) {
-        resumeDao.modifyResume(resumeId, summary, description, skills, interests, contactInfo, references);
+        resumeDao.modifyResume(resumeId, summary, description, skills, interests, references);
     }
 
     public Resume getResume(int resumeId) {

@@ -27,7 +27,6 @@ public class VacancyTest {
     public void setUp() throws Exception {
         vacancy = new Vacancy();
         vacancy.setEmployer(new User());
-        vacancy.setContactInfo(contactInfo);
         vacancy.setSummary(summary);
         vacancy.setDescription(description);
         vacancy.setSalary(salary);
@@ -46,10 +45,6 @@ public class VacancyTest {
         assertNotNull(vacancy.getEmployer());
     }
 
-    @Test
-    public void getContactInfo() throws Exception {
-        assertEquals(vacancy.getContactInfo(), contactInfo);
-    }
 
     @Test
     public void getSummary() throws Exception {

@@ -41,14 +41,14 @@ public class ResumeCreationDeletionTest {
     @Test
     public void createResume() throws Exception {
         resumeService.createResume(userService.getUserId(email, userType),
-                summary, description, skills, interests, contactInfo, references);
+                summary, description, skills, interests, references);
         userService.deleteUser(email, userType);
     }
 
     @Test
     public void deletePresentResume() throws Exception {
         resumeService.createResume(userService.getUserId(email, userType),
-                summary, description, skills, interests, contactInfo, references);
+                summary, description, skills, interests, references);
         resumeService.deleteResume(resumeService.findResumesUsingSummary(summary).get(0).getId());
         userService.deleteUser(email, userType);
     }
@@ -56,7 +56,7 @@ public class ResumeCreationDeletionTest {
     @Test(expected = ServiceException.class)
     public void deleteUserCascadeOnResumes() throws Exception {
         resumeService.createResume(userService.getUserId(email, userType),
-                summary, description, skills, interests, contactInfo, references);
+                summary, description, skills, interests, references);
         int userId = userService.getUserId(email, userType);
         userService.deleteUser(userId);
         List<Resume> resumes = resumeService.getResumes(userId);

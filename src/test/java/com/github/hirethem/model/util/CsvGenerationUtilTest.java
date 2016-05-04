@@ -10,7 +10,7 @@ import java.io.OutputStream;
 /**
  * Created by Kirill on 03.05.2016.
  */
-public class SVNGenerationUtilTest {
+public class CsvGenerationUtilTest {
 
     @Before
     public void setUp() throws Exception {
@@ -20,31 +20,31 @@ public class SVNGenerationUtilTest {
     @Test
     public void getVacanciesListReport() throws Exception {
         OutputStream stream = new FileOutputStream("test\\vacancies-report.csv");
-        SVNGenerationUtil.generateVacanciesInCSV().writeTo(stream);
+        CsvGenerationUtil.generateVacanciesInCSV().writeTo(stream);
     }
 
     @Test
     public void getUsersListReport() throws Exception {
         OutputStream stream = new FileOutputStream("test\\users-report.csv");
-        SVNGenerationUtil.generateUsersInCSV().writeTo(stream);
+        CsvGenerationUtil.generateUsersInCSV().writeTo(stream);
     }
 
     @Test
     public void getResumesListReport() throws Exception {
         OutputStream stream = new FileOutputStream("test\\resumes-report.csv");
-        SVNGenerationUtil.generateResumesInCSV().writeTo(stream);
+        CsvGenerationUtil.generateResumesInCSV().writeTo(stream);
     }
 
     @Test
     public void getResumeListReport() throws Exception {
         OutputStream stream = new FileOutputStream("test\\test-resume.csv");
-        SVNGenerationUtil.generateResumeInCSV(475).writeTo(stream);
+        CsvGenerationUtil.generateResumeInCSV(475).writeTo(stream);
     }
 
     @Test
     public void getVacancyListReport() throws Exception {
         OutputStream stream = new FileOutputStream("test\\test-vacancy.csv");
-        SVNGenerationUtil.generateVacancyInCSV(166).writeTo(stream);
+        CsvGenerationUtil.generateVacancyInCSV(166).writeTo(stream);
     }
 
 }

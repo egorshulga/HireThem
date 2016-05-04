@@ -18,8 +18,7 @@ public class VacancyService {
     private VacancyDao vacancyDao = new VacancyDao();
 
     public void createVacancy(int userId, String title, String summary, String description,
-                              String salary, String requiredExperience, String requiredSkills,
-                              String contactInfo) throws ServiceException {
+                              String salary, String requiredExperience, String requiredSkills) throws ServiceException {
         Vacancy vacancy = new Vacancy();
         vacancy.setTitle(title);
         vacancy.setSummary(summary);
@@ -27,7 +26,6 @@ public class VacancyService {
         vacancy.setSalary(salary);
         vacancy.setRequiredExperience(requiredExperience);
         vacancy.setRequiredSkills(requiredSkills);
-        vacancy.setContactInfo(contactInfo);
 
         User currentUser = userService.getUser(userId);
 
@@ -40,7 +38,7 @@ public class VacancyService {
                               String salary, String requiredExperience, String requiredSkills,
                               String contactInfo) {
         vacancyDao.modifyVacancy(vacancyId, title, summary, description, salary, requiredExperience,
-                requiredSkills, contactInfo);
+                requiredSkills);
     }
 
     public Vacancy getVacancy(int vacancyId) {

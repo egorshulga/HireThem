@@ -19,9 +19,6 @@ public class Resume {
     @JoinColumn(name = "employee_id")
     private User employee;
 
-    @Column(name = "contact_info")
-    private String contactInfo;
-
     @Column(name = "summary")
     private String summary;
 
@@ -60,14 +57,6 @@ public class Resume {
 
     public void setEmployee(User employee) {
         this.employee = employee;
-    }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
     }
 
     public String getSummary() {

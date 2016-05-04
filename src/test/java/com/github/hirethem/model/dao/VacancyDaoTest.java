@@ -58,7 +58,6 @@ public class VacancyDaoTest {
         vacancy.setSalary(salary);
         vacancy.setRequiredExperience(requiredExperience);
         vacancy.setRequiredSkills(requiredSkills);
-        vacancy.setContactInfo(contactInfo);
         vacancy.setEmployer(user);
         vacancyDao.addVacancy(user, vacancy);
     }
@@ -70,7 +69,7 @@ public class VacancyDaoTest {
 
     @Test
     public void modifyVacancy() throws Exception {
-        vacancyDao.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing, nothing);
+        vacancyDao.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing);
         vacancy = vacancyDao.getVacancy(vacancy.getId());
         assertEquals(vacancy.getTitle(), nothing);
         assertEquals(vacancy.getSummary(), nothing);
@@ -78,7 +77,6 @@ public class VacancyDaoTest {
         assertEquals(vacancy.getSalary(), nothing);
         assertEquals(vacancy.getRequiredExperience(), nothing);
         assertEquals(vacancy.getRequiredSkills(), nothing);
-        assertEquals(vacancy.getContactInfo(), nothing);
     }
 
     @Test
