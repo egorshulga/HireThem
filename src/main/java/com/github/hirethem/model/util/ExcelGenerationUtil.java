@@ -198,7 +198,7 @@ public class ExcelGenerationUtil {
         cell.setCellValue(new HSSFRichTextString("Contact info"));
         cell = row.createCell(7);
         cell.setCellStyle(headerCellStyle);
-        cell.setCellValue(new HSSFRichTextString("Id Admin"));
+        cell.setCellValue(new HSSFRichTextString("Is Admin"));
         UserDao userDao = new UserDao();
 
         List<User> userList =  userDao.getAllUsers();

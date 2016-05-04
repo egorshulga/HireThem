@@ -7,9 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-/**
- * Created by Kirill on 03.05.2016.
- */
+
 public class ExcelGenerationUtilTest {
     @Before
     public void setUp() throws Exception {
@@ -24,13 +22,13 @@ public class ExcelGenerationUtilTest {
 
     @Test
     public void getUsersReport() throws Exception {
-        OutputStream stream = new FileOutputStream("test\\users.xls");
+        OutputStream stream = new FileOutputStream("test\\users-report.xls");
         ExcelGenerationUtil.generateUsersInXLS().writeTo(stream);
     }
 
     @Test
     public void getResumesReport() throws Exception {
-        OutputStream stream = new FileOutputStream("test\\resumes.xls");
+        OutputStream stream = new FileOutputStream("test\\resumes-report.xls");
         ExcelGenerationUtil.generateResumesInXLS().writeTo(stream);
     }
 
