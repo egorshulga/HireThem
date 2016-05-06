@@ -35,8 +35,7 @@ public class VacancyService {
     }
 
     public void modifyVacancy(int vacancyId, String title, String summary, String description,
-                              String salary, String requiredExperience, String requiredSkills,
-                              String contactInfo) {
+                              String salary, String requiredExperience, String requiredSkills) {
         vacancyDao.modifyVacancy(vacancyId, title, summary, description, salary, requiredExperience,
                 requiredSkills);
     }
@@ -89,4 +88,15 @@ public class VacancyService {
     }
 
 
+    public List<Vacancy> findResumesUsingTitle(String titleToSearch) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getTitle(), titleToSearch))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findResumesUsingSummary(String summaryToSearch) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getSummary(), summaryToSearch))
+                .collect(Collectors.toList());
+    }
 }

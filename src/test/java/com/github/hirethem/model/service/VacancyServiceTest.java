@@ -66,7 +66,7 @@ public class VacancyServiceTest {
     public void modifyVacancy() throws Exception {
         String nothing = "nothing";
         Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
-        vacancyService.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing, nothing);
+        vacancyService.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing);
         vacancy = vacancyService.findVacanciesUsingTitle(nothing).get(0);
         assertEquals(vacancy.getTitle(), nothing);
         assertEquals(vacancy.getSummary(), nothing);

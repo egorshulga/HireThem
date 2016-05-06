@@ -2,9 +2,11 @@ package com.github.hirethem.action.resumes;
 
 import com.github.hirethem.action.interceptor.AuthorizationRequired;
 import com.github.hirethem.model.entity.Education;
+import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.ResumeService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +23,18 @@ public class ModifyResumeAction extends AuthorizationRequired {
     private String skills;
     private List<Education> educations;             //how to update this???
     private List<WorkExperience> workExperiences;   //how to update this???
+
+    public String input() {
+        Resume resume = new ResumeService().getResume(resumeId);
+        summary = resume.getSummary();
+        interests = resume.getInterests();
+        references = resume.getReferences();
+        description = resume.getDescription();
+        skills = resume.getSkills();
+        educations = new ArrayList<>(educations);
+        workExperiences = new ArrayList<>(workExperiences);
+        return INPUT;
+    }
 
     public String execute() {
         new ResumeService().modifyResume(resumeId, summary, description, skills, interests, references);
