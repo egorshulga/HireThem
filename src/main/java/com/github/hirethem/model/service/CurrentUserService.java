@@ -31,6 +31,4 @@ public class CurrentUserService {
         userDao.updateUser(userId, name, surname, about, contactInfo, avatar);
     }
 
-
-
 }

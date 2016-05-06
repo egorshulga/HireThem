@@ -1,9 +1,9 @@
-package com.github.hirethem.action;
+package com.github.hirethem.constants;
 
 /**
  * Created by egors.
  */
-public class Message {
+public class ActionMessages {
 
     public static final String EMPTY_FIELD = "Field must not be empty";
 

@@ -23,13 +23,6 @@
 
   <body class="login-page">
   
-	<s:if test="hasActionErrors()">
-    <div class="errors">
-        <s:actionerror/>
-    </div>
-	<script>alert("error")</script>
-	</s:if>
-
 	<s:form action="submitLogin" method="post">
     <main>
 	
@@ -37,10 +30,15 @@
         <a href="/"><img src="assets/img/logo_alt.png"></a>
         <h1>Log into your account</h1>
 
-        <form action="login" method="post">
+          <form action="login" method="post">
 
+              <s:if test="hasActionErrors()">
+                  <div class="form-group">
+                      <s:actionerror/>
+                  </div>
+              </s:if>
 
-          <div class="form-group">
+              <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
               <input type="text" class="form-control" placeholder="Email" name="email">

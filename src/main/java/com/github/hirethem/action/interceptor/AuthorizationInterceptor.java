@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 /**
- * Created by egors.
+ * Created by egorshulga.
  */
 public class AuthorizationInterceptor extends AbstractInterceptor {
     @Override

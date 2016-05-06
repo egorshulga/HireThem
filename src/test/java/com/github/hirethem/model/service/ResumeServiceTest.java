@@ -47,7 +47,7 @@ public class ResumeServiceTest {
     public void modifyResume() throws Exception {
         String nothing = "nothing";
         int resumeId = resumeService.findResumesUsingInterests("Ololo ololo").get(0).getId();
-        resumeService.modifyResume(resumeId, nothing, nothing, nothing, nothing, nothing, nothing);
+        resumeService.modifyResume(resumeId, nothing, nothing, nothing, nothing, nothing);
         Resume resume = resumeService.findResumesUsingSummary(nothing).get(0);
         assertEquals(resume.getSummary(), nothing);
         assertEquals(resume.getDescription(), nothing);

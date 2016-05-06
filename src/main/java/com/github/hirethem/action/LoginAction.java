@@ -5,15 +5,13 @@ import com.github.hirethem.model.service.LoginService;
 import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
 
-import static com.github.hirethem.action.Message.EMPTY_FIELD;
-import static com.github.hirethem.action.Message.WRONG_EMAIL_FORMAT;
+import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
 
 /**
  * Created by egors.
@@ -38,6 +36,13 @@ public class LoginAction extends ActionSupport {
     }
 
     public void validate() {
+        if (StringUtils.isBlank(password) ||
+                StringUtils.isBlank(email)) {
+            addActionError("Empty fields are not allowed");
+        }
+        if (EmailValidator.getInstance().isValid(email)) {
+            addActionError("Wrong email is provided");
+        }
         try {
             new LoginService().tryAuthenticateUser(email, password, userType);
         } catch (ServiceException e) {
@@ -45,10 +50,6 @@ public class LoginAction extends ActionSupport {
         }
     }
 
-    @Validations(
-            requiredStrings = {@RequiredStringValidator(message = EMPTY_FIELD)},
-            emails = {@EmailValidator(message = WRONG_EMAIL_FORMAT)}
-    )
     public String getEmail() {
         return email;
     }
@@ -57,7 +58,6 @@ public class LoginAction extends ActionSupport {
         this.email = email;
     }
 
-    @RequiredStringValidator(message = EMPTY_FIELD)
     public String getPassword() {
         return password;
     }

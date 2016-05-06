@@ -6,6 +6,7 @@ import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +36,7 @@ public class ResumeService {
     }
 
     public void modifyResume(int resumeId, String summary, String description, String skills, String interests,
-                             String contactInfo, String references) {
+                             String references) {
         resumeDao.modifyResume(resumeId, summary, description, skills, interests, references);
     }
 
@@ -77,5 +78,29 @@ public class ResumeService {
 
     public List<Resume> getAllResumes() {
         return resumeDao.getAllResumes();
+    }
+
+    public List<Resume> findResumesUsingEducation(String educationToSearch) {
+        List<Resume> result = new ArrayList<>();
+        for (Resume resume : resumeDao.getAllResumes()) {
+            result.addAll(resume.getEducations().stream().filter(education ->
+                    StringUtils.containsIgnoreCase(education.getUniversity(), educationToSearch) ||
+                            StringUtils.containsIgnoreCase(education.getDegree(), educationToSearch) ||
+                            StringUtils.containsIgnoreCase(education.getSpecialty(), educationToSearch))
+                    .map(education -> resume).collect(Collectors.toList()));
+        }
+        return result;
+    }
+
+    public List<Resume> findResumesUsingWorkExperience(String educationToSearch) {
+        List<Resume> result = new ArrayList<>();
+        for (Resume resume : resumeDao.getAllResumes()) {
+            result.addAll(resume.getWorkExperiences().stream().filter(experience ->
+                    StringUtils.containsIgnoreCase(experience.getCompanyName(), educationToSearch) ||
+                            StringUtils.containsIgnoreCase(experience.getPosition(), educationToSearch) ||
+                            StringUtils.containsIgnoreCase(experience.getDescription(), educationToSearch))
+                    .map(education -> resume).collect(Collectors.toList()));
+        }
+        return result;
     }
 }

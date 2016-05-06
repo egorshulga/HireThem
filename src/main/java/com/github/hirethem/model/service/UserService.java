@@ -5,6 +5,7 @@ import com.github.hirethem.model.dao.exception.DaoException;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.github.hirethem.model.util.PasswordEncryptionService;
+import org.apache.http.client.utils.URIBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +98,11 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
+    }
+
+    public String getUserMailtoLink(int userId) throws ServiceException {
+        User user = getUser(userId);
+        return new URIBuilder().setScheme("mailto").setPath(user.getEmail()).toString();
     }
 
 }
