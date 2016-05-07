@@ -23,7 +23,7 @@
 
   <body class="login-page">
   
-	<s:form name="signInForm" action="submitSignIn" method="POST">
+	<s:form name="signInForm" action="submitSignin" method="POST">
 
     <main>
 		<br><br><br>

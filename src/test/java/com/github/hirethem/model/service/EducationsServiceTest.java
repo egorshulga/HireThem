@@ -56,7 +56,7 @@ public class EducationsServiceTest {
 
         userService.createNewUser(email, userType, name, surname, password);
         userId = userService.getUserId(email, userType);
-        resumeService.createResume(userId, summary, resumeDescription, skills, interests, contactInfo, references);
+        resumeService.createResume(userId, summary, resumeDescription, skills, interests, references);
         resumeId = resumeService.findResumesUsingSummary(summary).get(0).getId();
         educationsService.createEducation(resumeId, university, startDate, endDate, specialty, degree, description);
         educationId = educationsService.getEducations(resumeId).get(0).getId();

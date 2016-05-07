@@ -6,15 +6,19 @@ import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.Cookie;
 
 /**
- * Created by egors.
+ * Created by egorshulga.
  */
 public class CookieDao {
 
     public String get(String key) throws ServiceException {
-        for(Cookie cookie : ServletActionContext.getRequest().getCookies()) {
-            if (cookie.getName().equals(key)) {
-                return cookie.getValue();
+        try {
+            for (Cookie cookie : ServletActionContext.getRequest().getCookies()) {
+                if (cookie.getName().equals(key)) {
+                    return cookie.getValue();
+                }
             }
+        } catch (NullPointerException e ) {
+            throw new ServiceException("Cookie not found", e);
         }
         throw new ServiceException("Cookie not found");
     }

@@ -28,12 +28,12 @@
         </global-results>
 
         <action name="">
-            <result type="redirectAction">home</result>
+            <result type="redirectAction">index</result>
         </action>
-
-        <action name="home" class="com.github.hirethem.action.HomeAction">
+        <action name="index" class="com.github.hirethem.action.IndexAction">
             <result>/content/index.jsp</result>
         </action>
+
 
         <action name="login" class="com.github.hirethem.action.LoginAction" method="input">
             <result name="input">/content/login.jsp</result>
@@ -44,26 +44,27 @@
             <result name="input">/content/login.jsp</result>
         </action>
 
-        <action name="signin" class="com.github.hirethem.action.SignInAction" method="input">
+
+        <action name="signin" class="com.github.hirethem.action.SigninAction" method="input">
             <result name="input">/content/signin.jsp</result>
         </action>
-        <action name="submitSignIn" class="com.github.hirethem.action.SignInAction">
+        <action name="submitSignin" class="com.github.hirethem.action.SigninAction">
             <result type="redirectAction">profile</result>
             <result name="input">/content/signin.jsp</result>
         </action>
 
-        <action name="logout" class="com.github.hirethem.action.LogoutAction">
-            <result type="redirectAction">home</result>
-        </action>
 
-        <action name="profile" class="com.github.hirethem.action.ProfileAction">
+        <action name="profile" class="com.github.hirethem.action.profile.ProfileAction">
             <result>/content/profile.jsp</result>
         </action>
+        <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction">
+            <result>/content/profile.jsp</result>
+        </action>
+
 
         <action name="about" class="com.github.hirethem.action.PagesAction" method="about">
             <result name="about">/content/about.jsp</result>
         </action>
-
         <action name="contact" class="com.github.hirethem.action.PagesAction" method="contact">
             <result name="contact">/content/contact.jsp</result>
         </action>
@@ -71,6 +72,27 @@
             <result name="faq">/content/faq.jsp</result>
         </action>
 
+
+        <action name="browseResumes" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="input">
+            <result name="input">/content/resume-list.jsp</result>
+        </action>
+        <action name="browseResumesBySummary" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchBySummary">
+            <result>/content/resume-list.jsp</result>
+        </action>
+        <action name="browseResumesBySkills" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchBySkills">
+            <result>/content/resume-list.jsp</result>
+        </action>
+        <action name="browseResumesByEducation" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchByEducation">
+            <result>/content/resume-list.jsp</result>
+        </action>
+        <action name="browseResumesByExperience" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchByExperience">
+            <result>/content/resume-list.jsp</result>
+        </action>
+
+
+        <action name="logout" class="com.github.hirethem.action.LogoutAction">
+            <result type="redirectAction">index</result>
+        </action>
     </package>
 
 </struts>

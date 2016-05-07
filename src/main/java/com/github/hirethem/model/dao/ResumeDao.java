@@ -30,7 +30,7 @@ public class ResumeDao extends HibernateDao {
     }
 
     public void modifyResume(int resumeId, String summary, String description, String skills,
-                             String interests, String contactInfo, String references) {
+                             String interests, String references) {
         session.beginTransaction();
 
         Resume resume = session.get(Resume.class, resumeId);
@@ -38,7 +38,6 @@ public class ResumeDao extends HibernateDao {
         resume.setDescription(description);
         resume.setSkills(skills);
         resume.setInterests(interests);
-        resume.setContactInfo(contactInfo);
         resume.setReferences(references);
 
         session.getTransaction().commit();

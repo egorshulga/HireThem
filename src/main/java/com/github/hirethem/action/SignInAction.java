@@ -12,14 +12,14 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import java.util.List;
 
-import static com.github.hirethem.action.Message.EMPTY_FIELD;
-import static com.github.hirethem.action.Message.SUCH_USER_REGISTERED;
-import static com.github.hirethem.action.Message.WRONG_EMAIL_FORMAT;
+import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
+import static com.github.hirethem.constants.ActionMessages.SUCH_USER_REGISTERED;
+import static com.github.hirethem.constants.ActionMessages.WRONG_EMAIL_FORMAT;
 
 /**
  * Created by egors.
  */
-public class SignInAction extends ActionSupport {
+public class SigninAction extends ActionSupport {
 
     private String email;
     private String password;

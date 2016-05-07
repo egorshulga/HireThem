@@ -25,7 +25,6 @@ public class ResumeTest {
     public void setUp() throws Exception {
         resume = new Resume();
         resume.setEmployee(new User());
-        resume.setContactInfo(contactInfo);
         resume.setSummary(summary);
         resume.setDescription(description);
         resume.setInterests(interests);
@@ -45,10 +44,6 @@ public class ResumeTest {
         assertNotNull(resume.getEmployee());
     }
 
-    @Test
-    public void getContactInfo() throws Exception {
-        assertEquals(resume.getContactInfo(), contactInfo);
-    }
 
     @Test
     public void getSummary() throws Exception {

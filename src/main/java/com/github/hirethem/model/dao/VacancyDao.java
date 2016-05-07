@@ -30,8 +30,7 @@ public class VacancyDao extends HibernateDao {
     }
 
     public void modifyVacancy(int vacancyId, String title, String summary, String description,
-                              String salary, String requiredExperience, String requiredSkills,
-                              String contactInfo) {
+                              String salary, String requiredExperience, String requiredSkills) {
         session.beginTransaction();
 
         Vacancy vacancy = session.get(Vacancy.class, vacancyId);
@@ -41,7 +40,6 @@ public class VacancyDao extends HibernateDao {
         vacancy.setSalary(salary);
         vacancy.setRequiredExperience(requiredExperience);
         vacancy.setRequiredSkills(requiredSkills);
-        vacancy.setContactInfo(contactInfo);
 
         session.getTransaction().commit();
     }

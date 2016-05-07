@@ -45,8 +45,8 @@ public class VacancyServiceTest {
 
         userService.createNewUser(email, userType, name, surname, password);
         int userId = userService.getUserId(email, userType);
-        vacancyService.createVacancy(userId, title, summary, description, salary, requiredExperience, requiredSkills,
-                contactInfo);
+        vacancyService.createVacancy(userId, title, summary, description, salary, requiredExperience, requiredSkills
+        );
     }
 
     @After
@@ -58,15 +58,15 @@ public class VacancyServiceTest {
     public void deleteAndCreateVacancy() throws Exception {
         Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
         vacancyService.deleteVacancy(vacancy.getId());
-        vacancyService.createVacancy(userService.getUserId(email, userType), title, summary, description, salary, requiredExperience, requiredSkills,
-                contactInfo);
+        vacancyService.createVacancy(userService.getUserId(email, userType), title, summary, description, salary, requiredExperience, requiredSkills
+        );
     }
 
     @Test
     public void modifyVacancy() throws Exception {
         String nothing = "nothing";
         Vacancy vacancy = vacancyService.findVacanciesUsingTitle(title).get(0);
-        vacancyService.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing, nothing);
+        vacancyService.modifyVacancy(vacancy.getId(), nothing, nothing, nothing, nothing, nothing, nothing);
         vacancy = vacancyService.findVacanciesUsingTitle(nothing).get(0);
         assertEquals(vacancy.getTitle(), nothing);
         assertEquals(vacancy.getSummary(), nothing);
@@ -74,7 +74,6 @@ public class VacancyServiceTest {
         assertEquals(vacancy.getSalary(), nothing);
         assertEquals(vacancy.getRequiredExperience(), nothing);
         assertEquals(vacancy.getRequiredSkills(), nothing);
-        assertEquals(vacancy.getContactInfo(), nothing);
     }
 
     @Test

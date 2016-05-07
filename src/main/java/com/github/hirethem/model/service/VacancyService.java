@@ -18,8 +18,7 @@ public class VacancyService {
     private VacancyDao vacancyDao = new VacancyDao();
 
     public void createVacancy(int userId, String title, String summary, String description,
-                              String salary, String requiredExperience, String requiredSkills,
-                              String contactInfo) throws ServiceException {
+                              String salary, String requiredExperience, String requiredSkills) throws ServiceException {
         Vacancy vacancy = new Vacancy();
         vacancy.setTitle(title);
         vacancy.setSummary(summary);
@@ -27,7 +26,6 @@ public class VacancyService {
         vacancy.setSalary(salary);
         vacancy.setRequiredExperience(requiredExperience);
         vacancy.setRequiredSkills(requiredSkills);
-        vacancy.setContactInfo(contactInfo);
 
         User currentUser = userService.getUser(userId);
 
@@ -37,10 +35,9 @@ public class VacancyService {
     }
 
     public void modifyVacancy(int vacancyId, String title, String summary, String description,
-                              String salary, String requiredExperience, String requiredSkills,
-                              String contactInfo) {
+                              String salary, String requiredExperience, String requiredSkills) {
         vacancyDao.modifyVacancy(vacancyId, title, summary, description, salary, requiredExperience,
-                requiredSkills, contactInfo);
+                requiredSkills);
     }
 
     public Vacancy getVacancy(int vacancyId) {
@@ -91,4 +88,15 @@ public class VacancyService {
     }
 
 
+    public List<Vacancy> findResumesUsingTitle(String titleToSearch) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getTitle(), titleToSearch))
+                .collect(Collectors.toList());
+    }
+
+    public List<Vacancy> findResumesUsingSummary(String summaryToSearch) {
+        return vacancyDao.getAllVacancies().stream()
+                .filter(vacancy -> StringUtils.containsIgnoreCase(vacancy.getSummary(), summaryToSearch))
+                .collect(Collectors.toList());
+    }
 }

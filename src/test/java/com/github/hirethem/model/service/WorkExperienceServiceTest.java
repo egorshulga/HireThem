@@ -55,7 +55,7 @@ public class WorkExperienceServiceTest {
 
         userService.createNewUser(email, userType, name, surname, password);
         userId = userService.getUserId(email, userType);
-        resumeService.createResume(userId, summary, resumeDescription, skills, interests, contactInfo, references);
+        resumeService.createResume(userId, summary, resumeDescription, skills, interests, references);
         resumeId = resumeService.findResumesUsingSummary(summary).get(0).getId();
         workExperienceService.createWorkExperience(resumeId, companyName, position, startDate, endDate, description);
         workExperienceId = workExperienceService.getWorkExperiences(resumeId).get(0).getId();

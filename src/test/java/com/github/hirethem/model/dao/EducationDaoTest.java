@@ -57,7 +57,7 @@ public class EducationDaoTest {
 
         userService.createNewUser(email, userType, name, surname, password);
         user = userService.getUser(email, userType);
-        resumeService.createResume(user.getId(), summary, resumeDescription, skills, interests, contactInfo, references);
+        resumeService.createResume(user.getId(), summary, resumeDescription, skills, interests, references);
         resume = resumeService.findResumesUsingSummary(summary).get(0);
 
         educationDao.addEducation(resume, new Education(university, startDate, endDate, specialty, degree, description, resume));
