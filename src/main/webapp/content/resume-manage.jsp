@@ -52,7 +52,7 @@
 
            <!-- Resume detail -->
             <div class="col-xs-12">
-              <a class="item-block" href="employee_profile.jsp">
+              <a class="item-block" href="profile.jsp">
                 <header>
                   <img class="resume-avatar" src="../assets/img/john-cena.jpg" alt="">
                   <div class="hgroup">
@@ -76,7 +76,7 @@
 
 			<!-- Resume detail -->
             <div class="col-xs-12">
-              <a class="item-block" href="employee_profile.jsp">
+              <a class="item-block" href="profile.jsp">
                 <header>
                   <img class="resume-avatar" src="../assets/img/john-cena.jpg" alt="">
                   <div class="hgroup">

@@ -45,7 +45,7 @@
 		  <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" name="surname" class="form-control" placeholder="Your Surname">
+              <input type="text" name="surname" class="form-control" placeholder="Your surname">
             </div>
           </div>
           

@@ -80,6 +80,9 @@
               <div class="form-group">
                 <textarea class="form-control" rows="3" placeholder="Short description about you"></textarea>
               </div>
+			  <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Contact info"></textarea>
+              </div>
             </div>
           </div>
         </div>

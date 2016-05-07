@@ -17,7 +17,7 @@ S[13] = '        <!-- END Logo -->                                              
 S[14] = '                                                                                                  ';
 S[15] = '        <!-- User account -->                                                                     ';
 S[16] = '        <div class="pull-right user-login">                                                       ';
-S[17] = '            <a class="btn btn-sm btn-primary" href="login"/>Login</a> or <a href="/signin"/>register</a>                                 ';
+S[17] = '            <a class="btn btn-sm btn-primary" href="/login"/>Login</a> or <a href="/signin"/>register</a>                                 ';
 S[19] = '        </div>                                                                                    ';
 S[20] = '        <!-- END User account -->                                                                 ';
 S[21] = '                                                                                                  ';
@@ -29,8 +29,8 @@ S[26] = '            </li>                                                      
 S[27] = '            <li>                                                                                  ';
 S[28] = '                <a href="#">Profile</a>                                                           ';
 S[29] = '                <ul>                                                                              ';                                                  
-S[31] = '                    <li><a href="employee_profile.jsp">My profile</a></li>                        ';
-S[32] = '                    <li><a href="employee_edit.jsp">Edit profile</a></li>                         ';
+S[31] = '                    <li><a href="profile.jsp">My profile</a></li>                        ';
+S[32] = '                    <li><a href="employee-edit.jsp">Edit profile</a></li>                         ';
 S[33] = '                    <li><a>Log out</a></li>                                                       ';
 S[34] = '                </ul>                                                                             ';
 S[35] = '            </li>                                                                                 ';
@@ -38,7 +38,7 @@ S[36] = '            <li>                                                       
 S[37] = '                <a href="#">Resume</a>                                                            ';
 S[38] = '                <ul>                                                                              ';
 S[39] = '                    <li><a href="resume-list.jsp">Browse resumes</a></li>                                                ';
-//S[40] = '                    <li><a href="employee_profile.jsp">Resume detail</a></li>                     ';
+//S[40] = '                    <li><a href="employee-profile.jsp">Resume detail</a></li>                     ';
 //S[41] = '                    <li><a href="resume.jsp">Create a resume</a></li>                             ';
 S[42] = '                    <li><a href="resume-manage.jsp">Manage resumes</a></li>                              ';
 S[43] = '                </ul>                                                                             ';
@@ -59,13 +59,13 @@ S[57] = '                    <li><a href="faq.jsp">FAQ</a></li>                 
 S[58] = '                </ul>                                                                             ';
 S[59] = '            </li>                                                                                 ';
 S[60] = '			<li>                                                                                     ';
-S[61] = '                <a href="#">Admin</a>                                                             ';
-S[62] = '                <ul>                                                                              ';
+S[61] = '                <a href="admin.jsp">Admin</a>                                                          ';
+/*S[62] = '                <ul>                                                                              ';
 S[63] = '                    <li><a>Manage users</a></li>                                                  ';
 S[64] = '                    <li><a>Manage resumes</a></li>                                                ';
 S[65] = '                    <li><a>Manage vacancies</a></li>                                              ';
-S[66] = '                </ul>                                                                             ';
-S[67] = '            </li>                                                                                 ';
+S[66] = '                </ul>                                                                             ';*/
+S[67] = '           </li>                                                                                 ';
 S[68] = '        </ul>                                                                                     ';
 S[69] = '        <!-- END Navigation menu -->                                                              ';
 S[70] = '                                                                                                  ';

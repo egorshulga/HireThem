@@ -49,8 +49,8 @@
             <li>
                 <a href="#">Profile</a>
                 <ul>
-                    <li><a href="content/employee_profile.jsp">My profile</a></li>
-                    <li><a href="content/employee_edit.jsp">Edit profile</a></li>
+                    <li><a href="content/profile.jsp">My profile</a></li>
+                    <li><a href="content/employee-edit.jsp">Edit profile</a></li>
                     <li><a>Log out</a></li>
                 </ul>
             </li>
@@ -77,12 +77,7 @@
                 </ul>
             </li>
 			<li>
-                <a href="#">Admin</a>
-                <ul>
-                    <li><a>Manage users</a></li>
-                    <li><a>Manage resumes</a></li>
-                    <li><a>Manage vacancies</a></li>
-                </ul>
+                <a href="content/admin.jsp">Admin</a>
             </li>
         </ul>
         <!-- END Navigation menu -->

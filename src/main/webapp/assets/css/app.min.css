@@ -3420,7 +3420,7 @@ a.btn.disabled,fieldset[disabled] a.btn {
     color: #fff;
     background-color: #337ab7;
     border-color: #2e6da4;
-	text-align:center
+	text-align:center;
 }
 
 .btn-primary.focus,.btn-primary:focus {
@@ -6127,7 +6127,6 @@ button.close {
 }
 
 .modal-dialog {
-    position: relative;
     width: auto;
     margin: 10px;
 }
@@ -6212,7 +6211,7 @@ button.close {
 @media (min-width:768px) {
     .modal-dialog {
         width: 600px;
-        margin: 30px auto;
+        margin: 250px auto;
     }
 
     .modal-content {
