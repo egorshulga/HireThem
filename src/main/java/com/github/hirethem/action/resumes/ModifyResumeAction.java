@@ -1,6 +1,5 @@
 package com.github.hirethem.action.resumes;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
 import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;

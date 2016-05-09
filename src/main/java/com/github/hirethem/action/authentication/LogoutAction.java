@@ -1,6 +1,5 @@
 package com.github.hirethem.action.authentication;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
 import com.github.hirethem.model.service.LogoutService;
 
 /**

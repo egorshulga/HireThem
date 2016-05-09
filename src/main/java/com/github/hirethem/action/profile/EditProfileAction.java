@@ -1,6 +1,5 @@
 package com.github.hirethem.action.profile;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
 import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;

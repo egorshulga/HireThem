@@ -1,6 +1,5 @@
 package com.github.hirethem.action.vacancies;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;

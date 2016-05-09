@@ -1,63 +1,40 @@
 package com.github.hirethem.action.profile;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by egorshulga.
  */
-public class ProfileAction extends AuthorizationRequired {
+@AuthorizeAs()
+public class ProfileAction extends ActionSupport {
 
-    private String name;
-    private String surname;
-    private String about;
-    private String contactInfo;
-    private byte[] avatar;
+    private User user;
+    private String mailToLink;
 
-    public String getName() {
-        return name;
+    public String execute() throws ServiceException {
+        user = new CurrentUserService().getCurrentUserEntity();
+        mailToLink = new UserService().getUserMailtoLink(user.getId());
+        return SUCCESS;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public User getUser() {
+        return user;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getMailToLink() {
+        return mailToLink;
     }
 
-    public String getAbout() {
-        return about;
+    public void setMailToLink(String mailToLink) {
+        this.mailToLink = mailToLink;
     }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-
-    public byte[] getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(byte[] avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getMailtoLink() throws ServiceException {
-        UserService userService = new UserService();
-        return userService.getUserMailtoLink(userService.getUserId(email, userType));
-    }
-
 }
