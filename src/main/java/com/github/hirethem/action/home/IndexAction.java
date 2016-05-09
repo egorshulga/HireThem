@@ -1,4 +1,4 @@
-package com.github.hirethem.action;
+package com.github.hirethem.action.home;
 
 import com.opensymphony.xwork2.ActionSupport;
 

@@ -1,4 +1,4 @@
-package com.github.hirethem.action;
+package com.github.hirethem.action.authentication;
 
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.LoginService;

@@ -1,6 +1,6 @@
 package com.github.hirethem.action.interceptor;
 
-import com.github.hirethem.action.LoginAction;
+import com.github.hirethem.action.authentication.LoginAction;
 import com.github.hirethem.model.service.LoginService;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;

@@ -30,25 +30,25 @@
         <action name="">
             <result type="redirectAction">index</result>
         </action>
-        <action name="index" class="com.github.hirethem.action.IndexAction">
+        <action name="index" class="com.github.hirethem.action.home.IndexAction">
             <result>/content/index.jsp</result>
         </action>
 
 
-        <action name="login" class="com.github.hirethem.action.LoginAction" method="input">
+        <action name="login" class="com.github.hirethem.action.authentication.LoginAction" method="input">
             <result name="input">/content/login.jsp</result>
             <result name="none" type="redirectAction">profile</result>
         </action>
-        <action name="submitLogin" class="com.github.hirethem.action.LoginAction">
+        <action name="submitLogin" class="com.github.hirethem.action.authentication.LoginAction">
             <result type="redirectAction">profile</result>
             <result name="input">/content/login.jsp</result>
         </action>
 
 
-        <action name="signin" class="com.github.hirethem.action.SigninAction" method="input">
+        <action name="signin" class="com.github.hirethem.action.authentication.SigninAction" method="input">
             <result name="input">/content/signin.jsp</result>
         </action>
-        <action name="submitSignin" class="com.github.hirethem.action.SigninAction">
+        <action name="submitSignin" class="com.github.hirethem.action.authentication.SigninAction">
             <result type="redirectAction">profile</result>
             <result name="input">/content/signin.jsp</result>
         </action>
@@ -62,13 +62,13 @@
         </action>
 
 
-        <action name="about" class="com.github.hirethem.action.PagesAction" method="about">
+        <action name="about" class="com.github.hirethem.action.pages.PagesAction" method="about">
             <result name="about">/content/about.jsp</result>
         </action>
-        <action name="contact" class="com.github.hirethem.action.PagesAction" method="contact">
+        <action name="contact" class="com.github.hirethem.action.pages.PagesAction" method="contact">
             <result name="contact">/content/contact.jsp</result>
         </action>
-        <action name="faq" class="com.github.hirethem.action.PagesAction" method="faq">
+        <action name="faq" class="com.github.hirethem.action.pages.PagesAction" method="faq">
             <result name="faq">/content/faq.jsp</result>
         </action>
 
@@ -90,7 +90,7 @@
         </action>
 
 
-        <action name="logout" class="com.github.hirethem.action.LogoutAction">
+        <action name="logout" class="com.github.hirethem.action.authentication.LogoutAction">
             <result type="redirectAction">index</result>
         </action>
     </package>
