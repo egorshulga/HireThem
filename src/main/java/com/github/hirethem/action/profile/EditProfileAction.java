@@ -1,7 +1,10 @@
 package com.github.hirethem.action.profile;
 
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 
 import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
@@ -9,7 +12,7 @@ import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
 /**
  * Created by egorshulga on 05-May-16.
  */
-public class EditProfileAction extends AuthorizationRequired {
+public class EditProfileAction extends ActionSupport {
 
     private String name;
     private String surname;
@@ -23,7 +26,8 @@ public class EditProfileAction extends AuthorizationRequired {
 
     public String execute() {
         try {
-            userService.changeUserInfo(email, userType, name, surname, about, contactInfo, avatar);
+            User user = new CurrentUserService().getCurrentUserEntity();
+            userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
         } catch (ServiceException ignored) { }
         return SUCCESS;
     }

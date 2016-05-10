@@ -2,11 +2,12 @@ package com.github.hirethem.action.vacancies;
 
 import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.VacancyService;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ModifyVacancyAction extends AuthorizationRequired{
+public class ModifyVacancyAction extends ActionSupport {
 
     private String title;
     private String summary;

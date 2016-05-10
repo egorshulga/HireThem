@@ -14,7 +14,7 @@
 
 
 
-    <package name="main" extends="struts-default, json-default">
+    <package name="main" extends="struts-default, json-default" namespace="/">
         <interceptors>
             <interceptor name="authorize" class="com.github.hirethem.action.interceptor.AuthorizationInterceptor" />
 
@@ -32,7 +32,7 @@
         <default-action-ref name="index"/>
 
         <action name="index" class="com.github.hirethem.action.home.IndexAction">
-            <result name="success">/сontent/index.jsp</result>
+            <result name="success">/content/index.jsp</result>
         </action>
     </package>
 

@@ -4,6 +4,7 @@ import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.ResumeService;
+import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ModifyResumeAction extends AuthorizationRequired {
+public class ModifyResumeAction extends ActionSupport {
 
     private int resumeId;
 

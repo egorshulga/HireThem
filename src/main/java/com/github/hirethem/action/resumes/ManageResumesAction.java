@@ -5,13 +5,14 @@ import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.ResumeService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;
 
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ManageResumesAction extends AuthorizationRequired {
+public class ManageResumesAction extends ActionSupport {
 
     private List<Resume> resumes;
     private User currentUser;
