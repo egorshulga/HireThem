@@ -6,15 +6,13 @@
 
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <constant name="struts.devMode" value="true"/>
-
     <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper" />
-
     <constant name="struts.enable.SlashesInActionNames" value="true" />
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
 
 
 
-    <package name="main" extends="struts-default, json-default" namespace="/">
+    <package name="main" extends="json-default" namespace="/">
         <interceptors>
             <interceptor name="authorize" class="com.github.hirethem.action.interceptor.AuthorizationInterceptor" />
 
@@ -46,10 +44,29 @@
         </interceptors>
         <default-interceptor-ref name="myJsonDefaultStack" />
 
+
+        <action name="submitLogin" class="com.github.hirethem.action.authentication.LoginAction">
+            <result type="json"/>
+        </action>
+        <action name="submitSignin" class="com.github.hirethem.action.authentication.SigninAction">
+            <result type="json"/>
+        </action>
+
+
         <action name="profile" class="com.github.hirethem.action.profile.ProfileAction" >
             <result type="json"/>
-            <param name="noCache">true</param>
         </action>
+
+
+        <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction" method="input">
+            <result type="json"/>
+        </action>
+        <action name="submitEditProfile" class="com.github.hirethem.action.profile.EditProfileAction">
+            <result type="json"/>
+        </action>
+
+
+        
 
     </package>
 

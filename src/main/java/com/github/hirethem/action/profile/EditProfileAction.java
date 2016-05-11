@@ -2,10 +2,13 @@ package com.github.hirethem.action.profile;
 
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
+import com.github.hirethem.model.service.LoginService;
 import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+
+import java.util.List;
 
 import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
 
@@ -14,6 +17,8 @@ import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
  */
 public class EditProfileAction extends ActionSupport {
 
+    private String email;
+    private User.UserType userType;
     private String name;
     private String surname;
     private String about;
@@ -22,14 +27,43 @@ public class EditProfileAction extends ActionSupport {
     private String oldPassword;
     private String newPassword;
 
+    private List<String> errorMessages;
+
     private UserServiceWithAuthorization userService = new UserServiceWithAuthorization();
+
+    public String input() {
+        try {
+            User user = new CurrentUserService().getCurrentUserEntity();
+            email = user.getEmail();
+            userType = user.getUserType();
+            name = user.getName();
+            surname = user.getSurname();
+            about = user.getAbout();
+            contactInfo = user.getContactInfo();
+            avatar = user.getAvatar();
+        } catch (ServiceException e) {
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
     public String execute() {
         try {
             User user = new CurrentUserService().getCurrentUserEntity();
             userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
-        } catch (ServiceException ignored) { }
+        } catch (ServiceException ignored) {
+            return ERROR;
+        }
         return SUCCESS;
+    }
+
+    public void validate() {
+        try {
+            new LoginService().tryAuthenticateUser(email, oldPassword, userType);
+        } catch (ServiceException e) {
+            addActionError(e.getMessage()); //this is for struts: if an error message is added, execute method won't be executed
+            errorMessages.add(e.getMessage());     //this is for client: retrieve it in client javascript code
+        }
     }
 
     @RequiredStringValidator(message = EMPTY_FIELD)
@@ -88,5 +122,30 @@ public class EditProfileAction extends ActionSupport {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User.UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(User.UserType userType) {
+        this.userType = userType;
+    }
+
+    @Override
+    public List<String> getErrorMessages() {
+        return errorMessages;
+    }
+
+    public void setErrorMessages(List<String> errorMessages) {
+        this.errorMessages = errorMessages;
     }
 }

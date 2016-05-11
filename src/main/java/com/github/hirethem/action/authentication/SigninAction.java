@@ -27,6 +27,8 @@ public class SigninAction extends ActionSupport {
     private String surname;
     private User.UserType userType;
 
+    private List<String> errorMessages;
+
     private UserService userService = new UserService();
 
     public String input() {
@@ -37,6 +39,7 @@ public class SigninAction extends ActionSupport {
         try {
             userService.createNewUser(email, userType, name, surname, password);
         } catch (ServiceException e) {
+            errorMessages.add(e.getMessage());
             return INPUT;
         }
 
@@ -47,6 +50,7 @@ public class SigninAction extends ActionSupport {
     public void validate() {
         if (userService.isSuchUserRegistered(email, userType)) {
             addFieldError("email", SUCH_USER_REGISTERED);
+            errorMessages.add(SUCH_USER_REGISTERED);
         }
     }
 
