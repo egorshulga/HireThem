@@ -2,3 +2,4 @@
 out/
 target/
 *.pdf
+src/main/webapp/index.html
