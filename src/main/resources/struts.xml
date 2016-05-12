@@ -90,6 +90,23 @@
         </action>
 
 
+        <action name="browseVacancies" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="input">
+            <result name="input">/content/vacancy-list.jsp</result>
+        </action>
+        <action name="browseVacanciesByTitle" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesByTitle">
+            <result>/content/vacancy-list.jsp</result>
+        </action>
+        <action name="browseVacanciesBySummary" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesBySummary">
+            <result>/content/vacancy-list.jsp</result>
+        </action>
+        <action name="browseVacanciesBySkills" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesBySkills">
+            <result>/content/vacancy-list.jsp</result>
+        </action>
+        <action name="browseVacanciesByExperience" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesByExperience">
+            <result>/content/vacancy-list.jsp</result>
+        </action>
+
+
         <action name="manageVacancies" class="com.github.hirethem.action.vacancies.ManageVacanciesAction" method="input">
             <result>/content/vacancy-manage.jsp</result>
         </action>
