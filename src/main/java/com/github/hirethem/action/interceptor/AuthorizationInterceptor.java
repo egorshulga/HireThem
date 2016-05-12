@@ -2,6 +2,7 @@ package com.github.hirethem.action.interceptor;
 
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,13 @@ public class AuthorizationInterceptor extends AbstractInterceptor {
             return invocation.invoke();
         } else {
             CurrentUserService service = new CurrentUserService();
-            User user = service.getCurrentUserEntity();
+            User user = null;
+            try {
+                user = service.getCurrentUserEntity();
+            } catch (ServiceException e) {
+                return "loginRedirect";
+            }
+
             if (user.isAdmin()) {
                 return invocation.invoke();
             }
