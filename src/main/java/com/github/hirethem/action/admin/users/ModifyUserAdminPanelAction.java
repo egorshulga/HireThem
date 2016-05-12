@@ -2,6 +2,7 @@ package com.github.hirethem.action.admin.users;
 
 import com.github.hirethem.action.profile.EditProfileAction;
 import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
@@ -13,6 +14,18 @@ public class ModifyUserAdminPanelAction extends EditProfileAction {
 
     private int userId;
     private boolean isAdmin;
+
+    public String input() throws ServiceException {
+        User user = new CurrentUserService().getCurrentUserEntity();
+        name = user.getName();
+        surname = user.getSurname();
+        about = user.getAbout();
+        contactInfo = user.getContactInfo();
+        avatar = user.getAvatar();
+        userId = user.getId();
+        isAdmin = user.isAdmin();
+        return INPUT;
+    }
 
     public String execute() {
         try {
