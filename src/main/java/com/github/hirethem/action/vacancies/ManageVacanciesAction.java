@@ -1,28 +1,37 @@
 package com.github.hirethem.action.vacancies;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.CurrentUserService;
+import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;
 
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ManageVacanciesAction extends AuthorizationRequired{
+@AuthorizeAs(userType = "EMPLOYER")
+public class ManageVacanciesAction extends ActionSupport {
 
     private User user;
-    private List<Vacancy> vacancies;
+    protected List<Vacancy> vacancies;
+    private int chosenVacancyId;
 
-    public String execute() {
+    public String input() {
         try {
             user = new CurrentUserService().getCurrentUserEntity();
             vacancies = new VacancyService().getVacancies(user.getId());
         } catch (ServiceException ignored) {
         }
+        return SUCCESS;
+    }
+
+    public String execute() {
+        new SessionService().put("chosenVacancyId", chosenVacancyId);
         return SUCCESS;
     }
 
@@ -40,5 +49,13 @@ public class ManageVacanciesAction extends AuthorizationRequired{
 
     public void setVacancies(List<Vacancy> vacancies) {
         this.vacancies = vacancies;
+    }
+
+    public int getChosenVacancyId() {
+        return chosenVacancyId;
+    }
+
+    public void setChosenVacancyId(int chosenVacancyId) {
+        this.chosenVacancyId = chosenVacancyId;
     }
 }

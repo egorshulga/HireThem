@@ -1,13 +1,16 @@
 package com.github.hirethem.action.vacancies;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.Vacancy;
+import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.VacancyService;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ModifyVacancyAction extends AuthorizationRequired{
+@AuthorizeAs(userType = "EMPLOYER")
+public class ModifyVacancyAction extends ActionSupport {
 
     private String title;
     private String summary;
@@ -19,6 +22,7 @@ public class ModifyVacancyAction extends AuthorizationRequired{
     private int vacancyId;
 
     public String input() {
+        vacancyId = (int) new SessionService().getValue("chosenVacancyId");
         Vacancy vacancy = new VacancyService().getVacancy(vacancyId);
         title = vacancy.getTitle();
         summary = vacancy.getSummary();

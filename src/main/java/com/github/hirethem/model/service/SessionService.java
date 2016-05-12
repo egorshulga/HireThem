@@ -24,7 +24,7 @@ public class SessionService {
     }
 
     public boolean sessionContainsToken(String token) {
-            return sessionDao.containsKey(token);
+            return sessionDao.containsValue(token);
     }
 
     public String getUserToken(int id) throws ServiceException {
@@ -39,5 +39,16 @@ public class SessionService {
         sessionDao.remove(Integer.toString(id));
     }
 
+    public void put(String key, Object value) {
+        sessionDao.put(key, value);
+    }
+
+    public boolean contains(Object value) {
+        return sessionDao.containsValue(value);
+    }
+
+    public Object getValue(String key) {
+        return sessionDao.getValue(key);
+    }
 }
 

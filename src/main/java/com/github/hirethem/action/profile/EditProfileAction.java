@@ -1,8 +1,11 @@
 package com.github.hirethem.action.profile;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 
 import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
@@ -10,13 +13,14 @@ import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
 /**
  * Created by egorshulga on 05-May-16.
  */
-public class EditProfileAction extends AuthorizationRequired {
+@AuthorizeAs
+public class EditProfileAction extends ActionSupport {
 
-    private String name;
-    private String surname;
-    private String about;
-    private String contactInfo;
-    private byte[] avatar;
+    protected String name;
+    protected String surname;
+    protected String about;
+    protected String contactInfo;
+    protected byte[] avatar;
     private String oldPassword;
     private String newPassword;
 
@@ -24,7 +28,8 @@ public class EditProfileAction extends AuthorizationRequired {
 
     public String execute() {
         try {
-            userService.changeUserInfo(email, userType, name, surname, about, contactInfo, avatar);
+            User user = new CurrentUserService().getCurrentUserEntity();
+            userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
         } catch (ServiceException ignored) { }
         return SUCCESS;
     }
