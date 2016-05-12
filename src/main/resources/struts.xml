@@ -150,7 +150,7 @@
         <action name="editResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction" method="input">
             <result name="input">/content/resume.jsp</result>
         </action>
-        <action name="submitEditResume" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction">
+        <action name="submitEditResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction">
             <result name="success">/content/resume-manage.jsp</result>
         </action>
         <action name="addNewResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="input">
@@ -167,7 +167,7 @@
         <action name="editVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction" method="input">
             <result name="input">/content/vacancy.jsp</result>
         </action>
-        <action name="submitEditVacancy" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
+        <action name="submitEditVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
             <result name="success">/content/vacancy-manage.jsp</result>
         </action>
         <action name="addNewVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="input">
