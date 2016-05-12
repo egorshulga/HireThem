@@ -117,35 +117,35 @@
 
             <div class="col-xs-12 col-sm-12">
               <div class="form-group">
-                <input type="text" class="form-control input-lg" value="<s:property value="name"/>" >
+                <input type="text" name="name" class="form-control input-lg" value="<s:property value="name"/>" >
               </div>
 			  
 			  <div class="form-group">
-                <input type="text" class="form-control input-lg" value="<s:property value="surname"/>">
+                <input type="text" name="surname" class="form-control input-lg" value="<s:property value="surname"/>" >
               </div>
 			   <div class="form-group">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" class="form-control" value="<s:property value="email"/>" disabled>
+                    <input type="text" name="email" class="form-control" value="<s:property value="email"/>" disabled >
                   </div>
 			   </div>
 			   <div class="form-group">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="ti-unlock"></i></span>
-					<input type="password" class="form-control" placeholder="Old password" name="password">
+					<input type="password" class="form-control" placeholder="Old password" name="oldPassword">
                   </div>
 			   </div>
 			   <div class="form-group">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="ti-unlock"></i></span>
-					<input type="password" class="form-control" placeholder="New password" name="password">
+					<input type="password" class="form-control" placeholder="New password" name="newPassword">
                   </div>
 			   </div>
               <div class="form-group">
-                <textarea class="form-control" rows="3" ><s:property value="about"/></textarea>
+                <textarea name="about" class="form-control" rows="3" ><s:property value="about"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea class="form-control" rows="3" ><s:property value="contactInfo"/></textarea>
+                <textarea name="contactInfo" class="form-control" rows="3" ><s:property value="contactInfo"/></textarea>
               </div>
             </div>
           </div>
