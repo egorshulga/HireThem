@@ -1,14 +1,16 @@
 package com.github.hirethem.action.vacancies;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class CreateVacancyAction extends AuthorizationRequired {
+@AuthorizeAs(userType = "EMPLOYER")
+public class CreateVacancyAction extends ActionSupport {
 
     private String title;
     private String summary;

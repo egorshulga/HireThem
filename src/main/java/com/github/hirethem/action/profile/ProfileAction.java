@@ -1,19 +1,37 @@
 package com.github.hirethem.action.profile;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by egorshulga.
  */
-public class ProfileAction extends AuthorizationRequired {
+@AuthorizeAs
+public class ProfileAction extends ActionSupport {
 
+    private String email;
+    private User.UserType userType;
     private String name;
     private String surname;
     private String about;
     private String contactInfo;
     private byte[] avatar;
+
+    public String input() throws ServiceException {
+        User user = new CurrentUserService().getCurrentUserEntity();
+        name = user.getName();
+        surname = user.getSurname();
+        about = user.getAbout();
+        contactInfo = user.getContactInfo();
+        avatar = user.getAvatar();
+        email = user.getEmail();
+        userType = user.getUserType();
+        return SUCCESS;
+    }
 
     public String getName() {
         return name;
@@ -57,7 +75,23 @@ public class ProfileAction extends AuthorizationRequired {
 
     public String getMailtoLink() throws ServiceException {
         UserService userService = new UserService();
-        return userService.getUserMailtoLink(userService.getUserId(email, userType));
+        User user = new CurrentUserService().getCurrentUserEntity();
+        return userService.getUserMailtoLink(userService.getUserId(user.getEmail(), user.getUserType()));
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User.UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(User.UserType userType) {
+        this.userType = userType;
+    }
 }

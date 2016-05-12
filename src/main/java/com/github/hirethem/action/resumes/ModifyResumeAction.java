@@ -1,10 +1,11 @@
 package com.github.hirethem.action.resumes;
 
-import com.github.hirethem.action.interceptor.AuthorizationRequired;
+import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.ResumeService;
+import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,8 @@ import java.util.List;
 /**
  * Created by egorshulga on 06-May-16.
  */
-public class ModifyResumeAction extends AuthorizationRequired {
+@AuthorizeAs(userType = "EMPLOYEE")
+public class ModifyResumeAction extends ActionSupport {
 
     private int resumeId;
 

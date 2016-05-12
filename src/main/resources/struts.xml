@@ -54,11 +54,11 @@
         </action>
 
 
-        <action name="profile" class="com.github.hirethem.action.profile.ProfileAction">
+        <action name="profile" class="com.github.hirethem.action.profile.ProfileAction" method="input">
             <result>/content/profile.jsp</result>
         </action>
         <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction">
-            <result>/content/profile.jsp</result>
+            <result>/content/employee-edit.jsp</result>
         </action>
 
 
@@ -90,6 +90,91 @@
         </action>
 
 
+        <action name="manageVacancies" class="com.github.hirethem.action.vacancies.ManageVacanciesAction" method="input">
+            <result>/content/vacancy-manage.jsp</result>
+        </action>
+        <action name="editVacancy" class="com.github.hirethem.action.vacancies.ModifyVacancyAction" method="input">
+            <result name="input">/content/vacancy.jsp</result>
+        </action>
+        <action name="submitEditVacancy" class="com.github.hirethem.action.vacancies.ModifyVacancyAction" method="execute">
+            <result>/content/vacancy-manage.jsp</result>
+        </action>
+        <action name="addNewVacancy" class="com.github.hirethem.action.vacancies.CreateVacancyAction" method="input">
+            <result name="input">/content/vacancy.jsp</result>
+        </action>
+        <action name="submitVacancy" class="com.github.hirethem.action.vacancies.CreateVacancyAction" method="execute">
+            <result>/content/vacancy-manage.jsp</result>
+        </action>
+
+
+        <action name="manageResumes" class="com.github.hirethem.action.resumes.ManageResumesAction" method="input">
+            <result>/content/resume-manage.jsp</result>
+        </action>
+        <action name="editResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="input">
+            <result name="input">/content/resume.jsp</result>
+        </action>
+        <action name="submitEditResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="execute">
+            <result>/content/resume-manage.jsp</result>
+        </action>
+        <action name="addNewResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="input">
+            <result name="input">/content/resume.jsp</result>
+        </action>
+        <action name="submitResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="execute">
+            <result>/content/resume-manage.jsp</result>
+        </action>
+
+
+        <action name="manageResumesAdmin" class="com.github.hirethem.action.admin.resumes.ManageResumesAdminPanelAction" method="input">
+            <result name="input">/content/resume-manage.jsp</result>
+        </action>
+        <action name="editResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction" method="input">
+            <result name="input">/content/resume.jsp</result>
+        </action>
+        <action name="submitEditResume" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction">
+            <result name="success">/content/resume-manage.jsp</result>
+        </action>
+        <action name="addNewResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="input">
+            <result name="input">/content/resume.jsp</result>
+        </action>
+        <action name="submitResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="execute">
+            <result name="success">/content/resume-manage.jsp</result>
+        </action>
+
+
+        <action name="manageVacanciesAdmin" class="com.github.hirethem.action.admin.vacancies.ManageVacanciesAdminPanelAction" method="input">
+            <result name="input">/content/vacancy-manage.jsp</result>
+        </action>
+        <action name="editVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction" method="input">
+            <result name="input">/content/vacancy.jsp</result>
+        </action>
+        <action name="submitEditVacancy" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
+            <result name="success">/content/vacancy-manage.jsp</result>
+        </action>
+        <action name="addNewVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="input">
+            <result name="input">/content/vacancy.jsp</result>
+        </action>
+        <action name="submitVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="execute">
+            <result name="success">/content/vacancy-manage.jsp</result>
+        </action>
+
+
+        <action name="manageUsersAdmin" class="com.github.hirethem.action.admin.users.ManageUsersAdminPanelAction" method="input">
+            <result name="input">/content/???</result>
+        </action>
+        <action name="editUserAdmin" class="com.github.hirethem.action.admin.users.ModifyUserAdminPanelAction" method="input">
+            <result name="input">/content/???</result>
+        </action>
+        <action name="submitEditUserAdmin" class="com.github.hirethem.action.admin.users.ModifyUserAdminPanelAction">
+            <result name="success">/content/???</result>
+        </action>
+        <action name="addNewUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="input">
+            <result name="input">/content/???</result>
+        </action>
+        <action name="submitUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="execute">
+            <result name="success">/content/???</result>
+        </action>
+
+        
         <action name="logout" class="com.github.hirethem.action.authentication.LogoutAction">
             <result type="redirectAction">index</result>
         </action>

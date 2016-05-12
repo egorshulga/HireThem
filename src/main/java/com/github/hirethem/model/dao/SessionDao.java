@@ -19,7 +19,7 @@ public class SessionDao {
         return sessionMap.get(key);
     }
 
-    public boolean containsKey(Object value) {
+    public boolean containsValue(Object value) {
         return sessionMap.containsValue(value);
     }
 
