@@ -40,7 +40,7 @@ public class LoginAction extends ActionSupport {
                 StringUtils.isBlank(email)) {
             addActionError("Empty fields are not allowed");
         }
-        if (EmailValidator.getInstance().isValid(email)) {
+        if (!EmailValidator.getInstance().isValid(email)) {
             addActionError("Wrong email is provided");
         }
         try {

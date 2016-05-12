@@ -1,6 +1,6 @@
 var S = new Array (); 
 
-S[0] = '<footer class="site-footer">                                                                                            ';
+S[0] = ' <footer class="site-footer">                                                                                            ';
 S[1] = '    <!-- Top section -->                                                                                                ';
 S[2] = '    <div class="container">                                                                                             ';
 S[3] = '        <div class="row">                                                                                               ';
@@ -40,6 +40,6 @@ S[36] = '                </ul>                                                  
 S[37] = '            </div>                                                                                                      ';
 S[38] = '        </div>                                                                                                          ';
 S[39] = '    </div>                                                                                                              ';
-S[40] = '</footer>                                                                                                               ';
+S[40] = ' </footer>                                                                                                               ';
 
 with (document) {open (); write (S.join ('\n')); close ()}

@@ -61,13 +61,13 @@
 			<h6>Log in as</h6>	
 			<div class="col-md-5">	
 				<div class="radio">
-					<input type="radio" name="userType" id="submitLogin_userTypeemployee" checked="checked" value="employee"/>
+					<input type="radio" name="userType" id="submitLogin_userTypeemployee" checked="checked" value="EMPLOYEE"/>
 					<label for="submitLogin_userTypeemployee">Employee</label>
 				</div>
 			</div>
 			<div class="col-md-5">
 				<div class="radio">
-					<input type="radio" name="userType" id="submitLogin_userTypeemployer" value="employer"/>
+					<input type="radio" name="userType" id="submitLogin_userTypeemployer" value="EMPLOYER"/>
 					<label for="submitLogin_userTypeemployer">Employer</label>
 				</div>
 			</div>

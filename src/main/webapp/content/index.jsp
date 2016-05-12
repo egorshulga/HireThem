@@ -49,9 +49,9 @@
             <li>
                 <a href="#">Profile</a>
                 <ul>
-                    <li><a href="content/profile.jsp">My profile</a></li>
-                    <li><a href="content/employee-edit.jsp">Edit profile</a></li>
-                    <li><a>Log out</a></li>
+                    <li><a href="profile">My profile</a></li>
+                    <li><a href="editProfile">Edit profile</a></li>
+                    <li><a href="logout">Log out</a></li>
                 </ul>
             </li>
             <li>
