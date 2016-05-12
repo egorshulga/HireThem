@@ -57,8 +57,11 @@
         <action name="profile" class="com.github.hirethem.action.profile.ProfileAction" method="input">
             <result>/content/profile.jsp</result>
         </action>
-        <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction">
-            <result>/content/employee-edit.jsp</result>
+        <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction" method="input">
+            <result name="input">/content/employee-edit.jsp</result>
+        </action>
+        <action name="submitEditProfile" class="com.github.hirethem.action.profile.EditProfileAction">
+            <result>/content/profile.jsp</result>
         </action>
 
 
