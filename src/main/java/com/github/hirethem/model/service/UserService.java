@@ -105,4 +105,10 @@ public class UserService {
         return new URIBuilder().setScheme("mailto").setPath(user.getEmail()).toString();
     }
 
+    public void changeUserPassword(int id, String newPassword) throws ServiceException {
+        PasswordEncryptionService service = new PasswordEncryptionService();
+        byte[] newPasswordSalt = service.generateSalt();
+        byte[] newPasswordEncrypted = service.getEncryptedPassword(newPassword, newPasswordSalt);
+        userDao.changeUserPassword(id, newPasswordEncrypted, newPasswordSalt);
+    }
 }

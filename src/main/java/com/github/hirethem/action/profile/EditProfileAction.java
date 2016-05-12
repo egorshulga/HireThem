@@ -8,6 +8,7 @@ import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import org.apache.commons.lang3.StringUtils;
 
 import static com.github.hirethem.constants.ActionMessages.EMPTY_FIELD;
 
@@ -22,6 +23,7 @@ public class EditProfileAction extends ActionSupport {
     protected String about;
     protected String contactInfo;
     protected byte[] avatar;
+
     private String oldPassword;
     private String newPassword;
     private String email;
@@ -43,6 +45,9 @@ public class EditProfileAction extends ActionSupport {
         try {
             User user = new CurrentUserService().getCurrentUserEntity();
             userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
+            if (StringUtils.isNotEmpty(newPassword)) {
+                userService.changeUserPassword(user.getId(), newPassword);
+            }
         } catch (ServiceException ignored) {
         }
         return SUCCESS;
@@ -51,7 +56,9 @@ public class EditProfileAction extends ActionSupport {
     public void validate() {
         try {
             User user = new CurrentUserService().getCurrentUserEntity();
-            new LoginService().tryAuthenticateUser(user.getEmail(), oldPassword, user.getUserType());
+            if (StringUtils.isNotEmpty(newPassword)) {
+                new LoginService().tryAuthenticateUser(user.getEmail(), oldPassword, user.getUserType());
+            }
         } catch (ServiceException e) {
             addActionError(e.getMessage());
         }

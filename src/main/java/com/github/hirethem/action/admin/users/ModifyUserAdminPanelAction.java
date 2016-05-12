@@ -6,6 +6,7 @@ import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.UserService;
 import com.github.hirethem.model.service.exception.ServiceException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by egorshulga on 12-May-16.
@@ -36,6 +37,9 @@ public class ModifyUserAdminPanelAction extends EditProfileAction {
                 userService.promoteUser(user.getEmail(), user.getUserType());
             } else {
                 userService.demoteUser(user.getEmail(), user.getUserType());
+            }
+            if (StringUtils.isNotBlank(getNewPassword())) {
+                userService.changeUserPassword(user.getId(), getNewPassword());
             }
         } catch (ServiceException ignored) {
         }
