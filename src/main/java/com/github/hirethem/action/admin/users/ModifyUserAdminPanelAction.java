@@ -12,12 +12,20 @@ import com.github.hirethem.model.service.exception.ServiceException;
 public class ModifyUserAdminPanelAction extends EditProfileAction {
 
     private int userId;
+    private boolean isAdmin;
 
     public String execute() {
         try {
             User user = new UserService().getUser((Integer) new SessionService().getValue("userId"));
-            new UserService().changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
-        } catch (ServiceException ignored) { }
+            UserService userService = new UserService();
+            userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
+            if (isAdmin) {
+                userService.promoteUser(user.getEmail(), user.getUserType());
+            } else {
+                userService.demoteUser(user.getEmail(), user.getUserType());
+            }
+        } catch (ServiceException ignored) {
+        }
         return SUCCESS;
     }
 
@@ -27,5 +35,13 @@ public class ModifyUserAdminPanelAction extends EditProfileAction {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

@@ -14,6 +14,7 @@ public class DeleteUserAdminPanelAction extends ActionSupport {
     public String execute() {
         userId = (int) new SessionService().getValue("userId");
         new UserService().deleteUser(userId);
+        new SessionService().removeUser(userId);
         return SUCCESS;
     }
 
