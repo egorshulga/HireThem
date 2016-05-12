@@ -109,7 +109,6 @@
       <header class="page-header-my">
         <div class="container page-name">
           <h1 class="text-center"> Edit your profile</h1>
-		  <h2><s:property value="name"/></h2>
         </div>
 
         <div class="container">
@@ -118,16 +117,16 @@
 
             <div class="col-xs-12 col-sm-12">
               <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Name" >
+                <input type="text" class="form-control input-lg" value="<s:property value="name"/>" >
               </div>
 			  
 			  <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Surname">
+                <input type="text" class="form-control input-lg" value="<s:property value="surname"/>">
               </div>
 			   <div class="form-group">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" class="form-control" placeholder="cena@gmail.com" disabled>
+                    <input type="text" class="form-control" value="<s:property value="email"/>" disabled>
                   </div>
 			   </div>
 			   <div class="form-group">
@@ -143,10 +142,10 @@
                   </div>
 			   </div>
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Short description about you"></textarea>
+                <textarea class="form-control" rows="3" ><s:property value="about"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Contact info"></textarea>
+                <textarea class="form-control" rows="3" ><s:property value="contactInfo"/></textarea>
               </div>
             </div>
           </div>

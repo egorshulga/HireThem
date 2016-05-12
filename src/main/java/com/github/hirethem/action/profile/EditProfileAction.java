@@ -24,6 +24,7 @@ public class EditProfileAction extends ActionSupport {
     protected byte[] avatar;
     private String oldPassword;
     private String newPassword;
+    private String email;
 
     private UserServiceWithAuthorization userService = new UserServiceWithAuthorization();
 
@@ -34,6 +35,7 @@ public class EditProfileAction extends ActionSupport {
         about = user.getAbout();
         contactInfo = user.getContactInfo();
         avatar = user.getAvatar();
+        email = user.getEmail();
         return INPUT;
     }
 
@@ -111,5 +113,13 @@ public class EditProfileAction extends ActionSupport {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
