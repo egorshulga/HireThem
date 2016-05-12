@@ -3,6 +3,7 @@ package com.github.hirethem.action.profile;
 import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
+import com.github.hirethem.model.service.LoginService;
 import com.github.hirethem.model.service.UserServiceWithAuthorization;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,12 +27,32 @@ public class EditProfileAction extends ActionSupport {
 
     private UserServiceWithAuthorization userService = new UserServiceWithAuthorization();
 
+    public String input() throws ServiceException {
+        User user = new CurrentUserService().getCurrentUserEntity();
+        name = user.getName();
+        surname = user.getSurname();
+        about = user.getAbout();
+        contactInfo = user.getContactInfo();
+        avatar = user.getAvatar();
+        return INPUT;
+    }
+
     public String execute() {
         try {
             User user = new CurrentUserService().getCurrentUserEntity();
             userService.changeUserInfo(user.getEmail(), user.getUserType(), name, surname, about, contactInfo, avatar);
-        } catch (ServiceException ignored) { }
+        } catch (ServiceException ignored) {
+        }
         return SUCCESS;
+    }
+
+    public void validate() {
+        try {
+            User user = new CurrentUserService().getCurrentUserEntity();
+            new LoginService().tryAuthenticateUser(user.getEmail(), oldPassword, user.getUserType());
+        } catch (ServiceException e) {
+            addActionError(e.getMessage());
+        }
     }
 
     @RequiredStringValidator(message = EMPTY_FIELD)
