@@ -31,17 +31,12 @@ public class ModifyResumeAction extends ActionSupport {
         references = resume.getReferences();
         description = resume.getDescription();
         skills = resume.getSkills();
-<<<<<<< HEAD
         if (!resume.getEducations().isEmpty()) {
             education = (Education) resume.getEducations().toArray()[0];
         }
         if (!resume.getWorkExperiences().isEmpty()) {
             workExperience = (WorkExperience) resume.getWorkExperiences().toArray()[0];
         }
-=======
-        educations = new ArrayList<>();
-        workExperiences = new ArrayList<>();
->>>>>>> action-model
         return INPUT;
     }
 
