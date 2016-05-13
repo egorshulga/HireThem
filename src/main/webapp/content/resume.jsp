@@ -84,11 +84,11 @@
                       
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
+                          <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor" value="<s:property value="education.degree"/>">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
+                          <input type="text" class="form-control" placeholder="Major, e.g. Computer Science" value="<s:property value="education.speciality"/>">
                         </div>
                         <div class="form-group">
                           <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">

@@ -8,9 +8,6 @@ import com.github.hirethem.model.service.ResumeService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by egorshulga on 06-May-16.
  */
@@ -24,8 +21,8 @@ public class ModifyResumeAction extends ActionSupport {
     private String references;
     private String description;
     private String skills;
-    private List<Education> educations;             //how to update this???
-    private List<WorkExperience> workExperiences;   //how to update this???
+    private Education education;
+    private WorkExperience workExperience;
 
     public String input() {
         Resume resume = new ResumeService().getResume(resumeId);
@@ -34,8 +31,12 @@ public class ModifyResumeAction extends ActionSupport {
         references = resume.getReferences();
         description = resume.getDescription();
         skills = resume.getSkills();
-        educations = new ArrayList<>(educations);
-        workExperiences = new ArrayList<>(workExperiences);
+        if (!resume.getEducations().isEmpty()) {
+            education = (Education) resume.getEducations().toArray()[0];
+        }
+        if (!resume.getWorkExperiences().isEmpty()) {
+            workExperience = (WorkExperience) resume.getWorkExperiences().toArray()[0];
+        }
         return INPUT;
     }
 
@@ -98,19 +99,19 @@ public class ModifyResumeAction extends ActionSupport {
         this.skills = skills;
     }
 
-    public List<Education> getEducations() {
-        return educations;
+    public Education getEducation() {
+        return education;
     }
 
-    public void setEducations(List<Education> educations) {
-        this.educations = educations;
+    public void setEducation(Education education) {
+        this.education = education;
     }
 
-    public List<WorkExperience> getWorkExperiences() {
-        return workExperiences;
+    public WorkExperience getWorkExperience() {
+        return workExperience;
     }
 
-    public void setWorkExperiences(List<WorkExperience> workExperiences) {
-        this.workExperiences = workExperiences;
+    public void setWorkExperience(WorkExperience workExperience) {
+        this.workExperience = workExperience;
     }
 }

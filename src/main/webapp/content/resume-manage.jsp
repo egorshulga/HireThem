@@ -51,32 +51,41 @@
             </div>
 			
 			<div class="col-xs-12">
-				<s:iterator value="resumes" var="resume"> 
-					<s:property value="id"/>
-				</s:iterator>
+				
+					
+				
+				
 			</div>
-           <!-- Resume detail --
+           <!-- Resume detail -->
+		   <s:iterator value="resumes" var="resume"> 
+		   <s:hidden value="id"/>
             <div class="col-xs-12">
-              <a class="item-block" href="profile.jsp">
+              <a class="item-block">
                 <header>
                   <div class="hgroup">
-                    <h4><s:property value="name"/> <s:property value="surname"/></h4>
-                    <h5><s:property value="userType"/></h5>
+                    <h4><s:property value="currentUser.name"/> <s:property value="currentUser.surname"/></h4>
+                    <h5><s:property value="summary"/></h5>
                   </div>
                 </header>
 
                 <div class="item-body">
-                  <p><s:property value="about"/></p>
+                  <p><s:property value="skills"/></p>
                 </div>
                   <div class="action-btn">
-                    <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
+					<s:url id="editUrl" action="editResume">
+						<s:param name="resumeId" value="%{id}"/>
+					</s:url>
+					<s:url id="deleteUrl" action="deleteResume">
+						<s:param name="resumeId" value="%{id}"/>
+					</s:url>
+                    <s:a class="btn btn-xs btn-gray" href="%{editUrl}">Edit</s:a>
+                    <s:a class="btn btn-xs btn-danger" href="%{deleteUrl}">Delete</s:a>
                   </div>
               </a><br><br>
             </div>
 			
             <!-- END Resume detail -->	
-
+			</s:iterator>
 			
 			
           </div>
