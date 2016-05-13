@@ -5,6 +5,7 @@ import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.VacancyService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by egorshulga on 06-May-16.
@@ -36,6 +37,15 @@ public class ModifyVacancyAction extends ActionSupport {
     public String execute() {
         new VacancyService().modifyVacancy(vacancyId, title, summary, description, salary, requiredExperience, requiredSkills);
         return SUCCESS;
+    }
+
+    public void validate() {
+        if (StringUtils.isEmpty(title)) {
+            addActionError("Title cannot be empty");
+        }
+        if (StringUtils.isEmpty(summary)) {
+            addActionError("Summary cannot be empty");
+        }
     }
 
     public String getTitle() {

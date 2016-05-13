@@ -6,6 +6,7 @@ import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.ResumeService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,12 @@ public class ModifyResumeAction extends ActionSupport {
     public String execute() {
         new ResumeService().modifyResume(resumeId, summary, description, skills, interests, references);
         return SUCCESS;
+    }
+
+    public void validate() {
+        if (StringUtils.isEmpty(summary)) {
+            addActionError("Summary cannot be empty");
+        }
     }
 
     public int getResumeId() {
