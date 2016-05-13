@@ -7,6 +7,7 @@ import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.ResumeService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -32,6 +33,12 @@ public class CreateResumeAction extends ActionSupport {
         } catch (ServiceException ignored) {
         }
         return SUCCESS;
+    }
+
+    public void validate() {
+        if (StringUtils.isEmpty(summary)) {
+            addActionError("Summary cannot be empty");
+        }
     }
 
     public String getDescription() {
