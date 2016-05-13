@@ -9,21 +9,27 @@ import java.util.Map;
  */
 public class SessionDao {
 
-    private static Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+    private static Map<String, Object> sessionMap;
 
-    public void put(String key, Object value) {
+    static  {
+        while (sessionMap == null) {
+            sessionMap = ActionContext.getContext().getSession();
+        }
+    }
+
+    public synchronized void put(String key, Object value) {
         sessionMap.put(key, value);
     }
 
-    public Object getValue(String key) {
+    public synchronized Object getValue(String key) {
         return sessionMap.get(key);
     }
 
-    public boolean containsValue(Object value) {
+    public synchronized boolean containsValue(Object value) {
         return sessionMap.containsValue(value);
     }
 
-    public void remove(String key) {
+    public synchronized void remove(String key) {
         sessionMap.remove(key);
     }
 

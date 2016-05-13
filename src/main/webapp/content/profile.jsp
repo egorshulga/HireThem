@@ -124,7 +124,7 @@
 			<div class="col-sm-10">				
 				<p class="lead"><s:property value="email"/></p>
             </div>
-			<a class="btn btn-success" href="#">Contact me</a>
+			<a class="btn btn-success" href="<s:property value="mailtoLink"/>">Contact me</a>
             
           </div>
         </div>

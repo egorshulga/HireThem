@@ -1,12 +1,13 @@
-<!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %><!doctype html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8"/>
 	<title>Admin Panel</title>
-	
+
 	<link rel="stylesheet" href="../assets/css/layout.css" type="text/css" media="screen" />
-	
+
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,10 +34,10 @@
 	<script type="text/javascript" src="../assets/js/jquery.toggleattr.min.js"></script>
 		<!-- Custom Theme JavaScript -->
 	<script type="text/javascript">
-	$(document).ready(function() 
-    	{ 
-      	  $(".tablesorter").tablesorter(); 
-   	 } 
+	$(document).ready(function()
+    	{
+      	  $(".tablesorter").tablesorter();
+   	 }
 	);
 	$(document).ready(function() {
 
@@ -56,11 +57,11 @@
 		$(activeTab).fadeIn(); //Fade in the active ID content
 		return false;
 	});
-	
+
 	$("input.edit").click(function() {
 		$(this).closest("tr").find(".form-control").toggleAttr('disabled');
 	});
-	
+
 	$("input.add").click(function() {
 		//$(this).closest("tr").find(".form-control").toggleAttr('disabled');
 		var el = document.getElementsByClassName("addNew")[0];
@@ -68,13 +69,13 @@
 		console.log(el);
 		console.log(tab);
 		tab.appendChild(el);
-		
+
 		var tempElem = $(this).closest("tbody").find(".addNew");
 		var temp = $(this).closest("tbody");
 		$(temp).append(tempElem);
 		//console.log(temp);
-		var S = new Array (); 
-		
+		var S = new Array ();
+
 				S[0] = "<tr class=\"addNew\">                                                                                           ";
 				S[1] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                           ";
 				S[2] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                            ";
@@ -84,19 +85,19 @@
 				S[6] = "	<input type=\"image\" class=\"edit\" src=\"../assets/images/icn_edit.png\" title=\"Edit\" hidden=\"hidden\">           ";
 				S[7] = "	<input type=\"image\" class=\"delete\" src=\"../assets/images/icn_trash.png\" title=\"Trash\" hidden=\"hidden\"></td>  ";
 				S[8] = "</tr>                                                                                                         ";
-		
+
 		//$(temp).append(S.join ('\n'));
-		
-		
+
+
 		$(this).closest("tr").find(".form-control").attr('disabled', "disabled");
 		$(this).attr('hidden', "hidden");
 		$(this).closest("tr").removeClass("addNew");
 		$(this).closest("tr").find(".delete").attr('hidden', "");
 		$(this).closest("tr").find(".edit").attr('hidden', "");
 
-		
+
 	});
-	
+
 	$('input.delete').click(function() {
 		//alert("hi");
 		$('#myModal').modal('show');
@@ -112,6 +113,7 @@
 
 </head>
 
+<s:include value="partials/header.jsp"/>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -135,7 +137,7 @@
 </div>
 
 	<section id="main-my" class="column-my">
-	
+
 	<br><br>
 		<br><br>
 		<article class="module width_full">
@@ -149,204 +151,204 @@
 
 		<div class="tab_container">
 			<div id="tab1" class="tab_content">
-			<table class="tablesorter" cellspacing="0"> 
-			<thead> 
-				<tr> 
-    				<th>E-mail</th> 
-    				<th>Name</th> 
-    				<th>Surname</th> 
+			<table class="tablesorter" cellspacing="0">
+			<thead>
+				<tr>
+    				<th>E-mail</th>
+    				<th>Name</th>
+    				<th>Surname</th>
     				<th>Is Admin</th>
-					<th>Actions</th>	
-				</tr> 
-			</thead> 
-			<tbody> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
 					<input type="image" data-toggle="modal" data-target="#basicModal" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
 
-				<tr class="addNew"> 
-					<td><input type="text" class="form-control"></td> 
-					<td><input type="text" class="form-control"></td> 
-					<td><input type="text" class="form-control"></td> 
-					<td><input type="text" class="form-control"></td> 
+				<tr class="addNew">
+					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control"></td>
 					<td><input type="image" class="add" src="../assets/images/icn_add_user.png" title="Add">
 					<input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit" hidden="hidden">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash" hidden="hidden"></td> 
-				</tr> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash" hidden="hidden"></td>
+				</tr>
 
-			</tbody> 
+			</tbody>
 			</table>
 			</div><!-- end of #tab1 -->
-			
+
 			<div id="tab2" class="tab_content">
-			<table class="tablesorter" cellspacing="0"> 
-			<thead> 
-				<tr> 
-    				<th>Summary</th> 
-    				<th>Description</th> 
-    				<th>Skills</th> 
+			<table class="tablesorter" cellspacing="0">
+			<thead>
+				<tr>
+    				<th>Summary</th>
+    				<th>Description</th>
+    				<th>Skills</th>
 					<th>Contact info</th>
-    				<th>Actions</th> 
-				</tr> 
-			</thead> 
-			<tbody> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+    				<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-			</tbody> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+			</tbody>
 			</table>
 
 			</div><!-- end of #tab2 -->
-			
+
 			<div class="tab_container">
 			<div id="tab3" class="tab_content">
-			<table class="tablesorter" cellspacing="0"> 
-			<thead> 
-				<tr> 
-    				<th>Title</th> 
-    				<th>Summary</th> 
-    				<th>Description</th> 
-					<th>Contact info</th> 
-    				<th>Actions</th> 
-				</tr> 
-			</thead> 
-			<tbody> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+			<table class="tablesorter" cellspacing="0">
+			<thead>
+				<tr>
+    				<th>Title</th>
+    				<th>Summary</th>
+    				<th>Description</th>
+					<th>Contact info</th>
+    				<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr> 
-				<tr> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
-					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+				<tr>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+    				<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
+					<td><input type="text" class="form-control" value="cena@gmail.com" disabled=""></td>
     				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit">
-					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td> 
-				</tr>  
-				
-			</tbody> 
+					<input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
+				</tr>
+
+			</tbody>
 			</table>
 			</div><!-- end of #tab3 -->
-			
-		</div><!-- end of .tab_container -->
-		
+
+            </div><!-- end of .tab_container -->
+        </div><!-- end of .tab_container -->
+
 		</article><!-- end of content manager article -->
 
 	</section>
 
-	<script src="footer.js"></script>
-	<script src="header.js"></script>
-	
 </div>
 
-	<!-- Back to top button -->
+<s:include value="partials/footer.jsp"/>
+
+<!-- Back to top button -->
 	<a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>
 	<!-- END Back to top button -->
 
 	<script src="../assets/js/grayscale.js"></script>
-	
+
 </body>
 
 </html>

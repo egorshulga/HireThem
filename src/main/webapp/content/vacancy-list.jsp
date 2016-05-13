@@ -26,6 +26,8 @@
 
    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+   <s:include value="partials/header.jsp"/>
+
     <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
 	<br><br>
     <!-- Page header -->
@@ -104,8 +106,7 @@
     <!-- END Main container -->
 	</section>
 
-    <script src="footer.js"></script>
-	<script src="header.js"></script>
+   <s:include value="partials/footer.jsp"/>
 
 <!-- Back to top button -->
 <a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>

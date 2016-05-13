@@ -7,7 +7,6 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * Created by egors.
  */
-@AuthorizeAs()
 public class LogoutAction extends ActionSupport {
 
     private LogoutService logoutService = new LogoutService();

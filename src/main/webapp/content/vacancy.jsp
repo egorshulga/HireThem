@@ -29,7 +29,7 @@
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-
+  <s:include value="partials/header.jsp"/>
 
     <!-- Page header -->
     <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
@@ -111,8 +111,7 @@
     <!-- END Main container -->
 
 
-   <script src="footer.js"></script>
-<script src="header.js"></script>
+  <s:include value="partials/footer.jsp"/>
 
 
 <!-- Back to top button -->

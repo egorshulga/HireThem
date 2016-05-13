@@ -169,10 +169,10 @@
             <header class="section-header">
               <span>Are you done?</span>
               <h2>Submit profile</h2>
-              <p>Please review your information once more and press the below button.</p>
+              <p>Please review your information once more and press the button below.</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round" type="submit">Submit your resume</button></p>
+            <p class="text-center"><button class="btn btn-success btn-xl btn-round" type="submit">Submit your profile</button></p>
 
           </div>
         </section>

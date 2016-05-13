@@ -233,9 +233,7 @@
 <!-- END Main container -->
 
 
-<script src="footer.js"></script>
-<script src="header.js"></script>
-
+ <s:include value="partials/footer.jsp"/>
 
 <!-- Back to top button -->
 <a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>
