@@ -4,7 +4,6 @@ import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -48,9 +47,14 @@ public class ResumeDao extends HibernateDao {
     }
 
     public List<Resume> getResumes(User user) {
-        Criteria criteria = session.createCriteria(Resume.class);
-        criteria.add(Restrictions.eq("employee", user));
-        return criteria.list();
+        session.beginTransaction();
+
+        Query query = session.createQuery("select r from Resume r where employee.id = :id");
+        query.setParameter("id", user.getId());
+        List<Resume> result = (List<Resume>) query.list();
+
+        session.getTransaction().commit();
+        return result;
     }
 
     public List<Resume> getAllResumes() {
