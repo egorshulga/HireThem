@@ -28,6 +28,8 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+<s:include value="partials/header.jsp"/>
+
  <!-- Site header -->
     <header class="site-header size-lg text-center" style="background-image: url(../assets/img/bg-banner1.jpg)">
       <div class="container">

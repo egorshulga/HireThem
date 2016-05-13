@@ -55,9 +55,9 @@
             <li>
                 <a href="#">Pages</a>
                 <ul>
-                    <li><a href="content/about.jsp"/>About</a></li>
-                    <li><a href="content/contact.jsp"/>Contact</a></li>
-                    <li><a href="content/faq.jsp"/>FAQ</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href="faq">FAQ</a></li>
                 </ul>
             </li>
             <li>
