@@ -5,6 +5,7 @@ import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by egorshulga on 06-May-16.
@@ -26,6 +27,15 @@ public class CreateVacancyAction extends ActionSupport {
         } catch (ServiceException ignored) {
         }
         return SUCCESS;
+    }
+
+    public void validate() {
+        if (StringUtils.isEmpty(title)) {
+            addActionError("Title cannot be empty");
+        }
+        if (StringUtils.isEmpty(summary)) {
+            addActionError("Summary cannot be empty");
+        }
     }
 
     public String getDescription() {
