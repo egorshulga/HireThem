@@ -4,7 +4,6 @@ import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.Vacancy;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -49,9 +48,14 @@ public class VacancyDao extends HibernateDao {
     }
 
     public List<Vacancy> getVacancies(User user) {
-        Criteria criteria = session.createCriteria(Vacancy.class);
-        criteria.add(Restrictions.eq("employer", user));
-        return criteria.list();
+        session.beginTransaction();
+
+        Query query = session.createQuery("select r from Vacancy r where employer.id = :id");
+        query.setParameter("id", user.getId());
+        List<Vacancy> result = (List<Vacancy>) query.list();
+
+        session.getTransaction().commit();
+        return result;
     }
 
     public List<Vacancy> getAllVacancies() {
