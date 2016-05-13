@@ -86,27 +86,27 @@
                       
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor" value="<s:property value="education.degree"/>">
+                          <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor" value="<s:property value="%{education.degree}"/>">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Major, e.g. Computer Science" value="<s:property value="education.speciality"/>">
+                          <input type="text" class="form-control" placeholder="Major, e.g. Computer Science" value="<s:property value="%{education.specialty}"/>">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
+                          <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology"  value="<s:property value="%{education.university}"/>">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-addon">Date from</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2012">
+                            <input type="text" class="form-control" placeholder="e.g. 2012"  value="<s:property value="%{education.startDate}"/>">
                             <span class="input-group-addon">Date to</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2016">
+                            <input type="text" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{education.endDate}"/>">
                           </div>
                         </div>
 
                         <div class="form-group">
-                          <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+                          <textarea class="form-control" rows="3" placeholder="Short description"><s:property value="%{education.description}"/></textarea>
                         </div>
                       </div>
                     </div>
@@ -139,19 +139,19 @@
 
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Company name">
+                          <input type="text" class="form-control" placeholder="Company name" value="<s:property value="%{workExperience.companyName}"/>">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
+                          <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher" value="<s:property value="%{workExperience.position}"/>">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-addon">Date from</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2012">
+                            <input type="text" class="form-control" placeholder="e.g. 2012" value="<s:property value="%{workExperience.startDate}"/>">
                             <span class="input-group-addon">Date to</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2016">
+                            <input type="text" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{workExperience.endDate}"/>">
                           </div>
                         </div>
 
@@ -159,7 +159,7 @@
 
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+                          <textarea class="form-control" rows="3" placeholder="Short description" value="<s:property value="%{workExperience.description}"/>"></textarea>
                         </div>
                       </div>
                     </div>
