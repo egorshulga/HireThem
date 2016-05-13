@@ -91,8 +91,7 @@
     <div class="container">
         <div class="col-xs-12">
             <br><br>
-            <h2>We offer <mark>1,259</mark> job vacancies right now!
-            </h2>
+            <h2>We offer <s:property value="vacanciesCount" /> job vacancies right now!</h2>
             <h5 class="font-alt">Find your desire one in a minute</h5>
         </div>
     </div>
