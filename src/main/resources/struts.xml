@@ -128,6 +128,9 @@
             <result>/content/vacancy-manage.jsp</result>
             <result name="input">/content/vacancy.jsp</result>
         </action>
+        <action name="deleteVacancy" class="com.github.hirethem.action.vacancies.DeleteVacancyAction">
+            <result type="redirectAction">manageVacancies</result>
+        </action>
 
 
         <action name="manageResumes" class="com.github.hirethem.action.resumes.ManageResumesAction" method="execute">
@@ -142,10 +145,14 @@
         </action>
         <action name="addNewResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="input">
             <result name="input">/content/resume.jsp</result>
+            <result name="input">/content/resume.jsp</result>
         </action>
         <action name="submitResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="execute">
             <result>/content/resume-manage.jsp</result>
             <result name="input">/content/resume.jsp</result>
+        </action>
+        <action name="deleteResume" class="com.github.hirethem.action.resumes.DeleteResumeAction">
+            <result type="redirectAction">manageResumes</result>
         </action>
 
 
@@ -166,6 +173,9 @@
             <result name="success">/content/resume-manage.jsp</result>
             <result name="input">/content/resume.jsp</result>
         </action>
+        <action name="deleteResumeAdmin" class="com.github.hirethem.action.admin.resumes.DeleteResumeAdminPanelAction">
+            <result type="redirectAction">manageResumesAdmin</result>
+        </action>
 
 
         <action name="manageVacanciesAdmin" class="com.github.hirethem.action.admin.vacancies.ManageVacanciesAdminPanelAction" method="input">
@@ -185,6 +195,9 @@
             <result name="success">/content/vacancy-manage.jsp</result>
             <result name="input">/content/vacancy.jsp</result>
         </action>
+        <action name="deleteVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.DeleteVacancyAdminPanelAction">
+            <result type="redirectAction">manageVacanciesAdmin</result>
+        </action>
 
 
         <action name="manageUsersAdmin" class="com.github.hirethem.action.admin.users.ManageUsersAdminPanelAction" method="input">
@@ -203,6 +216,9 @@
         <action name="submitUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="execute">
             <result name="success">/content/???</result>
             <result name="input">/content/???</result>
+        </action>
+        <action name="deleteUserAdmin" class="com.github.hirethem.action.admin.users.DeleteUserAdminPanelAction">
+            <result type="redirectAction">manageUsersAdmin</result>
         </action>
 
         

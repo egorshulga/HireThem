@@ -34,8 +34,8 @@ public class ModifyResumeAction extends ActionSupport {
         references = resume.getReferences();
         description = resume.getDescription();
         skills = resume.getSkills();
-        educations = new ArrayList<>(educations);
-        workExperiences = new ArrayList<>(workExperiences);
+        educations = new ArrayList<>();
+        workExperiences = new ArrayList<>();
         return INPUT;
     }
 

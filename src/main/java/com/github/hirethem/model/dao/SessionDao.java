@@ -9,7 +9,13 @@ import java.util.Map;
  */
 public class SessionDao {
 
-    private static Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+    private static Map<String, Object> sessionMap;
+
+    static  {
+        while (sessionMap == null) {
+            sessionMap = ActionContext.getContext().getSession();
+        }
+    }
 
     public synchronized void put(String key, Object value) {
         sessionMap.put(key, value);
