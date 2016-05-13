@@ -130,8 +130,8 @@
         </action>
 
 
-        <action name="manageResumes" class="com.github.hirethem.action.resumes.ManageResumesAction" method="input">
-            <result>/content/resume-manage.jsp</result>
+        <action name="manageResumes" class="com.github.hirethem.action.resumes.ManageResumesAction" method="execute">
+            <result name="success">/content/resume-manage.jsp</result>
         </action>
         <action name="editResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="input">
             <result name="input">/content/resume.jsp</result>

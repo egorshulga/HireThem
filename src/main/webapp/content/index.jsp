@@ -58,7 +58,7 @@
                 <a href="#">Resume</a>
                 <ul>
                     <li><a href="content/resume-list.jsp">Browse resumes</a></li>
-                    <li><a href="content/resume-manage.jsp">Manage resumes</a></li>
+                    <li><a href="manageResumes">Manage resumes</a></li>
                 </ul>
             </li>
             <li>

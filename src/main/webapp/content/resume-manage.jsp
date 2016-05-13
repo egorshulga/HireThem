@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,24 +47,26 @@
 
             <div class="col-xs-12 text-right">
               <br>
-              <a class="btn btn-primary btn-sm" href="resume.jsp">Add new resume</a>
+              <a class="btn btn-primary btn-sm" href="addNewResume">Add new resume</a>
             </div>
-
-
-           <!-- Resume detail -->
+			
+			<div class="col-xs-12">
+				<s:iterator value="resumes" var="resume"> 
+					<s:property value="id"/>
+				</s:iterator>
+			</div>
+           <!-- Resume detail --
             <div class="col-xs-12">
               <a class="item-block" href="profile.jsp">
                 <header>
-                  <img class="resume-avatar" src="../assets/img/john-cena.jpg" alt="">
                   <div class="hgroup">
-                    <h4>John Cena</h4>
-                    <h5>Employee</h5>
+                    <h4><s:property value="name"/> <s:property value="surname"/></h4>
+                    <h5><s:property value="userType"/></h5>
                   </div>
                 </header>
 
                 <div class="item-body">
-                  <p>20+ years of experience working on front-end development for major companies. I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee. Experience and success in both agency and major corporate environments.</p>
-				  <p>Experience and success in both agency and major corporate environments.</p>
+                  <p><s:property value="about"/></p>
                 </div>
                   <div class="action-btn">
                     <a class="btn btn-xs btn-gray" href="#">Edit</a>
@@ -72,30 +75,10 @@
               </a><br><br>
             </div>
 			
-            <!-- END Resume detail -->			 
+            <!-- END Resume detail -->	
 
-			<!-- Resume detail -->
-            <div class="col-xs-12">
-              <a class="item-block" href="profile.jsp">
-                <header>
-                  <img class="resume-avatar" src="../assets/img/john-cena.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>John Cena</h4>
-                    <h5>Employee</h5>
-                  </div>
-                </header>
-
-                <div class="item-body">
-                  <p>20+ years of experience working on front-end development for major companies. I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee. Experience and success in both agency and major corporate environments.</p>
-				  <p>Experience and success in both agency and major corporate environments.</p>
-                </div>
-                  <div class="action-btn">
-                    <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                  </div>
-              </a><br><br>
-            </div>
-            <!-- END Resume detail -->			
+			
+			
           </div>
         </div>
       </section>
@@ -103,8 +86,6 @@
     <!-- END Main container -->
 	</section>
 
-    <script src="footer.js"></script>
-	<script src="header.js"></script>
 
 
    <!-- Back to top button -->

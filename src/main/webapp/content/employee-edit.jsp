@@ -116,6 +116,11 @@
           <div class="row">
 
             <div class="col-xs-12 col-sm-12">
+				<s:if test="hasActionErrors()">
+					<div class="form-group">
+						<s:actionerror/>
+					</div>
+				</s:if>
               <div class="form-group">
                 <input type="text" name="name" class="form-control input-lg" value="<s:property value="name"/>" >
               </div>

@@ -29,7 +29,7 @@
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <form action="#">
+    <s:form name="resumeAdd" action="submitResume" method="POST">
 	
 	 <!-- Page header -->
 	  <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
@@ -43,16 +43,16 @@
 
             <div class="col-xs-12">
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Summary"></textarea>
+                <textarea name="summary" class="form-control" rows="3" placeholder="Summary"><s:property value="summary"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Interests"></textarea>
+                <textarea name="interests" class="form-control" rows="3" placeholder="Interests"><s:property value="interests"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="References"></textarea>
+                <textarea name="references" class="form-control" rows="3" placeholder="References"><s:property value="references"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Skills"></textarea>
+                <textarea name="skills" class="form-control" rows="3" placeholder="Skills"><s:property value="skills"/></textarea>
               </div>
             </div>
           </div>
@@ -75,11 +75,10 @@
 		<header class="page-header-my">
             <div class="row">
 
-               <div id="duplicator" class="col-xs-12 duplicateable-content">
+               <div id="duplicator" class="col-xs-12">
                 <div class="item-block">
                   <div class="item-form">
   
-                   <button class="btn btn-danger btn-float btn-remove" onclick="deleteEducation(this)"><i class="ti-close"></i></button>
 
                     <div class="row">
                       
@@ -113,13 +112,6 @@
                   </div>
                 </div>
               </div>
-
-             <div class="col-xs-12 text-center">
-                <br>
-                <button class="btn btn-primary btn-duplicator">Add education</button>
-              </div>
-
-
             </div>
           </div>
 		</header>
@@ -137,11 +129,9 @@
             
             <div class="row">
 
-               <div id="duplicator" class="col-xs-12 duplicateable-content">
+               <div id="duplicator" class="col-xs-12">
                 <div class="item-block">
-                  <div class="item-form">
-  
-                    <button class="btn btn-danger btn-float btn-remove" onclick="deleteEducation(this)"><i class="ti-close"></i></button>
+                  <div class="item-form">                 
 
                     <div class="row">
 
@@ -175,15 +165,6 @@
                   </div>
                 </div>
               </div>
-
-            
-
-              <div class="col-xs-12 text-center">
-                <br>
-                <button class="btn btn-primary btn-duplicator">Add experience</button>
-              </div>
-
-
             </div>
 
           </div>
@@ -199,7 +180,7 @@
               <p>Please review your information once more and press the below button to put your resume online.</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your resume</button></p>
+            <p class="text-center"><button class="btn btn-success btn-xl btn-round" type="submit">Submit your resume</button></p>
 
           </div>
         </section>
@@ -209,10 +190,7 @@
       </main>
       <!-- END Main container -->
 
-    </form>
-
-<script src="footer.js"></script>
-<script src="header.js"></script>
+     </s:form> 
 
 
 <!-- Back to top button -->
