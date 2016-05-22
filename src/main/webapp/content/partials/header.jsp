@@ -65,7 +65,7 @@
                 <ul>
                     <li><a href="manageResumesAdmin">Resumes</a></li>
                     <li><a href="manageVacanciesAdmin">Vacancies</a></li>
-                    <li><a href="">Users</a></li>
+                    <li><a href="manageUsersAdmin">Users</a></li>
                 </ul>
             </li>
         </ul>

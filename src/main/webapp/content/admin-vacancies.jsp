@@ -66,7 +66,7 @@
                   </header>
 
                   <div class="item-body">
-                    <p><s:property value="required_skills"/></p>
+                    <p><s:property value="requiredSkills"/></p>
                   </div>
                   <div class="action-btn">
                     <s:url id="editUrl" action="editVacancyAdmin">

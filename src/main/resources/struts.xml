@@ -189,10 +189,10 @@
 
 
         <action name="manageVacanciesAdmin" class="com.github.hirethem.action.admin.vacancies.ManageVacanciesAdminPanelAction" method="input">
-            <result name="input">/content/admin-vacancies</result>
+            <result name="input">/content/admin-vacancies.jsp</result>
         </action>
         <action name="editVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction" method="input">
-            <result name="input">/content/admin-vacancies-edit</result>
+            <result name="input">/content/admin-vacancies-edit.jsp</result>
         </action>
         <action name="submitEditVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
             <result type="redirectAction">manageVacanciesAdmin</result>
@@ -211,17 +211,17 @@
 
 
         <action name="manageUsersAdmin" class="com.github.hirethem.action.admin.users.ManageUsersAdminPanelAction" method="input">
-            <result name="input">/content/???</result>
+            <result name="input">/content/admin-users.jsp</result>
         </action>
         <action name="editUserAdmin" class="com.github.hirethem.action.admin.users.ModifyUserAdminPanelAction" method="input">
-            <result name="input">/content/???</result>
+            <result name="input">/content/admin-users-edit.jsp</result>
         </action>
         <action name="submitEditUserAdmin" class="com.github.hirethem.action.admin.users.ModifyUserAdminPanelAction">
             <result type="redirectAction">manageUsersAdmin</result>
             <result name="input" type="redirectAction">editUserAdmin</result>
         </action>
         <action name="addNewUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="input">
-            <result name="input">/content/???</result>
+            <result name="input">/content/admin-users-user.jsp</result>
         </action>
         <action name="submitUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="execute">
             <result type="redirectAction">manageUsersAdmin</result>
