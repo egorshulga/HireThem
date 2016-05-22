@@ -1,194 +1,135 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+		 pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8"/>
-	<title>Admin Panel</title>
-
-	<link rel="stylesheet" href="../assets/css/layout.css" type="text/css" media="screen" />
-
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Custom CSS -->
-    <link href="../assets/css/grayscale.css" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link href="../assets/css/app.min.css" rel="stylesheet">
-    <link href="../assets/css/custom.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="../assets/css/grayscale.css" rel="stylesheet">
 
 
-    <!-- Main Style -->
-    <link href="../assets/css/main.css" rel="stylesheet">
-
-    <!-- Supersized -->
-    <link href="../assets/css/supersized.css" rel="stylesheet">
-    <link href="../assets/css/supersized.shutter.css" rel="stylesheet">
-
-	<script src="../assets/js/jquery-1.5.2.min.js" type="text/javascript"></script>
-	<script src="../assets/js/hideshow.js" type="text/javascript"></script>
-	<script src="../assets/js/jquery.tablesorter.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="../assets/js/jquery.equalHeight.js"></script>
-	<script type="text/javascript" src="../assets/js/jquery.toggleattr.min.js"></script>
-		<!-- Custom Theme JavaScript -->
-	<script type="text/javascript">
-	$(document).ready(function()
-    	{
-      	  $(".tablesorter").tablesorter();
-   	 }
-	);
-	$(document).ready(function() {
-
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
-
-	//On Click Event
-	$("ul.tabs li").click(function() {
-
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
-
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-
-	$("input.edit").click(function() {
-		$(this).closest("tr").find(".form-control").toggleAttr('disabled');
-	});
-
-	$("input.add").click(function() {
-		//$(this).closest("tr").find(".form-control").toggleAttr('disabled');
-		var el = document.getElementsByClassName("addNew")[0];
-		var tab = document.getElementsByTagName("tbody")[0];
-		console.log(el);
-		console.log(tab);
-		tab.appendChild(el);
-
-		var tempElem = $(this).closest("tbody").find(".addNew");
-		var temp = $(this).closest("tbody");
-		$(temp).append(tempElem);
-		//console.log(temp);
-		var S = new Array ();
-
-				S[0] = "<tr class=\"addNew\">                                                                                           ";
-				S[1] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                           ";
-				S[2] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                            ";
-				S[3] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                            ";
-				S[4] = "	<td><input type=\"text\" class=\"form-control\"></td>                                                            ";
-				S[5] = "	<td><input type=\"image\" class=\"add\" src=\"../assets/images/icn_add_user.png\" title=\"Add\">                     ";
-				S[6] = "	<input type=\"image\" class=\"edit\" src=\"../assets/images/icn_edit.png\" title=\"Edit\" hidden=\"hidden\">           ";
-				S[7] = "	<input type=\"image\" class=\"delete\" src=\"../assets/images/icn_trash.png\" title=\"Trash\" hidden=\"hidden\"></td>  ";
-				S[8] = "</tr>                                                                                                         ";
-
-		//$(temp).append(S.join ('\n'));
+	<link href="../assets/css/app.min.css" rel="stylesheet">
+	<link href="../assets/css/custom.css" rel="stylesheet">
 
 
-		$(this).closest("tr").find(".form-control").attr('disabled', "disabled");
-		$(this).attr('hidden', "hidden");
-		$(this).closest("tr").removeClass("addNew");
-		$(this).closest("tr").find(".delete").attr('hidden', "");
-		$(this).closest("tr").find(".edit").attr('hidden', "");
+	<!-- Main Style -->
+	<link href="../assets/css/main.css" rel="stylesheet">
 
-
-	});
-
-	$('input.delete').click(function() {
-		//alert("hi");
-		$('#myModal').modal('show');
-	});
-
-});
-    </script>
-    <script type="text/javascript">
-    $(function(){
-        $('.column').equalHeight();
-    });
-</script>
-
+	<!-- Supersized -->
+	<link href="../assets/css/supersized.css" rel="stylesheet">
+	<link href="../assets/css/supersized.shutter.css" rel="stylesheet">
 </head>
-
-<s:include value="partials/header.jsp"/>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+<s:include value="partials/header.jsp"/>
+
 <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h31 class="modal-title">Confirmation</h31>
-            </div>
-            <div class="modal-body">
-                <p class="text-warning">Do you want to delete the element before closing?</p>
-                <p class="text-warning"><small>If you delete, your will lost it.</small></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Delete</button>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h31 class="modal-title">Confirmation</h31>
+			</div>
+			<div class="modal-body">
+				<p class="text-warning">Do you want to delete the element before closing?</p>
+				<p class="text-warning"><small>If you delete, your will lost it.</small></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary">Delete</button>
+			</div>
+		</div>
+	</div>
 </div>
 
-	<section id="main-my" class="column-my">
 
+<section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
 	<br><br>
-		<br><br>
-		<article class="module width_full">
-		<header><h3 class="tabs_involved">Resumes</h3>
+	<!-- Page header -->
+	<header class="page-header-my">
+		<div class="container page-name">
+			<h1 class="text-center">Manage resumes</h1>
+		</div>
+	</header>
+	<!-- END Page header -->
 
-		</header>
 
-			<div id="tab" class="tab_content">
-			<table class="tablesorter" cellspacing="0">
-			<thead>
-				<tr>
-    				<th>Summary</th>
-    				<th>Description</th>
-    				<th>Skills</th>
-					<th>Interests</th>
-					<th>Contact info</th>
-    				<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-			<s:iterator value="resumes" var="resume">
-			<s:hidden value="id"/>
-				<tr>
-    				<td><input type="text" class="form-control" value="<s:property value="summary"/>" disabled=""></td>
-    				<td><input type="text" class="form-control" value="<s:property value="description"/>" disabled=""></td>
-    				<td><input type="text" class="form-control" value="<s:property value="skills"/>" disabled=""></td>
-					<td><input type="text" class="form-control" value="<s:property value="interests"/>" disabled=""></td>
-					<td><input type="text" class="form-control" value="<s:property value="contactInfo"/>" disabled=""></td>
-    				<td><input type="image" class="edit" src="../assets/images/icn_edit.png" title="Edit"> <input type="image" class="delete" src="../assets/images/icn_trash.png" title="Trash"></td>
-				</tr>
-			</s:iterator>
+	<!-- Main container -->
+	<main>
+		<section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
+			<div class="container">
+				<div class="row">
 
-			</tbody>
-			</table>
+					<div class="col-xs-12 text-right">
+						<br>
+						<a class="btn btn-primary btn-sm" href="addNewResumeAdmin">Add new resume</a>
+					</div>
 
-			</div><!-- end of #tab2 -->
+					<div class="col-xs-12">
 
-		</article><!-- end of content manager article -->
+					</div>
+					<!-- Resume detail -->
+					<s:iterator value="resumes" var="resume">
+						<s:hidden value="id"/>
+						<div class="col-xs-12">
+							<a class="item-block">
+								<header>
+									<div class="hgroup">
+										<h5><s:property value="summary"/></h5>
+									</div>
+								</header>
 
-	</section>
+								<div class="item-body">
+									<p><s:property value="skills"/></p>
+									<p><s:property value="referencies"/></p>
+									<p><s:property value="interests"/></p>
+									<p><s:property value="contactInfo"/></p>
+								</div>
+								<div class="action-btn">
+									<s:url id="editUrl" action="editResumeAdmin">
+										<s:param name="resumeId" value="%{id}"/>
+									</s:url>
+									<s:url id="deleteUrl" action="deleteResumeAdmin">
+										<s:param name="resumeId" value="%{id}"/>
+									</s:url>
+									<s:a class="btn btn-xs btn-gray" href="%{editUrl}">Edit</s:a>
+									<s:a class="btn btn-xs btn-danger" href="%{deleteUrl}">Delete</s:a>
+								</div>
+							</a><br><br>
+						</div>
 
-</div>
+						<!-- END Resume detail -->
+					</s:iterator>
+
+
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- END Main container -->
+</section>
+
 
 <s:include value="partials/footer.jsp"/>
 
 <!-- Back to top button -->
-	<a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>
-	<!-- END Back to top button -->
+<a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>
+<!-- END Back to top button -->
 
-	<script src="../assets/js/grayscale.js"></script>
+<!-- Scripts -->
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/custom.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../assets/js/grayscale.js"></script>
 
 </body>
-
 </html>
