@@ -77,10 +77,10 @@
                   </div>
 			   </div>
               <div class="form-group">
-                <textarea name="about" class="form-control" rows="3" ><s:property value="about"/></textarea>
+                <textarea name="about" class="form-control" rows="3" placeholder="About"><s:property value="about"/></textarea>
               </div>
 			  <div class="form-group">
-                <textarea name="contactInfo" class="form-control" rows="3" ><s:property value="contactInfo"/></textarea>
+                <textarea name="contactInfo" class="form-control" rows="3" placeholder="Contact info"><s:property value="contactInfo"/></textarea>
               </div>
             </div>
           </div>
