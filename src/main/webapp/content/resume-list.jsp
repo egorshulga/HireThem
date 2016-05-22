@@ -38,31 +38,36 @@
       </div>
 
       <div class="container">
-        <form>
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
-              <a class="btn btn-primary btn-sm" href="browseResumesBySummary">Apply filter</a>
+              <s:form action="browseResumesBySummary" method="POST">
+                <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
+                <input type="submit"  class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Skills" value="<s:property value="%{skillsToSearch}"/>" name="skillsToSearch">
-              <a class="btn btn-primary btn-sm" href="browseResumesBySkills">Apply filter</a>
+              <s:form action="browseResumesBySkills" method="POST">
+                <input type="text" class="form-control" placeholder="Skills" value="<s:property value="%{skillsToSearch}"/>" name="skillsToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Education" value="<s:property value="%{educationToSearch}"/>" name="educationToSearch">
-              <a class="btn btn-primary btn-sm" href="browseResumesByEducation">Apply filter</a>
+              <s:form action="browseResumesByEducation" method="POST">
+                <input type="text" class="form-control" placeholder="Education" value="<s:property value="%{educationToSearch}"/>" name="educationToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Experience" value="<s:property value="%{experienceToSearch}"/>" name="experienceToSearch">
-              <a class="btn btn-primary btn-sm" href="browseResumesByExperience">Apply filter</a>
+              <s:form action="browseResumesByExperience" method="POST">
+                <input type="text" class="form-control" placeholder="Experience" value="<s:property value="%{experienceToSearch}"/>" name="experienceToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
           </div>
-
-        </form>
 		
       </div>
     </header>
@@ -94,8 +99,8 @@
                 </div>
 
               <div class="action-btn">
-                  <s:url id="profileUrl" action="">
-                      <s:param name="resumeId" value="%{id}"/>
+                  <s:url id="profileUrl" action="userProfile">
+                      <s:param name="resumeId" value="%{employee.id}"/>
                   </s:url>
                   <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open user's profile</s:a>
               </div>
