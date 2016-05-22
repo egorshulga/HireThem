@@ -51,7 +51,7 @@
             <header class="section-header">
                 <span>Who we are</span>
                 <h2>Our team</h2>
-                <h6>Currently, we're three geek and will grow up soon</h6>
+                <h6>Currently, we're three geeks and will grow up soon</h6>
             </header>
 
 
@@ -68,14 +68,12 @@
                             <img src="/assets/img/Egor.jpg" alt="John Doe">
                         </div>
                         <h3 class="profile-name">Shulga Egor</h3>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-                            augue at erat.
-                            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit
-                            metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                            per inceptos himenaeos.</p>
+                        <p class="description">
+                            Team lead, architecturer and back-end developer.
+                        </p>
                         <div class="social">
                             <ul class="social-icons">
-                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="facebook" href="facebook.com/egorsshulga"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
                             </ul>
@@ -95,11 +93,9 @@
                             <img src="/assets/img/Luba.jpg" alt="John Doe">
                         </div>
                         <h3 class="profile-name">Belousova Lubov</h3>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-                            augue at erat.
-                            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit
-                            metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                            per inceptos himenaeos.</p>
+                        <p class="description">
+                            Quality assurance & testing
+                        </p>
                         <div class="social">
                             <ul class="social-icons">
                                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -122,11 +118,9 @@
                             <img src="/assets/img/Kirill.jpg" alt="John Doe">
                         </div>
                         <h3 class="profile-name">Korolko Kirill</h3>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-                            augue at erat.
-                            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit
-                            metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                            per inceptos himenaeos.</p>
+                        <p class="description">
+                            Front-end developer.
+                        </p>
                         <div class="social">
                             <ul class="social-icons">
                                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>

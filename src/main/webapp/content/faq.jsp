@@ -54,7 +54,7 @@
 
             <ul class="faq-items">
                 <li>
-                    <h5>What is TheJobs?</h5>
+                    <h5>What is HireThem?</h5>
                     <p>Quisque eget laoreet odio. Integer rutrum leo in aliquam iaculis. Integer vestibulum efficitur
                         magna, sed molestie lectus. Aliquam volutpat ut mauris vitae rutrum. Ut vitae nulla in metus
                         varius faucibus. Suspendisse consectetur, leo in porttitor euismod, enim risus vestibulum nulla,
@@ -64,7 +64,7 @@
                 </li>
 
                 <li>
-                    <h5>Why Choose TheJobs?</h5>
+                    <h5>Why Choose HireThem?</h5>
                     <p>Sed sed pulvinar nisl. Etiam a nulla purus. Curabitur maximus mauris eu ante aliquet
                         pellentesque. Vivamus commodo pulvinar dictum. Vivamus vulputate lacus et eleifend rutrum. Fusce
                         fringilla molestie maximus. Cras vel lacus quis velit laoreet mattis vel eu libero. Maecenas
@@ -73,7 +73,7 @@
                 </li>
 
                 <li>
-                    <h5>What are TheJobs features?</h5>
+                    <h5>What are HireThem features?</h5>
                     <p>Pellentesque magna justo, ullamcorper eu efficitur sit amet, porttitor ut velit. Cras sit amet
                         lorem sit amet purus vestibulum feugiat vitae sed tellus. In hac habitasse platea dictumst.
                         Aliquam pretium, sem non maximus maximus, diam augue commodo augue, at pharetra dui ligula sed
@@ -82,14 +82,14 @@
                 </li>
 
                 <li>
-                    <h5>When was TheJobs first released?</h5>
+                    <h5>When was HireThem first released?</h5>
                     <p>Donec posuere risus ipsum, quis ullamcorper magna pretium eget. Sed viverra orci lacinia, cursus
                         massa et, pellentesque ipsum. Nulla facilisi. Sed bibendum libero in ante laoreet, et venenatis
                         neque scelerisque.</p>
                 </li>
 
                 <li>
-                    <h5>Do I need to know PHP to use TheJobs?</h5>
+                    <h5>Do I need to know anything to use HireThem?</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent viverra lacus nec lorem
                         blandit, nec cursus orci tempor. Nunc consectetur quis nunc in pharetra. Quisque lobortis nisi
                         vel odio ultricies fringilla. Sed egestas a justo ut lobortis. In in arcu tellus. Nam non ipsum
@@ -111,7 +111,7 @@
 
             <ul class="faq-items">
                 <li>
-                    <h5>How do I Install TheJobs?</h5>
+                    <h5>How do I Install HireThem?</h5>
                     <p>Cras mattis quam ut tortor varius, vel sollicitudin libero congue. Pellentesque ac turpis luctus,
                         dictum ante a, efficitur arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
                         posuere cubilia Curae; Nam dignissim efficitur pellentesque. Nunc laoreet eu sapien in bibendum.
@@ -134,7 +134,7 @@
                 </li>
 
                 <li>
-                    <h5>What are the Requirements for Installing TheJobs?</h5>
+                    <h5>What are the Requirements for Installing HireThem?</h5>
                     <p>Etiam venenatis nisi venenatis, consectetur nibh viverra, efficitur mauris. Ut efficitur, lorem
                         vel porta sagittis, mi lacus gravida tortor, ac porta nunc enim et dui. Nunc vitae auctor ex, et
                         porttitor metus. Maecenas tincidunt est urna, id egestas eros mollis sed. In commodo quis nisl a
