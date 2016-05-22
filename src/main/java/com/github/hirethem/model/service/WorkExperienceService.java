@@ -1,11 +1,10 @@
 package com.github.hirethem.model.service;
 
 import com.github.hirethem.model.dao.WorkExperienceDao;
-import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.entity.Resume;
+import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.exception.ServiceException;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class WorkExperienceService {
     private WorkExperienceDao workExperienceDao = new WorkExperienceDao();
 
     public void createWorkExperience(int resumeId, String companyName, String position,
-                                     Date startDate, Date endDate, String description) throws ServiceException {
+                                     String startDate, String endDate, String description) throws ServiceException {
         WorkExperience workExperience = new WorkExperience();
         workExperience.setCompanyName(companyName);
         workExperience.setPosition(position);
@@ -34,7 +33,7 @@ public class WorkExperienceService {
     }
 
     public void modifyWorkExperience(int resumeId, String companyName, String position,
-                                     Date startDate, Date endDate, String description) {
+                                     String startDate, String endDate, String description) {
         workExperienceDao.modifyWorkExperience(resumeId, companyName, position,
                 startDate, endDate, description);
     }

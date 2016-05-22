@@ -5,7 +5,6 @@ import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.service.exception.ServiceException;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -17,7 +16,7 @@ public class EducationsService {
 
     private EducationDao educationDao = new EducationDao();
 
-    public void createEducation(int resumeId, String university, Date startDate, Date endDate,
+    public void createEducation(int resumeId, String university, String startDate, String endDate,
                                 String specialty, String degree, String description) throws ServiceException {
 
         Education education = new Education();
@@ -35,7 +34,7 @@ public class EducationsService {
         educationDao.addEducation(resume, education);
     }
 
-    public void modifyEducation(int educationId, String university, Date startDate, Date endDate,
+    public void modifyEducation(int educationId, String university, String startDate, String endDate,
                                 String specialty, String degree, String description) {
         educationDao.modifyEducation(educationId, university, startDate, endDate, specialty, degree,
                 description);
