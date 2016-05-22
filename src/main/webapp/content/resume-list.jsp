@@ -46,17 +46,6 @@
 			  <button class="btn btn-primary" href="browseResumesBySummary">Apply filter</button>
             </div>
 			
-
-            <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Interests">
-			  <button class="btn btn-primary">Apply filter</button>
-            </div>			
-			
-			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="References">
-			  <button class="btn btn-primary">Apply filter</button>
-            </div>			
-			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Skills">
 			  <button class="btn btn-primary" href="browseResumesBySkills">Apply filter</button>
