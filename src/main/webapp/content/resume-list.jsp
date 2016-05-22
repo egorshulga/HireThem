@@ -38,12 +38,12 @@
       </div>
 
       <div class="container">
-        <form action="#">
+        <form>
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Summary">
-			  <button class="btn btn-primary">Apply filter</button>
+			  <button class="btn btn-primary" href="browseResumesBySummary">Apply filter</button>
             </div>
 			
 
@@ -59,19 +59,19 @@
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Skills">
-			  <button class="btn btn-primary">Apply filter</button>
+			  <button class="btn btn-primary" href="browseResumesBySkills">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Education">
-			  <button class="btn btn-primary">Apply filter</button>
+			  <button class="btn btn-primary" href="browseResumesByEducation">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Experience">
-			  <button class="btn btn-primary">Apply filter</button>
+			  <button class="btn btn-primary" href="browseResumesByExperience">Apply filter</button>
             </div>
-
+          </div>
           
         </form>
 		
@@ -86,26 +86,29 @@
       <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
         <div class="container">
           <div class="row">
-            
-            <!-- Resume detail -->
+
+			<!-- Resume detail -->
+		   <s:iterator value="resumes" var="resume">
+		   <s:hidden value="id"/>
             <div class="col-xs-12">
-              <a class="item-block" href="profile.jsp">
+              <a class="item-block">
                 <header>
-                  <img class="resume-avatar" src="../assets/img/john-cena.jpg" alt="">
                   <div class="hgroup">
-                    <h4>John Cena</h4>
-                    <h5>Employee</h5>
+                    <h4><s:property value="currentUser.name"/> <s:property value="currentUser.surname"/></h4>
+                    <h5><s:property value="summary"/></h5>
                   </div>
                 </header>
 
                 <div class="item-body">
-                  <p>20+ years of experience working on front-end development for major companies. I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee. Experience and success in both agency and major corporate environments.</p>
-				  <p>Experience and success in both agency and major corporate environments.</p>
+                  <p><s:property value="skills"/></p>
+				  <p><s:property value="contactInfo"/></p>
                 </div>
-
-              </a>
+              </a><br><br>
             </div>
+
             <!-- END Resume detail -->
+			</s:iterator>
+
           </div>
         </div>
       </section>

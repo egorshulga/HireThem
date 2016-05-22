@@ -53,11 +53,8 @@
             </div>
 			
 			<div class="col-xs-12">
-				
-					
-				
-				
-			</div>
+
+            </div>
            <!-- Resume detail -->
 		   <s:iterator value="resumes" var="resume"> 
 		   <s:hidden value="id"/>
