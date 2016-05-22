@@ -42,26 +42,26 @@
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Summary">
+              <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
 			  <button class="btn btn-primary" href="browseResumesBySummary">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Skills">
+              <input type="text" class="form-control" placeholder="Skills" value="<s:property value="%{skillsToSearch}"/>" name="skillsToSearch">
 			  <button class="btn btn-primary" href="browseResumesBySkills">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Education">
+              <input type="text" class="form-control" placeholder="Education" value="<s:property value="%{educationToSearch}"/>" name="educationToSearch">
 			  <button class="btn btn-primary" href="browseResumesByEducation">Apply filter</button>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Experience">
+              <input type="text" class="form-control" placeholder="Experience" value="<s:property value="%{experienceToSearch}"/>" name="experienceToSearch">
 			  <button class="btn btn-primary" href="browseResumesByExperience">Apply filter</button>
             </div>
           </div>
-          
+
         </form>
 		
       </div>
@@ -92,6 +92,13 @@
                   <p><s:property value="skills"/></p>
 				  <p><s:property value="contactInfo"/></p>
                 </div>
+
+              <div class="action-btn">
+                  <s:url id="profileUrl" action="">
+                      <s:param name="resumeId" value="%{id}"/>
+                  </s:url>
+                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open user's profile</s:a>
+              </div>
               </a><br><br>
             </div>
 
