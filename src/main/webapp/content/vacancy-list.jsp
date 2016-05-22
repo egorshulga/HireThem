@@ -38,35 +38,37 @@
       </div>
 
       <div class="container">
-        <form action="#">
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Title">
-			  <button class="btn btn-primary">Apply filter</button>
+              <s:form action="browseVacanciesByExperience" method="POST">
+                <input type="text" class="form-control" placeholder="Title" value="<s:property value="%{titleToSearch}"/>" name="titleToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Summary">
-			  <button class="btn btn-primary">Apply filter</button>
+              <s:form action="browseVacanciesBySummary" method="POST">
+                <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
+                <input type="submit"  class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Working day">
-			  <button class="btn btn-primary">Apply filter</button>
+              <s:form action="browseVacanciesBySkills" method="POST">
+                <input type="text" class="form-control" placeholder="Skills" value="<s:property value="%{requiredSkillsToSearch}"/>" name="requiredSkillsToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
+
 			
 			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Salary">
-			  <button class="btn btn-primary">Apply filter</button>
-            </div>
-			
-			<div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Experience">
-			  <button class="btn btn-primary">Apply filter</button>
+              <s:form action="browseVacanciesByExperience" method="POST">
+                <input type="text" class="form-control" placeholder="Experience" value="<s:property value="%{requiredExperienceToSearch}"/>" name="requiredExperienceToSearch">
+                <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
+              </s:form>
             </div>
           </div>
-        </form>
       </div>
     </header>
     <!-- END Page header -->
@@ -79,24 +81,32 @@
           <div class="row">
 
             <!-- Job item -->
+          <s:iterator value="vacancies" var="vacancy">
+          <s:hidden value="id"/>
             <div class="col-xs-12">
-              <a class="item-block" href="vacancy-detail.jsp">
+              <a class="item-block">
                 <header>
-                  <img src="../assets/img/logo-google.jpg" alt="">
                   <div class="hgroup">
-                    <h4>Senior front-end developer</h4>
-                    <h5>Google <span class="label label-success">Full-time</span></h5>
+                    <h4><s:property value="title"/></h4>
+                    <h5><s:property value="description"/></h5>
                   </div>
-                  <time datetime="2016-03-10 20:00">34 min ago</time>
                 </header>
 
                 <div class="item-body">
-                  <p>A rapidly growing, well established marketing firm is looking for an experienced web developer for a full-time position. In this role, you will develop websites, apps, emails and other forms of digital electronic media, all while maintaining brand standards across design projects and other marketing communication materials.</p>
+                  <p><s:property value="requiredSkills"/></p>
+                  <p><s:property value="requiredExperience"/></p>
                 </div>
-				
-                </footer>
-              </a>
+
+                <div class="action-btn">
+                  <s:url id="profileUrl" action="userProfile">
+                    <s:param name="id" value="%{employee.id}"/>
+                  </s:url>
+                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open company profile</s:a>
+                </div>
+
+              </a><br><br>
             </div>
+          </s:iterator>
             <!-- END Job item -->
           </div>
 
