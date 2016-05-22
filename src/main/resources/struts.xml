@@ -101,7 +101,6 @@
             <result name="input">/content/profile.jsp</result>
         </action>
 
-
         <action name="browseVacancies" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="input">
             <result name="input">/content/vacancy-list.jsp</result>
         </action>
@@ -232,7 +231,163 @@
             <result type="redirectAction">manageUsersAdmin</result>
         </action>
 
-        
+
+
+        <action name="downloadResumePdf" class="com.github.hirethem.action.resumes.DownloadResumeAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resume.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumeCsv" class="com.github.hirethem.action.resumes.DownloadResumeAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resume.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumeXls" class="com.github.hirethem.action.resumes.DownloadResumeAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resume.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <action name="downloadVacancyPdf" class="com.github.hirethem.action.vacancies.DownloadVacancyAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancy.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadVacancyCsv" class="com.github.hirethem.action.vacancies.DownloadVacancyAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancy.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadVacancyXls" class="com.github.hirethem.action.vacancies.DownloadVacancyAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancy.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <action name="downloadResumesReportPdf" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumesReportCsv" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumesReportXls" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <action name="downloadResumesReportPdf" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumesReportCsv" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadResumesReportXls" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="resumes.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <action name="downloadVacanciesReportPdf" class="com.github.hirethem.action.admin.vacancies.DownloadVacanciesReportAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancies.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadVacanciesReportCsv" class="com.github.hirethem.action.admin.vacancies.DownloadVacanciesReportAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancies.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadVacanciesReportXls" class="com.github.hirethem.action.admin.vacancies.DownloadVacanciesReportAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="vacancies.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <action name="downloadUsersReportPdf" class="com.github.hirethem.action.admin.users.DownloadUsersReportAction" method="downloadPdf">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="users.pdf"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadUsersReportCsv" class="com.github.hirethem.action.admin.users.DownloadUsersReportAction" method="downloadCsv">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="users.csv"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="downloadUsersReportXls" class="com.github.hirethem.action.admin.users.DownloadUsersReportAction" method="downloadXls">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">attachment;filename="users.xls"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+
+
+
+
+
         <action name="logout" class="com.github.hirethem.action.authentication.LogoutAction">
             <result type="redirectAction">index</result>
         </action>

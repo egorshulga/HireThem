@@ -33,9 +33,9 @@ public class PdfGenerationUtil {
     private static int HEIGHT_NORMAL_LINE = FONT_SIZE_NORMAL + VERTICAL_SPACE_TINY + 2;
     private static int HEIGHT_BIG_LINE = FONT_SIZE_NORMAL + VERTICAL_SPACE_TINY;
 
-    private static final String TEMPLATE = "/templates/template.jpg";
-    private static final String TEMPLATE_LANDSCAPE = "/templates/template-landscape.jpg";
-    private static final String FONT = "/fonts/times.ttf";
+    private static final String TEMPLATE = "templates\\template.jpg";
+    private static final String TEMPLATE_LANDSCAPE = "templates\\template-landscape.jpg";
+    private static final String FONT = "fonts/times.ttf";
 
     private final static Font SMALL_FONT = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED, FONT_SIZE_SMALL);
     private final static Font NORMAL_FONT = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED, FONT_SIZE_NORMAL);
@@ -55,11 +55,12 @@ public class PdfGenerationUtil {
         writer.createXmpMetadata();
         document.open();
 
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE));
-        image.scaleAbsolute(PageSize.A4);
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+        Image image;
+//        PdfContentByte canvas = writer.getDirectContentUnder();
+//        image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE));
+//        image.scaleAbsolute(PageSize.A4);
+//        image.setAbsolutePosition(0, 0);
+//        canvas.addImage(image);
 
         Paragraph paragraph = new Paragraph();
         paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
@@ -277,11 +278,12 @@ public class PdfGenerationUtil {
         writer.createXmpMetadata();
         document.open();
 
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE));
-        image.scaleAbsolute(PageSize.A4);
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+        Image image;
+//        PdfContentByte canvas = writer.getDirectContentUnder();
+//        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE));
+//        image.scaleAbsolute(PageSize.A4);
+//        image.setAbsolutePosition(0, 0);
+//        canvas.addImage(image);
 
         Paragraph paragraph = new Paragraph();
         paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
@@ -399,11 +401,12 @@ public class PdfGenerationUtil {
         writer.createXmpMetadata();
         document.open();
 
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
-        image.scaleAbsolute(PageSize.A4.rotate());
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+        Image image;
+//        PdfContentByte canvas = writer.getDirectContentUnder();
+//        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
+//        image.scaleAbsolute(PageSize.A4.rotate());
+//        image.setAbsolutePosition(0, 0);
+//        canvas.addImage(image);
 
         Paragraph paragraph = new Paragraph();
         paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
@@ -463,11 +466,12 @@ public class PdfGenerationUtil {
         writer.createXmpMetadata();
         document.open();
 
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
-        image.scaleAbsolute(PageSize.A4.rotate());
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+        Image image;
+//        PdfContentByte canvas = writer.getDirectContentUnder();
+//        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
+//        image.scaleAbsolute(PageSize.A4.rotate());
+//        image.setAbsolutePosition(0, 0);
+//        canvas.addImage(image);
 
         Paragraph paragraph = new Paragraph();
         paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
@@ -543,11 +547,12 @@ public class PdfGenerationUtil {
         writer.createXmpMetadata();
         document.open();
 
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
-        image.scaleAbsolute(PageSize.A4.rotate());
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+        Image image;
+//        PdfContentByte canvas = writer.getDirectContentUnder();
+//        Image image = Image.getInstance(ByteArrayOutputStream.class.getResource(TEMPLATE_LANDSCAPE));
+//        image.scaleAbsolute(PageSize.A4.rotate());
+//        image.setAbsolutePosition(0, 0);
+//        canvas.addImage(image);
 
         Paragraph paragraph = new Paragraph();
         paragraph.setFont(FontFactory.getFont(FontFactory.TIMES_BOLD, FONT_SIZE_BIG + 4));
