@@ -48,7 +48,7 @@
             <li>
                 <a href="#">Vacancy</a>
                 <ul>
-                    <li><a href="content/vacancy-list.jsp">Browse vacancies</a></li>
+                    <li><a href="browseVacancies">Browse vacancies</a></li>
                     <li><a href="manageVacancies">Manage vacancies</a></li>
                 </ul>
             </li>

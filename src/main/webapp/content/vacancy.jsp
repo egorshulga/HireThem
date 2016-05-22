@@ -31,6 +31,8 @@
 
   <s:include value="partials/header.jsp"/>
 
+  <s:form name="vacancyAdd" action="submitVacancy" method="POST">
+
     <!-- Page header -->
     <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
 	  <br><br>
@@ -42,44 +44,37 @@
 
       <div class="container">
 
-        <div class="row">
-          <div class="form-group col-xs-12">
-            <input type="text" class="form-control input-lg" placeholder="Vacancy title, e.g. Front-end developer">
+        <div class="form-group col-xs-12">
+            <input type="text" class="form-control input-lg" placeholder="Vacancy title, e.g. Front-end developer" name="title" value="<s:property value="title"/>">
           </div>
 		  
 		  <div class="form-group col-xs-12">
-            <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Description"  name="description"><s:property value="description"/></textarea>
           </div>
 
           <div class="form-group col-xs-12">
-            <textarea class="form-control" rows="3" placeholder="Summary"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Summary" name="summary"><s:property value="summary"/></textarea>
           </div>
 		  
 		  
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-			  <select name="favouriteColor" id="vertical_favouriteColor"class="form-control">
-				<option>Full time</option>
-                <option>Part time</option>
-                <option>Internship</option>
-                <option>Freelance</option>
-                <option>Remote</option>
-			</select>
+              <input type="text" class="form-control" placeholder="Required Skills" name="requiredSkills" value="<s:property value="requiredSkills"/>">
             </div>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-money"></i></span>
-              <input type="text" class="form-control" placeholder="Salary">
+              <input type="text" class="form-control" placeholder="Salary" name="salary" value="<s:property value="salary"/>">
             </div>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-flask"></i></span>
-              <input type="text" class="form-control" placeholder="Experience, e.g. 5">
+              <input type="text" class="form-control" placeholder="Experience, e.g. 5" name="requiredExperience" value="<s:property value="requiredExperience"/>">
               <span class="input-group-addon">Years</span>
             </div>
           </div>
@@ -100,7 +95,7 @@
               <p>Please review your information once more and press the below button to put your job online.</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your job</button></p>
+            <p class="text-center"><button class="btn btn-success btn-xl btn-round" type="submit">Submit your job</button></p>
 
           </div>
         </section>
@@ -109,7 +104,7 @@
 
     </main>
     <!-- END Main container -->
-
+  </s:form>
 
   <s:include value="partials/footer.jsp"/>
 
