@@ -10,8 +10,8 @@ import com.github.hirethem.model.service.VacancyService;
 @AuthorizeAs(admin = true)
 public class ManageVacanciesAdminPanelAction extends ManageVacanciesAction {
 
-    public String execute() {
+    public String input() {
         vacancies = new VacancyService().getAllVacancies();
-        return SUCCESS;
+        return INPUT;
     }
 }

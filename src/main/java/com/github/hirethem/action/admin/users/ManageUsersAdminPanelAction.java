@@ -17,7 +17,7 @@ public class ManageUsersAdminPanelAction extends ActionSupport {
 
     public String input() {
         users = new UserService().getAllUsers();
-        return SUCCESS;
+        return INPUT;
     }
 
     public String execute() {

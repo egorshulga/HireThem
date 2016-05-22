@@ -10,9 +10,9 @@ import com.github.hirethem.model.service.ResumeService;
 @AuthorizeAs(admin = true)
 public class ManageResumesAdminPanelAction extends ManageResumesAction {
 
-    public String execute() {
+    public String input() {
         resumes = new ResumeService().getAllResumes();
-        return SUCCESS;
+        return INPUT;
     }
 
 }
