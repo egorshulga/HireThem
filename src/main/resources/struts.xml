@@ -148,7 +148,7 @@
             <result name="success">/content/resume-manage.jsp</result>
         </action>
         <action name="editResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="input">
-            <result name="input">/content/resume.jsp</result>
+            <result name="input">/content/resume-edit.jsp</result>
         </action>
         <action name="submitEditResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="execute">
             <result type="redirectAction">manageResumes</result>

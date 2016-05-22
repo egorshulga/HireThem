@@ -31,7 +31,7 @@
 
   <s:include value="partials/header.jsp"/>
 
-    <s:form name="resumeAdd" action="submitResume" method="POST">
+    <s:form name="resumeAdd" action="submitEditResume" method="POST">
 	
 	 <!-- Page header -->
 	  <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
@@ -99,14 +99,14 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-addon">Date from</span>
-                            <input type="text" name="educationStartDate" class="form-control" placeholder="e.g. 2012"  value="<s:property value="%{educationStartDate}"/>">
+                            <input type="text" name="startDate" class="form-control" placeholder="e.g. 2012"  value="<s:property value="%{educationStartDate}"/>">
                             <span class="input-group-addon">Date to</span>
-                            <input type="text" name="educationEndDate" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{educationEndDate}"/>">
+                            <input type="text" name="endDate" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{educationEndDate}"/>">
                           </div>
                         </div>
 
                         <div class="form-group">
-                          <textarea name="educationDescription" class="form-control" rows="3" placeholder="Short description"><s:property value="%{educationDescription}"/></textarea>
+                          <textarea name="description" class="form-control" rows="3" placeholder="Short description"><s:property value="%{educationDescription}"/></textarea>
                         </div>
                       </div>
                     </div>
@@ -149,9 +149,9 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-addon">Date from</span>
-                            <input type="text" name="workExperienceStartDate" class="form-control" placeholder="e.g. 2012" value="<s:property value="%{workExperienceStartDate}"/>">
+                            <input type="text" name="startDate" class="form-control" placeholder="e.g. 2012" value="<s:property value="%{workExperienceStartDate}"/>">
                             <span class="input-group-addon">Date to</span>
-                            <input type="text" name="workExperienceEndDate" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{workExperienceEndDate}"/>">
+                            <input type="text" name="endDate" class="form-control" placeholder="e.g. 2016" value="<s:property value="%{workExperienceEndDate}"/>">
                           </div>
                         </div>
 
@@ -159,7 +159,7 @@
 
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <textarea name="workExperienceDescription" class="form-control" rows="3" placeholder="Short description" value="<s:property value="%{workExperienceDescription}"/>"></textarea>
+                          <textarea name="description" class="form-control" rows="3" placeholder="Short description" value="<s:property value="%{workExperienceDescription}"/>"></textarea>
                         </div>
                       </div>
                     </div>
