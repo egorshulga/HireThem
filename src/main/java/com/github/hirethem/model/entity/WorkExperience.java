@@ -1,7 +1,6 @@
 package com.github.hirethem.model.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 /**
  * Created by egors.
@@ -25,10 +24,10 @@ public class WorkExperience {
     private String position;
 
     @Column(name = "start_date")
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private String endDate;
 
     @Column(name = "description")
     private String description;
@@ -68,19 +67,19 @@ public class WorkExperience {
         this.position = position;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

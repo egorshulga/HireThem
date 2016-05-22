@@ -1,12 +1,11 @@
 package com.github.hirethem.model.dao;
 
-import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.entity.Resume;
+import com.github.hirethem.model.entity.WorkExperience;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -31,7 +30,7 @@ public class WorkExperienceDao extends HibernateDao {
     }
 
     public void modifyWorkExperience(int workExperienceId, String companyName, String position,
-                                     Date startDate, Date endDate, String description) {
+                                     String startDate, String endDate, String description) {
         session.beginTransaction();
 
         WorkExperience workExperience = session.get(WorkExperience.class, workExperienceId);

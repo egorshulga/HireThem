@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -30,7 +29,7 @@ public class EducationDao extends HibernateDao {
         session.getTransaction().commit();
     }
 
-    public void modifyEducation(int educationId, String university, Date startDate, Date endDate,
+    public void modifyEducation(int educationId, String university, String startDate, String endDate,
                                 String specialty, String degree, String description) {
         session.beginTransaction();
 
