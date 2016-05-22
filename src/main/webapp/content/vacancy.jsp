@@ -31,7 +31,7 @@
 
   <s:include value="partials/header.jsp"/>
 
-  <s:form name="vacancyAdd" action="submitEditVacancy" method="POST">
+  <s:form name="vacancyAdd" action="submitVacancy" method="POST">
 
     <!-- Page header -->
     <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">

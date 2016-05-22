@@ -127,7 +127,7 @@
             <result>/content/vacancy-manage.jsp</result>
         </action>
         <action name="editVacancy" class="com.github.hirethem.action.vacancies.ModifyVacancyAction" method="input">
-            <result name="input">/content/vacancy.jsp</result>
+            <result name="input">/content/vacancy-edit.jsp</result>
         </action>
         <action name="submitEditVacancy" class="com.github.hirethem.action.vacancies.ModifyVacancyAction" method="execute">
             <result type="redirectAction">manageVacancies</result>
