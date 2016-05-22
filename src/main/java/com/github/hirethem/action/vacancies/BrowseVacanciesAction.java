@@ -4,6 +4,7 @@ import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.VacancyService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -26,22 +27,34 @@ public class BrowseVacanciesAction extends ActionSupport {
     }
 
     public String searchVacanciesByTitle() {
+        if (StringUtils.isBlank(titleToSearch)) {
+            return INPUT;
+        }
         vacancies = new VacancyService().findResumesUsingTitle(titleToSearch);
         return SUCCESS;
     }
 
     public String searchVacanciesBySummary() {
+        if (StringUtils.isBlank(summaryToSearch)) {
+            return INPUT;
+        }
         vacancies = new VacancyService().findResumesUsingSummary(summaryToSearch);
         return SUCCESS;
     }
 
     public String searchVacanciesBySkills() {
-        vacancies = new VacancyService().findResumesUsingRequiredSkills(requiredExperienceToSearch);
+        if (StringUtils.isBlank(requiredSkillsToSearch)) {
+            return INPUT;
+        }
+        vacancies = new VacancyService().findResumesUsingRequiredSkills(requiredSkillsToSearch);
         return SUCCESS;
     }
 
     public String searchVacanciesByExperience() {
-        vacancies = new VacancyService().findResumesUsingRequiredExperience(requiredSkillsToSearch);
+        if (StringUtils.isBlank(requiredExperienceToSearch)) {
+            return INPUT;
+        }
+        vacancies = new VacancyService().findResumesUsingRequiredExperience(requiredExperienceToSearch);
         return SUCCESS;
     }
 

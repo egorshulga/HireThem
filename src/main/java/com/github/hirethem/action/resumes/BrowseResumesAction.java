@@ -27,32 +27,35 @@ public class BrowseResumesAction extends ActionSupport {
     }
 
     public String searchBySummary() {
+        if (StringUtils.isBlank(summaryToSearch)) {
+            return INPUT;
+        }
         resumes = resumeService.findResumesUsingSummary(summaryToSearch);
         return SUCCESS;
     }
 
     public String searchBySkills() {
+        if (StringUtils.isBlank(skillsToSearch)) {
+            return INPUT;
+        }
         resumes = resumeService.findResumesUsingSkills(skillsToSearch);
         return SUCCESS;
     }
 
     public String searchByEducation() {
+        if (StringUtils.isBlank(educationToSearch)) {
+            return INPUT;
+        }
         resumes = resumeService.findResumesUsingEducation(educationToSearch);
         return SUCCESS;
     }
 
     public String searchByExperience() {
+        if (StringUtils.isBlank(experienceToSearch)) {
+            return INPUT;
+        }
         resumes = resumeService.findResumesUsingWorkExperience(educationToSearch);
         return SUCCESS;
-    }
-
-    public void validate() {
-        if (StringUtils.isBlank(summaryToSearch) ||
-                StringUtils.isBlank(skillsToSearch) ||
-                StringUtils.isBlank(educationToSearch) ||
-                StringUtils.isBlank(experienceToSearch)) {
-            addActionError("Cannot search by blank string");
-        }
     }
 
     public String getSummaryToSearch() {
