@@ -43,22 +43,22 @@
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
-			  <button class="btn btn-primary" href="browseResumesBySummary">Apply filter</button>
+              <a class="btn btn-primary btn-sm" href="browseResumesBySummary">Apply filter</a>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Skills" value="<s:property value="%{skillsToSearch}"/>" name="skillsToSearch">
-			  <button class="btn btn-primary" href="browseResumesBySkills">Apply filter</button>
+              <a class="btn btn-primary btn-sm" href="browseResumesBySkills">Apply filter</a>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Education" value="<s:property value="%{educationToSearch}"/>" name="educationToSearch">
-			  <button class="btn btn-primary" href="browseResumesByEducation">Apply filter</button>
+              <a class="btn btn-primary btn-sm" href="browseResumesByEducation">Apply filter</a>
             </div>
 			
 			<div class="form-group col-xs-12 col-sm-4">
               <input type="text" class="form-control" placeholder="Experience" value="<s:property value="%{experienceToSearch}"/>" name="experienceToSearch">
-			  <button class="btn btn-primary" href="browseResumesByExperience">Apply filter</button>
+              <a class="btn btn-primary btn-sm" href="browseResumesByExperience">Apply filter</a>
             </div>
           </div>
 
