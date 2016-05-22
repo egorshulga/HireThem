@@ -22,6 +22,7 @@ public class BrowseResumesAction extends ActionSupport {
     private List<Resume> resumes;
 
     public String input() {
+        resumes = resumeService.getAllResumes();
         return INPUT;
     }
 

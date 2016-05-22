@@ -21,6 +21,7 @@ public class BrowseVacanciesAction extends ActionSupport {
     private List<Vacancy> vacancies;
 
     public String input() {
+        vacancies = new VacancyService().getAllVacancies();
         return INPUT;
     }
 

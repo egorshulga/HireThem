@@ -5,6 +5,7 @@ import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
 import com.github.hirethem.model.entity.WorkExperience;
 import com.github.hirethem.model.service.ResumeService;
+import com.github.hirethem.model.service.SessionService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 
@@ -26,6 +27,7 @@ public class ModifyResumeAction extends ActionSupport {
 
     public String input() {
         Resume resume = new ResumeService().getResume(resumeId);
+        new SessionService().put("resumeId", resumeId);
         summary = resume.getSummary();
         interests = resume.getInterests();
         references = resume.getReferences();
@@ -41,6 +43,7 @@ public class ModifyResumeAction extends ActionSupport {
     }
 
     public String execute() {
+        resumeId = (int) new SessionService().getValue("resumeId");
         new ResumeService().modifyResume(resumeId, summary, description, skills, interests, references);
         return SUCCESS;
     }

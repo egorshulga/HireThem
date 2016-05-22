@@ -23,7 +23,7 @@ public class ModifyVacancyAction extends ActionSupport {
     private int vacancyId;
 
     public String input() {
-        vacancyId = (int) new SessionService().getValue("chosenVacancyId");
+        new SessionService().put("vacancyId", vacancyId);
         Vacancy vacancy = new VacancyService().getVacancy(vacancyId);
         title = vacancy.getTitle();
         summary = vacancy.getSummary();
@@ -35,6 +35,7 @@ public class ModifyVacancyAction extends ActionSupport {
     }
 
     public String execute() {
+        vacancyId = (int) new SessionService().getValue("vacancyId");
         new VacancyService().modifyVacancy(vacancyId, title, summary, description, salary, requiredExperience, requiredSkills);
         return SUCCESS;
     }
