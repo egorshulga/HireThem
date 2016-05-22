@@ -1,6 +1,5 @@
 package com.github.hirethem.action.vacancies;
 
-import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.Vacancy;
 import com.github.hirethem.model.service.VacancyService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,7 +10,6 @@ import java.util.List;
 /**
  * Created by egorshulga on 06-May-16.
  */
-@AuthorizeAs
 public class BrowseVacanciesAction extends ActionSupport {
 
     private String titleToSearch;

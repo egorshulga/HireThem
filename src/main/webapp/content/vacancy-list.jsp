@@ -41,7 +41,7 @@
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <s:form action="browseVacanciesByExperience" method="POST">
+              <s:form action="browseVacanciesByTitle" method="POST">
                 <input type="text" class="form-control" placeholder="Title" value="<s:property value="%{titleToSearch}"/>" name="titleToSearch">
                 <input type="submit" class="btn btn-primary btn-sm">Apply filter</input>
               </s:form>
@@ -99,9 +99,9 @@
 
                 <div class="action-btn">
                   <s:url id="profileUrl" action="userProfile">
-                    <s:param name="id" value="%{employee.id}"/>
+                    <s:param name="id" value="%{employer.id}"/>
                   </s:url>
-                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open company profile</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open employer profile</s:a>
                 </div>
 
               </a><br><br>
