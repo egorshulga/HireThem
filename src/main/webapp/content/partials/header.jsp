@@ -64,8 +64,8 @@
                 <a href="#">Admin</a>
                 <ul>
                     <li><a href="manageResumesAdmin">Resumes</a></li>
-                    <li><a href="contact">Users</a></li>
-                    <li><a href="faq">Vacancies</a></li>
+                    <li><a href="manageVacanciesAdmin">Vacancies</a></li>
+                    <li><a href="">Users</a></li>
                 </ul>
             </li>
         </ul>

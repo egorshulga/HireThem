@@ -170,14 +170,14 @@
             <result name="input">/content/admin-resumes.jsp</result>
         </action>
         <action name="editResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction" method="input">
-            <result name="input">/content/...</result>
+            <result name="input">/content/admin-resumes-edit.jsp</result>
         </action>
         <action name="submitEditResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction">
             <result type="redirectAction">manageResumesAdmin</result>
             <result name="input" type="redirectAction">editResumeAdmin</result>
         </action>
         <action name="addNewResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="input">
-            <result name="input">/content/...</result>
+            <result name="input">/content/admin-resumes-resume.jsp</result>
         </action>
         <action name="submitResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="execute">
             <result type="redirectAction">manageResumesAdmin</result>
@@ -189,17 +189,17 @@
 
 
         <action name="manageVacanciesAdmin" class="com.github.hirethem.action.admin.vacancies.ManageVacanciesAdminPanelAction" method="input">
-            <result name="input">/content/...</result>
+            <result name="input">/content/admin-vacancies</result>
         </action>
         <action name="editVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction" method="input">
-            <result name="input">/content/...</result>
+            <result name="input">/content/admin-vacancies-edit</result>
         </action>
         <action name="submitEditVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
             <result type="redirectAction">manageVacanciesAdmin</result>
             <result name="input" type="redirectAction">editVacancyAdmin</result>
         </action>
         <action name="addNewVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="input">
-            <result name="input">/content/vacancy.jsp</result>
+            <result name="input">/content/admin-vacancies-vacancy.jsp</result>
         </action>
         <action name="submitVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="execute">
             <result type="redirectAction">manageVacanciesAdmin</result>
