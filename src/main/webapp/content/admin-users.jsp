@@ -47,6 +47,15 @@
             <div class="col-xs-12 text-right">
               <br>
               <a class="btn btn-primary btn-sm" href="addNewUserAdmin">Add new user</a>
+              <div class="action-btn">
+                <s:url id="usersPdf" action="downloadUsersReportPdf"/>
+                <s:url id="usersCsv" action="downloadUsersReportCsv"/>
+                <s:url id="usersXls" action="downloadUsersReportXls"/>
+
+                <s:a class="btn btn-xs btn-danger" href="%{usersPdf}">Download report PDF</s:a>
+                <s:a class="btn btn-xs btn-danger" href="%{usersCsv}">Download report CSV</s:a>
+                <s:a class="btn btn-xs btn-danger" href="%{usersXls}">Download report XLS</s:a>
+              </div>
             </div>
 
             <div class="col-xs-12">

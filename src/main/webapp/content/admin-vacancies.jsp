@@ -48,6 +48,15 @@
             <div class="col-xs-12 text-right">
               <br>
               <a class="btn btn-primary btn-sm" href="addNewVacancyAdmin">Add new vacancy</a>
+              <div class="action-btn">
+                <s:url id="vacanciesPdf" action="downloadVacanciesReportPdf"/>
+                <s:url id="vacanciesCsv" action="downloadVacanciesReportCsv"/>
+                <s:url id="vacanciesXls" action="downloadVacanciesReportXls"/>
+
+                <s:a class="btn btn-xs btn-danger" href="%{vacanciesPdf}">Download report PDF</s:a>
+                <s:a class="btn btn-xs btn-danger" href="%{vacanciesCsv}">Download report CSV</s:a>
+                <s:a class="btn btn-xs btn-danger" href="%{vacanciesXls}">Download report XLS</s:a>
+              </div>
             </div>
 
             <div class="col-xs-12">

@@ -77,6 +77,9 @@
 					<s:url id="deleteUrl" action="deleteResume">
 						<s:param name="resumeId" value="%{id}"/>
 					</s:url>
+                      <s:url id="resumePdf" action="downloadResumePdf">
+                          <s:param name="resumeId" value="%{id}"/>
+                      </s:url>
                     <s:a class="btn btn-xs btn-gray" href="%{editUrl}">Edit</s:a>
                     <s:a class="btn btn-xs btn-danger" href="%{deleteUrl}">Delete</s:a>
                   </div>

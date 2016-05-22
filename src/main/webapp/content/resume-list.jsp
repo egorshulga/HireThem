@@ -102,7 +102,19 @@
                   <s:url id="profileUrl" action="userProfile">
                       <s:param name="id" value="%{employee.id}"/>
                   </s:url>
+                  <s:url id="resumePdf" action="downloadResumePdf">
+                    <s:param name="resumeId" value="%{id}"/>
+                  </s:url>
+                <s:url id="resumeCsv" action="downloadResumeCsv">
+                  <s:param name="resumeId" value="%{id}"/>
+                </s:url>
+                <s:url id="resumeXls" action="downloadResumeXls">
+                  <s:param name="resumeId" value="%{id}"/>
+                </s:url>
                   <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open user's profile</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{resumePdf}">Download PDF</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{resumeCsv}">Download CSV</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{resumeXls}">Download XLS</s:a>
               </div>
               </a><br><br>
             </div>

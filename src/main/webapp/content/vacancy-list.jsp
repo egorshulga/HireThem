@@ -101,7 +101,19 @@
                   <s:url id="profileUrl" action="userProfile">
                     <s:param name="id" value="%{employer.id}"/>
                   </s:url>
-                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open employer profile</s:a>
+                  <s:url id="vacancyPdf" action="downloadVacancyPdf">
+                    <s:param name="vacancyId" value="%{id}"/>
+                  </s:url>
+                  <s:url id="vacancyCsv" action="downloadVacancyCsv">
+                    <s:param name="vacancyId" value="%{id}"/>
+                  </s:url>
+                  <s:url id="vacancyXls" action="downloadVacancyXls">
+                    <s:param name="vacancyId" value="%{id}"/>
+                  </s:url>
+                  <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open user's profile</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{vacancyPdf}">Download PDF</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{vacancyCsv}">Download CSV</s:a>
+                  <s:a class="btn btn-xs btn-danger" href="%{vacancyXls}">Download XLS</s:a>
                 </div>
 
               </a><br><br>

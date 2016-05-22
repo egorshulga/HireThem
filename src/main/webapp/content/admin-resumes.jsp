@@ -67,7 +67,17 @@
 
 					<div class="col-xs-12 text-right">
 						<br>
+
 						<a class="btn btn-primary btn-sm" href="addNewResumeAdmin">Add new resume</a>
+						<div class="action-btn">
+							<s:url id="resumesPdf" action="downloadResumesReportPdf"/>
+							<s:url id="resumesCsv" action="downloadResumesReportCsv"/>
+							<s:url id="resumesXls" action="downloadResumesReportXls"/>
+
+							<s:a class="btn btn-xs btn-danger" href="%{resumesPdf}">Download report PDF</s:a>
+							<s:a class="btn btn-xs btn-danger" href="%{resumesCsv}">Download report CSV</s:a>
+							<s:a class="btn btn-xs btn-danger" href="%{resumesXls}">Download report XLS</s:a>
+						</div>
 					</div>
 
 					<div class="col-xs-12">

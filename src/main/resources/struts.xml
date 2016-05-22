@@ -308,31 +308,6 @@
             </result>
         </action>
 
-        <action name="downloadResumesReportPdf" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadPdf">
-            <result type="stream">
-                <param name="contentType">application/octet-stream</param>
-                <param name="inputName">stream</param>
-                <param name="contentDisposition">attachment;filename="resumes.pdf"</param>
-                <param name="bufferSize">1024</param>
-            </result>
-        </action>
-        <action name="downloadResumesReportCsv" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadCsv">
-            <result type="stream">
-                <param name="contentType">application/octet-stream</param>
-                <param name="inputName">stream</param>
-                <param name="contentDisposition">attachment;filename="resumes.csv"</param>
-                <param name="bufferSize">1024</param>
-            </result>
-        </action>
-        <action name="downloadResumesReportXls" class="com.github.hirethem.action.admin.resumes.DownloadResumesReportAction" method="downloadXls">
-            <result type="stream">
-                <param name="contentType">application/octet-stream</param>
-                <param name="inputName">stream</param>
-                <param name="contentDisposition">attachment;filename="resumes.xls"</param>
-                <param name="bufferSize">1024</param>
-            </result>
-        </action>
-
         <action name="downloadVacanciesReportPdf" class="com.github.hirethem.action.admin.vacancies.DownloadVacanciesReportAction" method="downloadPdf">
             <result type="stream">
                 <param name="contentType">application/octet-stream</param>
