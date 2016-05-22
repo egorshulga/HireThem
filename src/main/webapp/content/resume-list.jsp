@@ -100,7 +100,7 @@
 
               <div class="action-btn">
                   <s:url id="profileUrl" action="userProfile">
-                      <s:param name="resumeId" value="%{employee.id}"/>
+                      <s:param name="id" value="%{employee.id}"/>
                   </s:url>
                   <s:a class="btn btn-xs btn-danger" href="%{profileUrl}">Open user's profile</s:a>
               </div>

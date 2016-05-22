@@ -29,7 +29,7 @@ public class ProfileAction extends ActionSupport {
         avatar = user.getAvatar();
         email = user.getEmail();
         userType = user.getUserType();
-        return SUCCESS;
+        return INPUT;
     }
 
     public String getName() {
