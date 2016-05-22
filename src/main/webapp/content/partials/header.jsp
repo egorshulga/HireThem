@@ -61,7 +61,12 @@
                 </ul>
             </li>
             <li>
-                <a href="content/admin.jsp">Admin</a>
+                <a href="#">Admin</a>
+                <ul>
+                    <li><a href="manageResumesAdmin">Resumes</a></li>
+                    <li><a href="contact">Users</a></li>
+                    <li><a href="faq">Vacancies</a></li>
+                </ul>
             </li>
         </ul>
         <!-- END Navigation menu -->
