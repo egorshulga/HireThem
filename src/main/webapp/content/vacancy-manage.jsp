@@ -44,32 +44,46 @@
         <div class="container">
           <div class="row">
 
+
             <div class="col-xs-12 text-right">
               <br>
-              <a class="btn btn-primary btn-sm" href="vacancy.jsp">Add new vacancy</a>
+              <a class="btn btn-primary btn-sm" href="addNewVacancy">Add new vacancy</a>
             </div>
 
-
-            <!-- Job detail -->
             <div class="col-xs-12">
-              <div class="item-block">
-                <header>
-                  <a href="employee_profile.jsp"><img src="../assets/img/logo-google.jpg" alt=""></a>
-                  <div class="hgroup">
-                    <h4><a href="vacancy-detail.jsp">Senior front-end developer</a></h4>
-                    <h5><a href="employee_profile.jsp">Google</a></h5>
-                  </div>
-                </header>
 
-                <footer>
-                  <div class="action-btn">
-                    <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                  </div>
-                </footer>
-              </div>
             </div>
-            <!-- END Job detail -->
+            <!-- Resume detail -->
+            <s:iterator value="vacancies" var="vacancy">
+              <s:hidden value="id"/>
+              <div class="col-xs-12">
+                <a class="item-block">
+                  <header>
+                    <div class="hgroup">
+                      <h4><s:property value="title"/></h4>
+                      <h5><s:property value="description"/></h5>
+                    </div>
+                  </header>
+
+                  <div class="item-body">
+                    <p><s:property value="required_skills"/></p>
+                  </div>
+                  <div class="action-btn">
+                    <s:url id="editUrl" action="editVacancy">
+                      <s:param name="vacancyId" value="%{id}"/>
+                    </s:url>
+                    <s:url id="deleteUrl" action="deleteVacancy">
+                      <s:param name="vacancyId" value="%{id}"/>
+                    </s:url>
+                    <s:a class="btn btn-xs btn-gray" href="%{editUrl}">Edit</s:a>
+                    <s:a class="btn btn-xs btn-danger" href="%{deleteUrl}">Delete</s:a>
+                  </div>
+                </a><br><br>
+              </div>
+
+              <!-- END Resume detail -->
+            </s:iterator>
+
           </div>
         </div>
       </section>
