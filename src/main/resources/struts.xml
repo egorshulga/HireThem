@@ -54,7 +54,7 @@
         </action>
 
 
-        <action name="profile" class="com.github.hirethem.action.profile.ProfileAction" method="input">
+        <action name="profile" class="com.github.hirethem.action.profile.CurrentUserProfileAction" method="input">
             <result>/content/profile.jsp</result>
         </action>
         <action name="editProfile" class="com.github.hirethem.action.profile.EditProfileAction" method="input">
@@ -82,15 +82,23 @@
         </action>
         <action name="browseResumesBySummary" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchBySummary">
             <result>/content/resume-list.jsp</result>
+            <result name="input" type="redirectAction">browseResumes</result>
         </action>
         <action name="browseResumesBySkills" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchBySkills">
             <result>/content/resume-list.jsp</result>
+            <result name="input" type="redirectAction">browseResumes</result>
         </action>
         <action name="browseResumesByEducation" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchByEducation">
             <result>/content/resume-list.jsp</result>
+            <result name="input" type="redirectAction">browseResumes</result>
         </action>
         <action name="browseResumesByExperience" class="com.github.hirethem.action.resumes.BrowseResumesAction" method="searchByExperience">
             <result>/content/resume-list.jsp</result>
+            <result name="input" type="redirectAction">browseResumes</result>
+        </action>
+
+        <action name="userProfile" class="com.github.hirethem.action.profile.ProfileAction" method="input">
+            <result name="input">/content/profile.jsp</result>
         </action>
 
 
@@ -99,15 +107,19 @@
         </action>
         <action name="browseVacanciesByTitle" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesByTitle">
             <result>/content/vacancy-list.jsp</result>
+            <result name="input" type="redirectAction">browseVacancies</result>
         </action>
         <action name="browseVacanciesBySummary" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesBySummary">
             <result>/content/vacancy-list.jsp</result>
+            <result name="input" type="redirectAction">browseVacancies</result>
         </action>
         <action name="browseVacanciesBySkills" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesBySkills">
             <result>/content/vacancy-list.jsp</result>
+            <result name="input" type="redirectAction">browseVacancies</result>
         </action>
         <action name="browseVacanciesByExperience" class="com.github.hirethem.action.vacancies.BrowseVacanciesAction" method="searchVacanciesByExperience">
             <result>/content/vacancy-list.jsp</result>
+            <result name="input" type="redirectAction">browseVacancies</result>
         </action>
 
 

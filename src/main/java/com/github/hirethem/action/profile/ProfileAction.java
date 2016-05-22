@@ -1,6 +1,5 @@
 package com.github.hirethem.action.profile;
 
-import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.UserService;
@@ -8,21 +7,21 @@ import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * Created by egorshulga.
+ * Created by egorshulga on 22-May-16.
  */
-@AuthorizeAs
 public class ProfileAction extends ActionSupport {
 
-    private String email;
-    private User.UserType userType;
-    private String name;
-    private String surname;
-    private String about;
-    private String contactInfo;
-    private byte[] avatar;
+    protected int id;
+    protected String email;
+    protected User.UserType userType;
+    protected String name;
+    protected String surname;
+    protected String about;
+    protected String contactInfo;
+    protected byte[] avatar;
 
     public String input() throws ServiceException {
-        User user = new CurrentUserService().getCurrentUserEntity();
+        User user = new UserService().getUser(id);
         name = user.getName();
         surname = user.getSurname();
         about = user.getAbout();
@@ -93,5 +92,13 @@ public class ProfileAction extends ActionSupport {
 
     public void setUserType(User.UserType userType) {
         this.userType = userType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
