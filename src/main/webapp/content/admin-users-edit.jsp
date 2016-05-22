@@ -52,10 +52,6 @@
         </div>
 
         <div class="form-group col-xs-12">
-          <input type="text" class="form-control input-lg" placeholder="Email" name="email" value="<s:property value="email"/>">
-        </div>
-
-        <div class="form-group col-xs-12">
           <input type="text" class="form-control input-lg" placeholder="User Type" name="userType" value="<s:property value="userType"/>">
         </div>
 
@@ -65,6 +61,10 @@
 
         <div class="form-group col-xs-12">
           <input type="text" class="form-control input-lg" placeholder="Contact Info" name="contactInfo" value="<s:property value="contactInfo"/>">
+        </div>
+
+        <div class="form-group col-xs-12">
+          <input type="text" class="form-control input-lg" placeholder="Admin" name="isAdmin" value="<s:property value="isAdmin"/>">
         </div>
       </div>
       </div>
