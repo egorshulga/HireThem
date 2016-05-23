@@ -9,6 +9,10 @@ import com.github.hirethem.model.service.WorkExperienceService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.GenericValidator;
+
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by egorshulga on 06-May-16.
@@ -42,10 +46,14 @@ public class CreateResumeAction extends ActionSupport {
             int userId = new CurrentUserService().getCurrentUserId();
             resumeService.createResume(userId, summary, description, skills, interests, references);
             int resumeId = resumeService.findResumesUsingSummary(summary).get(0).getId();
-            new EducationsService().createEducation(resumeId, university, educationStartDate, educationEndDate,
-                    specialty, degree, educationDescription);
-            new WorkExperienceService().createWorkExperience(resumeId, companyName, position,
-                    workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
+            if (StringUtils.isNotBlank(university)) {
+                new EducationsService().createEducation(resumeId, university, educationStartDate, educationEndDate,
+                        specialty, degree, educationDescription);
+            }
+            if (StringUtils.isNotBlank(companyName) && StringUtils.isNotBlank(position)) {
+                new WorkExperienceService().createWorkExperience(resumeId, companyName, position,
+                        workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
+            }
         } catch (ServiceException ignored) {
             return INPUT;
         }
@@ -55,6 +63,24 @@ public class CreateResumeAction extends ActionSupport {
     public void validate() {
         if (StringUtils.isEmpty(summary)) {
             addActionError("Summary cannot be empty");
+        }
+        if (StringUtils.isNotBlank(university)) {
+            if (!GenericValidator.isDate(educationEndDate, Locale.forLanguageTag("ru")) ||
+                    !GenericValidator.isDate(educationStartDate, Locale.forLanguageTag("ru"))) {
+                addActionError("Education date is in wrong format");
+                if (new Date(educationEndDate).before(new Date(educationStartDate))) {
+                    addActionError("Education end date is before start date");
+                }
+            }
+        }
+        if (StringUtils.isNotBlank(companyName) && StringUtils.isNotBlank(position)) {
+            if (!GenericValidator.isDate(workExperienceStartDate, Locale.forLanguageTag("ru")) ||
+                    !GenericValidator.isDate(workExperienceEndDate, Locale.forLanguageTag("ru"))) {
+                addActionError("Work experience date is in wrong format");
+                if (new Date(workExperienceEndDate).before(new Date(workExperienceStartDate))) {
+                    addActionError("Work experience end date is before start date");
+                }
+            }
         }
     }
 
@@ -186,7 +212,7 @@ public class CreateResumeAction extends ActionSupport {
         this.workExperienceDescription = workExperienceDescription;
     }
 
-    public User getCurrentUser()  {
+    public User getCurrentUser() {
         try {
             return new CurrentUserService().getCurrentUserEntity();
         } catch (ServiceException ignored) {

@@ -9,6 +9,10 @@ import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.GenericValidator;
+
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by egorshulga on 06-May-16.
