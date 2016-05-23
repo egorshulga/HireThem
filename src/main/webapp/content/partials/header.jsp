@@ -18,11 +18,12 @@
                 <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
             </div>
         </div>
-
-        <div class="pull-right user-login">
-            <a class="btn btn-primary btn-sm" href="login">Login</a> or <a
-                href="signin">register</a>
-        </div>
+        <s:if test="%{currentUser == null}">
+            <div class="pull-right user-login">
+                <a class="btn btn-primary btn-sm" href="login">Login</a> or <a
+                    href="signin">register</a>
+            </div>
+        </s:if>
         <ul id="nav-menu-id" class="nav-menu">
 
             <li>
