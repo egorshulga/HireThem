@@ -42,7 +42,9 @@
       <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
         <div class="container">
           <div class="row">
-
+            <s:if test="hasActionErrors()">
+              <a><s:actionerror/></a>
+            </s:if>
 
             <div class="col-xs-12 text-right">
               <br>

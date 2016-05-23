@@ -43,6 +43,9 @@
       </div>
 
       <div class="container">
+        <s:if test="hasActionErrors()">
+          <a><s:actionerror/></a>
+        </s:if>
 
         <div class="form-group col-xs-12">
             <input type="text" class="form-control input-lg" placeholder="Vacancy title, e.g. Front-end developer" name="title" value="<s:property value="title"/>">

@@ -24,11 +24,9 @@
   <body class="login-page">
   
 	<s:form name="signInForm" action="submitSignin" method="POST">
-		<s:if test="hasActionErrors()">
-			<div class="form-group">
-				<s:actionerror/>
-			</div>
-		</s:if>
+        <s:if test="hasActionErrors()">
+            <a><s:actionerror/></a>
+        </s:if>
 
     <main>
 		<br><br><br>

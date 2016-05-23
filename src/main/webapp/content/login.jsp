@@ -33,7 +33,7 @@
             <form action="login" method="post">
 
                 <s:if test="hasActionErrors()">
-                    <s:actionerror/>
+                    <a><s:actionerror/></a>
                 </s:if>
 
                 <div class="form-group">
