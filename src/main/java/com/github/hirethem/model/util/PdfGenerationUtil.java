@@ -70,10 +70,10 @@ public class PdfGenerationUtil {
         document.add(new LineSeparator());
 
         if (user.getAvatar() != null) {
-            image = Image.getInstance(user.getAvatar());
-            image.scaleToFit(120, 160);
-            image.setAlignment(Element.ALIGN_RIGHT | Image.TEXTWRAP | Element.ALIGN_TOP);
-            document.add(image);
+//            image = Image.getInstance(user.getAvatar());
+//            image.scaleToFit(120, 160);
+//            image.setAlignment(Element.ALIGN_RIGHT | Image.TEXTWRAP | Element.ALIGN_TOP);
+//            document.add(image);
         }
 
         paragraph = new Paragraph(" ");
@@ -293,10 +293,10 @@ public class PdfGenerationUtil {
         document.add(new LineSeparator());
 
         if (user.getAvatar() != null) {
-            image = Image.getInstance(user.getAvatar());
-            image.scaleToFit(120, 160);
-            image.setAlignment(Element.ALIGN_RIGHT | Image.TEXTWRAP | Element.ALIGN_TOP);
-            document.add(image);
+//            image = Image.getInstance(user.getAvatar());
+//            image.scaleToFit(120, 160);
+//            image.setAlignment(Element.ALIGN_RIGHT | Image.TEXTWRAP | Element.ALIGN_TOP);
+//            document.add(image);
         }
 
         paragraph = new Paragraph(" ");

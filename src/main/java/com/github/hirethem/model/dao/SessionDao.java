@@ -18,9 +18,6 @@ public class SessionDao {
     }
 
     public synchronized void put(String key, Object value) {
-        if (sessionMap == null) {
-            sessionMap = ActionContext.getContext().getSession();
-        }
         sessionMap.put(key, value);
     }
 
