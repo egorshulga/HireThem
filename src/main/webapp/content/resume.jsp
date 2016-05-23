@@ -42,6 +42,9 @@
         </div>
 
         <div class="container">
+          <s:if test="hasActionErrors()">
+            <a><s:actionerror/></a>
+          </s:if>
 
             <div class="col-xs-12">
               <div class="form-group">

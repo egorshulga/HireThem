@@ -40,6 +40,9 @@
       <div class="container">
 
           <div class="row">
+            <s:if test="hasActionErrors()">
+              <a><s:actionerror/></a>
+            </s:if>
             <div class="form-group col-xs-12 col-sm-4">
               <s:form action="browseResumesBySummary" method="POST">
                 <input type="text" class="form-control" placeholder="Summary" value="<s:property value="%{summaryToSearch}"/>" name="summaryToSearch">
