@@ -61,8 +61,8 @@
             <result name="input">/content/employee-edit.jsp</result>
         </action>
         <action name="submitEditProfile" class="com.github.hirethem.action.profile.EditProfileAction">
-            <result name="input" type="redirectAction">editProfile</result>
-            <result type="redirectAction">/content/employee-edit.jsp</result>
+            <result name="input">/content/employee-edit.jsp</result>
+            <result type="redirectAction">profile</result>
         </action>
 
 
