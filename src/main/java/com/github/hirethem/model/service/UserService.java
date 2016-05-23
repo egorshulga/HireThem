@@ -88,8 +88,20 @@ public class UserService {
         userDao.demoteUser(getUserId(email, userType));
     }
 
-    public void deleteUser(int userId) {
-        userDao.deleteUser(userId);
+    public void deleteUser(int userId) throws ServiceException {
+        List<User> users = userDao.getAllUsers();
+        int adminsCount = 0;
+        for (User user : users) {
+            if (user.getIsAdmin()) {
+                adminsCount++;
+            }
+        }
+        User userToDelete = getUser(userId);
+        if (!userToDelete.getIsAdmin() || adminsCount != 1) {
+            userDao.deleteUser(userId);
+        } else {
+            throw new ServiceException("Cannot delete last admin");
+        }
     }
 
     public void deleteUser(String email, User.UserType userType) throws ServiceException {
