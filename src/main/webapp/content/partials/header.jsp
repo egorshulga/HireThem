@@ -5,28 +5,26 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!-- Navigation bar -->
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+
+    <c:set var="user" scope="session" value='<%=session.getAttribute("userType")%>'/>
+
     <div class="container">
 
+        <!-- Navigation menu -->
         <!-- Logo -->
         <div class="pull-left">
             <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
-
             <div class="logo-wrapper">
                 <a class="logo" href="/"><img src="../assets/img/logo.png" alt="logo"></a>
             </div>
-
         </div>
-        <!-- END Logo -->
 
-        <!-- User account -->
         <div class="pull-right user-login">
-            <a class="btn btn-sm btn-primary" href="<s:url action="login"/>">Login</a> or <a
-                href="<s:url action="signin"/>">register</a>
+            <a class="btn btn-primary btn-sm" href="login">Login</a> or <a
+                href="signin">register</a>
         </div>
-        <!-- END User account -->
-
-        <!-- Navigation menu -->
         <ul id="nav-menu-id" class="nav-menu">
+
             <li>
                 <a href="/">Home</a>
             </li>
@@ -60,6 +58,8 @@
                     <li><a href="faq">FAQ</a></li>
                 </ul>
             </li>
+
+            <c:if test="${user == 'null'}">
             <li>
                 <a href="#">Admin</a>
                 <ul>
@@ -67,7 +67,9 @@
                     <li><a href="manageVacanciesAdmin">Vacancies</a></li>
                     <li><a href="manageUsersAdmin">Users</a></li>
                 </ul>
+
             </li>
+            </c:if>
         </ul>
         <!-- END Navigation menu -->
 
