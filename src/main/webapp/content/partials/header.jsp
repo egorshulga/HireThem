@@ -28,26 +28,32 @@
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
-                <a href="#">Profile</a>
-                <ul>
-                    <li><a href="profile">My profile</a></li>
-                    <li><a href="editProfile">Edit profile</a></li>
-                    <li><a href="logout">Log out</a></li>
-                </ul>
-            </li>
+            <s:if test="%{currentUser != null}">
+                <li>
+                    <a href="#">Profile</a>
+                    <ul>
+                        <li><a href="profile">My profile</a></li>
+                        <li><a href="editProfile">Edit profile</a></li>
+                        <li><a href="logout">Log out</a></li>
+                    </ul>
+                </li>
+            </s:if>
             <li>
                 <a href="#">Resume</a>
                 <ul>
                     <li><a href="browseResumes">Browse resumes</a></li>
-                    <li><a href="manageResumes">Manage resumes</a></li>
+                    <s:if test="%{currentUser.userType.toString() == 'EMPLOYEE'}">
+                        <li><a href="manageResumes">Manage resumes</a></li>
+                    </s:if>
                 </ul>
             </li>
             <li>
                 <a href="#">Vacancy</a>
                 <ul>
                     <li><a href="browseVacancies">Browse vacancies</a></li>
-                    <li><a href="manageVacancies">Manage vacancies</a></li>
+                    <s:if test="%{currentUser.userType.toString() == 'EMPLOYER'}">
+                        <li><a href="manageVacancies">Manage vacancies</a></li>
+                    </s:if>
                 </ul>
             </li>
             <li>
