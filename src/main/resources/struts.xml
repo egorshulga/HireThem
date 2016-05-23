@@ -50,7 +50,7 @@
         </action>
         <action name="submitSignin" class="com.github.hirethem.action.authentication.SigninAction">
             <result type="redirectAction">profile</result>
-            <result name="input" type="redirectAction">signin</result>
+            <result name="input">/content/signin.jsp</result>
         </action>
 
 
@@ -62,7 +62,7 @@
         </action>
         <action name="submitEditProfile" class="com.github.hirethem.action.profile.EditProfileAction">
             <result name="input" type="redirectAction">editProfile</result>
-            <result type="redirectAction">profile</result>
+            <result type="redirectAction">/content/employee-edit.jsp</result>
         </action>
 
 
@@ -130,14 +130,14 @@
         </action>
         <action name="submitEditVacancy" class="com.github.hirethem.action.vacancies.ModifyVacancyAction" method="execute">
             <result type="redirectAction">manageVacancies</result>
-            <result name="input" type="redirectAction">editVacancy</result>
+            <result name="input">/content/vacancy-edit.jsp</result>
         </action>
         <action name="addNewVacancy" class="com.github.hirethem.action.vacancies.CreateVacancyAction" method="input">
             <result name="input">/content/vacancy.jsp</result>
         </action>
         <action name="submitVacancy" class="com.github.hirethem.action.vacancies.CreateVacancyAction" method="execute">
             <result type="redirectAction">manageVacancies</result>
-            <result name="input" type="redirectAction">addNewVacancy</result>
+            <result name="input">/content/vacancy.jsp</result>
         </action>
         <action name="deleteVacancy" class="com.github.hirethem.action.vacancies.DeleteVacancyAction">
             <result type="redirectAction">manageVacancies</result>
@@ -152,14 +152,14 @@
         </action>
         <action name="submitEditResume" class="com.github.hirethem.action.resumes.ModifyResumeAction" method="execute">
             <result type="redirectAction">manageResumes</result>
-            <result name="input" type="redirectAction">editResume</result>
+            <result name="input">/content/resume-edit.jsp</result>
         </action>
         <action name="addNewResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="input">
             <result name="input">/content/resume.jsp</result>
         </action>
         <action name="submitResume" class="com.github.hirethem.action.resumes.CreateResumeAction" method="execute">
             <result type="redirectAction">manageResumes</result>
-            <result name="input" type="redirectAction">addNewResume</result>
+            <result name="input">/content/resume.jsp</result>
         </action>
         <action name="deleteResume" class="com.github.hirethem.action.resumes.DeleteResumeAction">
             <result type="redirectAction">manageResumes</result>
@@ -174,14 +174,14 @@
         </action>
         <action name="submitEditResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction">
             <result type="redirectAction">manageResumesAdmin</result>
-            <result name="input" type="redirectAction">editResumeAdmin</result>
+            <result name="input">/content/admin-resumes-edit.jsp</result>
         </action>
         <action name="addNewResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="input">
             <result name="input">/content/admin-resumes-resume.jsp</result>
         </action>
         <action name="submitResumeAdmin" class="com.github.hirethem.action.admin.resumes.CreateResumeAdminPanelAction" method="execute">
             <result type="redirectAction">manageResumesAdmin</result>
-            <result name="input" type="redirectAction">addNewResumeAdmin</result>
+            <result name="input">/content/admin-resumes-resume.jsp</result>
         </action>
         <action name="deleteResumeAdmin" class="com.github.hirethem.action.admin.resumes.DeleteResumeAdminPanelAction">
             <result type="redirectAction">manageResumesAdmin</result>
@@ -196,14 +196,14 @@
         </action>
         <action name="submitEditVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.ModifyVacancyAdminPanelAction">
             <result type="redirectAction">manageVacanciesAdmin</result>
-            <result name="input" type="redirectAction">editVacancyAdmin</result>
+            <result name="input">/content/admin-vacancies-edit.jsp</result>
         </action>
         <action name="addNewVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="input">
             <result name="input">/content/admin-vacancies-vacancy.jsp</result>
         </action>
         <action name="submitVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.CreateVacancyAdminPanelAction" method="execute">
             <result type="redirectAction">manageVacanciesAdmin</result>
-            <result name="input" type="redirectAction">addNewVacancyAdmin</result>
+            <result name="input">/content/admin-vacancies-vacancy.jsp</result>
         </action>
         <action name="deleteVacancyAdmin" class="com.github.hirethem.action.admin.vacancies.DeleteVacancyAdminPanelAction">
             <result type="redirectAction">manageVacanciesAdmin</result>
@@ -218,14 +218,14 @@
         </action>
         <action name="submitEditUserAdmin" class="com.github.hirethem.action.admin.users.ModifyUserAdminPanelAction">
             <result type="redirectAction">manageUsersAdmin</result>
-            <result name="input" type="redirectAction">editUserAdmin</result>
+            <result name="input">/content/admin-users-edit.jsp</result>
         </action>
         <action name="addNewUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="input">
             <result name="input">/content/admin-users-user.jsp</result>
         </action>
         <action name="submitUserAdmin" class="com.github.hirethem.action.admin.users.CreateUserAdminPanelAction" method="execute">
             <result type="redirectAction">manageUsersAdmin</result>
-            <result name="input" type="redirectAction">addNewUserAdmin</result>
+            <result name="input">/content/admin-users-user.jsp</result>
         </action>
         <action name="deleteUserAdmin" class="com.github.hirethem.action.admin.users.DeleteUserAdminPanelAction">
             <result type="redirectAction">manageUsersAdmin</result>
