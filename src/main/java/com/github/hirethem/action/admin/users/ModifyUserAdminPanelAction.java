@@ -83,5 +83,9 @@ public class ModifyUserAdminPanelAction extends EditProfileAction {
         }
     }
 
+    public User.UserType[] getUserTypes() {
+        return User.UserType.values();
+    }
+
 
 }

@@ -52,7 +52,7 @@
         </div>
 
         <div class="form-group col-xs-12">
-          <input type="text" class="form-control input-lg" placeholder="User Type" name="userType" value="<s:property value="userType"/>">
+          <input type="text" class="form-control input-lg" placeholder="User Type" name="userType" value="<s:property value="userType"/>" disabled>
         </div>
 
         <div class="form-group col-xs-12">
