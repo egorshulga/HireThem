@@ -24,9 +24,6 @@
   <body class="login-page">
   
 	<s:form name="signInForm" action="submitSignin" method="POST">
-        <s:if test="hasActionErrors()">
-            <a><s:actionerror/></a>
-        </s:if>
 
     <main>
 		<br><br><br>
@@ -34,9 +31,12 @@
         <a href="/"><img src="assets/img/logo_alt.png"></a>
         <h1>Create your account</h1>
 
-        <form action="#">
+            <s:if test="hasActionErrors()">
+                <a><s:actionerror/></a>
+            </s:if>
 
-          <div class="form-group">
+
+            <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
               <input type="text" name="name" class="form-control" placeholder="Your name">
@@ -92,7 +92,6 @@
 			<button class="btn btn-primary btn-block" type="submit">Create</button>
 		  </div>
 
-        </form>
       </div>
 
       <div class="login-links">
@@ -100,7 +99,7 @@
       </div>
 
     </main>
-	</s:form> 
+	</s:form>
 
     <!-- Scripts -->
     <script src="assets/js/app.min.js"></script>

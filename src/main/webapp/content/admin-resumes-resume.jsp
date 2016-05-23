@@ -39,14 +39,18 @@
     <header class="page-header-my">
       <div class="container page-name">
         <h1 class="text-center">Edit your resume</h1>
-      </div>
-
-      <div class="container">
         <s:if test="hasActionErrors()">
           <a><s:actionerror/></a>
         </s:if>
+      </div>
+
+      <div class="container">
+
 
         <div class="col-xs-12">
+          <s:if test="hasActionErrors()">
+            <a><s:actionerror/></a>
+          </s:if>
           <div class="form-group">
             <textarea name="summary" class="form-control" rows="3" placeholder="Summary"><s:property value="summary"/></textarea>
           </div>

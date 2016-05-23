@@ -39,6 +39,9 @@
       <header class="page-header-my">
       <div class="container page-name">
         <h1 class="text-center">Add a new vacancy</h1>
+        <s:if test="hasActionErrors()">
+          <a><s:actionerror/></a>
+        </s:if>
         <p class="lead text-center">Create a new vacancy for your company and put it online.</p>
       </div>
 

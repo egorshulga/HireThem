@@ -32,7 +32,9 @@
   <s:include value="partials/header.jsp"/>
 
     <s:form name="resumeAdd" action="submitResume" method="POST">
-	
+      <s:if test="hasActionErrors()">
+        <a><s:actionerror/></a>
+      </s:if>
 	 <!-- Page header -->
 	  <section class=" bg-img" style="background-image: url(../assets/img/bg-facts.jpg);">
 	  <br><br>
