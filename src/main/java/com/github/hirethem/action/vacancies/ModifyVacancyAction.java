@@ -1,9 +1,12 @@
 package com.github.hirethem.action.vacancies;
 
 import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.Vacancy;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.VacancyService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 
@@ -104,4 +107,14 @@ public class ModifyVacancyAction extends ActionSupport {
     public void setVacancyId(int vacancyId) {
         this.vacancyId = vacancyId;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

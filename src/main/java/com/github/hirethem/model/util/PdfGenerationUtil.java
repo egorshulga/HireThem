@@ -449,7 +449,7 @@ public class PdfGenerationUtil {
             } else {
                 table.addCell("");
             }
-            table.addCell(String.valueOf(user.isAdmin()));
+            table.addCell(String.valueOf(user.getIsAdmin()));
         }
 
         document.add(table);

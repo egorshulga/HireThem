@@ -1,6 +1,9 @@
 package com.github.hirethem.action.resumes;
 
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.ResumeService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -8,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DeleteResumeAction extends ActionSupport {
 
-    private int resumeId;
+    protected int resumeId;
 
     public String execute() {
         new ResumeService().deleteResume(resumeId);
@@ -22,4 +25,14 @@ public class DeleteResumeAction extends ActionSupport {
     public void setResumeId(int resumeId) {
         this.resumeId = resumeId;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

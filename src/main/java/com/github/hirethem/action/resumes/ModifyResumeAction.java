@@ -3,11 +3,10 @@ package com.github.hirethem.action.resumes;
 import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.Education;
 import com.github.hirethem.model.entity.Resume;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.entity.WorkExperience;
-import com.github.hirethem.model.service.EducationsService;
-import com.github.hirethem.model.service.ResumeService;
-import com.github.hirethem.model.service.SessionService;
-import com.github.hirethem.model.service.WorkExperienceService;
+import com.github.hirethem.model.service.*;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 
@@ -17,28 +16,28 @@ import org.apache.commons.lang3.StringUtils;
 @AuthorizeAs(userType = "EMPLOYEE")
 public class ModifyResumeAction extends ActionSupport {
 
-    private int resumeId;
-    private int educationId;
-    private int workExperienceId;
+    protected int resumeId;
+    protected int educationId;
+    protected int workExperienceId;
 
-    private String summary;
-    private String interests;
-    private String references;
-    private String description;
-    private String skills;
+    protected String summary;
+    protected String interests;
+    protected String references;
+    protected String description;
+    protected String skills;
 
-    private String degree;
-    private String specialty;
-    private String university;
-    private String educationStartDate;
-    private String educationEndDate;
-    private String educationDescription;
+    protected String degree;
+    protected String specialty;
+    protected String university;
+    protected String educationStartDate;
+    protected String educationEndDate;
+    protected String educationDescription;
 
-    private String companyName;
-    private String position;
-    private String workExperienceStartDate;
-    private String workExperienceEndDate;
-    private String workExperienceDescription;
+    protected String companyName;
+    protected String position;
+    protected String workExperienceStartDate;
+    protected String workExperienceEndDate;
+    protected String workExperienceDescription;
 
     public String input() {
         Resume resume = new ResumeService().getResume(resumeId);
@@ -73,8 +72,10 @@ public class ModifyResumeAction extends ActionSupport {
         educationId = ((Education) new ResumeService().getResume(resumeId).getEducations().toArray()[0]).getId();
         workExperienceId = ((WorkExperience) new ResumeService().getResume(resumeId).getWorkExperiences().toArray()[0]).getId();
         new ResumeService().modifyResume(resumeId, summary, description, skills, interests, references);
-        new EducationsService().modifyEducation(educationId, university, educationStartDate, educationEndDate, specialty, degree, educationDescription);
-        new WorkExperienceService().modifyWorkExperience(workExperienceId, companyName, position, workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
+        new EducationsService().modifyEducation(educationId, university, educationStartDate, educationEndDate,
+                specialty, degree, educationDescription);
+        new WorkExperienceService().modifyWorkExperience(workExperienceId, companyName, position,
+                workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
         return SUCCESS;
     }
 
@@ -235,4 +236,14 @@ public class ModifyResumeAction extends ActionSupport {
     public void setWorkExperienceDescription(String workExperienceDescription) {
         this.workExperienceDescription = workExperienceDescription;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

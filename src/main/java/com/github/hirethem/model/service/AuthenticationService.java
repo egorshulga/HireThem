@@ -17,7 +17,7 @@ public class AuthenticationService {
     }
 
     public boolean isCurrentUserAdmin() throws ServiceException {
-        return new CurrentUserService().getCurrentUserEntity().isAdmin();
+        return new CurrentUserService().getCurrentUserEntity().getIsAdmin();
     }
 
     public void authenticateCurrentUserByToken() throws ServiceException {
@@ -52,7 +52,7 @@ public class AuthenticationService {
     }
 
     public boolean isUserAdmin(String email, User.UserType userType) throws ServiceException {
-        return userService.getUser(email, userType).isAdmin();
+        return userService.getUser(email, userType).getIsAdmin();
     }
 
 }

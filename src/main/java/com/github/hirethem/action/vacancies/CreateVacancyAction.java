@@ -1,6 +1,7 @@
 package com.github.hirethem.action.vacancies;
 
 import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
 import com.github.hirethem.model.service.exception.ServiceException;
@@ -13,12 +14,12 @@ import org.apache.commons.lang3.StringUtils;
 @AuthorizeAs(userType = "EMPLOYER")
 public class CreateVacancyAction extends ActionSupport {
 
-    private String title;
-    private String summary;
-    private String description;
-    private String salary;
-    private String requiredExperience;
-    private String requiredSkills;
+    protected String title;
+    protected String summary;
+    protected String description;
+    protected String salary;
+    protected String requiredExperience;
+    protected String requiredSkills;
 
     public String execute() {
         try {
@@ -85,4 +86,14 @@ public class CreateVacancyAction extends ActionSupport {
     public void setRequiredSkills(String requiredSkills) {
         this.requiredSkills = requiredSkills;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.github.hirethem.action.resumes;
 
 import com.github.hirethem.action.interceptor.AuthorizeAs;
+import com.github.hirethem.model.entity.User;
 import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.EducationsService;
 import com.github.hirethem.model.service.ResumeService;
@@ -15,24 +16,24 @@ import org.apache.commons.lang3.StringUtils;
 @AuthorizeAs(userType = "EMPLOYEE")
 public class CreateResumeAction extends ActionSupport {
 
-    private String summary;
-    private String interests;
-    private String references;
-    private String description;
-    private String skills;
+    protected String summary;
+    protected String interests;
+    protected String references;
+    protected String description;
+    protected String skills;
 
-    private String degree;
-    private String specialty;
-    private String university;
-    private String educationStartDate;
-    private String educationEndDate;
-    private String educationDescription;
+    protected String degree;
+    protected String specialty;
+    protected String university;
+    protected String educationStartDate;
+    protected String educationEndDate;
+    protected String educationDescription;
 
-    private String companyName;
-    private String position;
-    private String workExperienceStartDate;
-    private String workExperienceEndDate;
-    private String workExperienceDescription;
+    protected String companyName;
+    protected String position;
+    protected String workExperienceStartDate;
+    protected String workExperienceEndDate;
+    protected String workExperienceDescription;
 
 
     public String execute() {
@@ -43,8 +44,10 @@ public class CreateResumeAction extends ActionSupport {
             int resumeId = resumeService.findResumesUsingSummary(summary).get(0).getId();
             new EducationsService().createEducation(resumeId, university, educationStartDate, educationEndDate,
                     specialty, degree, educationDescription);
-            new WorkExperienceService().createWorkExperience(resumeId, companyName, position, workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
+            new WorkExperienceService().createWorkExperience(resumeId, companyName, position,
+                    workExperienceStartDate, workExperienceEndDate, workExperienceDescription);
         } catch (ServiceException ignored) {
+            return INPUT;
         }
         return SUCCESS;
     }
@@ -182,4 +185,14 @@ public class CreateResumeAction extends ActionSupport {
     public void setWorkExperienceDescription(String workExperienceDescription) {
         this.workExperienceDescription = workExperienceDescription;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

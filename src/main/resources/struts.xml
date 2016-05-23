@@ -166,8 +166,8 @@
         </action>
 
 
-        <action name="manageResumesAdmin" class="com.github.hirethem.action.admin.resumes.ManageResumesAdminPanelAction" method="input">
-            <result name="input">/content/admin-resumes.jsp</result>
+        <action name="manageResumesAdmin" class="com.github.hirethem.action.admin.resumes.ManageResumesAdminPanelAction">
+            <result>/content/admin-resumes.jsp</result>
         </action>
         <action name="editResumeAdmin" class="com.github.hirethem.action.admin.resumes.ModifyResumeAdminPanelAction" method="input">
             <result name="input">/content/admin-resumes-edit.jsp</result>

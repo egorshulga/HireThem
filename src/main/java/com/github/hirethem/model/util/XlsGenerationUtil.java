@@ -236,7 +236,7 @@ public class XlsGenerationUtil {
             cell = row.createCell(6);
             cell.setCellValue(user.getContactInfo() != null ? user.getContactInfo() : "");
             cell = row.createCell(7);
-            cell.setCellValue(user.isAdmin());
+            cell.setCellValue(user.getIsAdmin());
         }
 
 

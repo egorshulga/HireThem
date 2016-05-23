@@ -65,7 +65,7 @@ public class CsvGenerationUtil {
                     user.getSurname(),
                     user.getAbout(),
                     user.getContactInfo(),
-                    Boolean.toString(user.isAdmin())
+                    Boolean.toString(user.getIsAdmin())
             });
         }
 

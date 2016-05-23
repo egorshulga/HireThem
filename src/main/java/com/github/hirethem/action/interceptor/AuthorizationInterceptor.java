@@ -29,10 +29,10 @@ public class AuthorizationInterceptor extends AbstractInterceptor {
                 return "loginRedirect";
             }
 
-            if (user.isAdmin()) {
+            if (user.getIsAdmin()) {
                 return invocation.invoke();
             }
-            if (!user.isAdmin() && annotation.admin()) {
+            if (!user.getIsAdmin() && annotation.admin()) {
                 return "loginRedirect";
             }
             if (StringUtils.equals(annotation.userType(), "")) {

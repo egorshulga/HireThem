@@ -59,17 +59,16 @@
                 </ul>
             </li>
 
-            <c:if test="${user == 'null'}">
-            <li>
-                <a href="#">Admin</a>
-                <ul>
-                    <li><a href="manageResumesAdmin">Resumes</a></li>
-                    <li><a href="manageVacanciesAdmin">Vacancies</a></li>
-                    <li><a href="manageUsersAdmin">Users</a></li>
-                </ul>
-
-            </li>
-            </c:if>
+            <s:if test="%{currentUser.isAdmin == true}">
+                <li>
+                    <a href="#">Admin</a>
+                    <ul>
+                        <li><a href="manageResumesAdmin">Resumes</a></li>
+                        <li><a href="manageVacanciesAdmin">Vacancies</a></li>
+                        <li><a href="manageUsersAdmin">Users</a></li>
+                    </ul>
+                </li>
+            </s:if>
         </ul>
         <!-- END Navigation menu -->
 

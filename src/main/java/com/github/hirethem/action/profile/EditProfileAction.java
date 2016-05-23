@@ -129,4 +129,13 @@ public class EditProfileAction extends ActionSupport {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
 }

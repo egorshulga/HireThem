@@ -17,9 +17,9 @@ import java.util.List;
 @AuthorizeAs(userType = "EMPLOYER")
 public class ManageVacanciesAction extends ActionSupport {
 
-    private User user;
+    protected User user;
     protected List<Vacancy> vacancies;
-    private int chosenVacancyId;
+    protected int chosenVacancyId;
 
     public String input() {
         try {
@@ -58,4 +58,14 @@ public class ManageVacanciesAction extends ActionSupport {
     public void setChosenVacancyId(int chosenVacancyId) {
         this.chosenVacancyId = chosenVacancyId;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

@@ -1,6 +1,9 @@
 package com.github.hirethem.action.vacancies;
 
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.github.hirethem.model.util.CsvGenerationUtil;
 import com.github.hirethem.model.util.PdfGenerationUtil;
 import com.github.hirethem.model.util.XlsGenerationUtil;
@@ -16,42 +19,39 @@ public class DownloadVacancyAction extends ActionSupport {
 
     private VacancyService vacancyService = new VacancyService();
 
-    private int id;
+    private int vacancyId;
     private InputStream stream;
 
     public String downloadPdf() {
         try {
-            stream = new ByteArrayInputStream(PdfGenerationUtil.getVacancyDocument(vacancyService.getVacancy(id)).toByteArray());
-            return SUCCESS;
+            stream = new ByteArrayInputStream(PdfGenerationUtil.getVacancyDocument(vacancyService.getVacancy(vacancyId)).toByteArray());
         } catch (Exception e) {
-            return INPUT;
         }
+        return SUCCESS;
     }
 
     public String downloadCsv() {
         try {
-            stream = new ByteArrayInputStream(CsvGenerationUtil.generateVacancyInCSV(id).toByteArray());
-            return SUCCESS;
+            stream = new ByteArrayInputStream(CsvGenerationUtil.generateVacancyInCSV(vacancyId).toByteArray());
         } catch (Exception e) {
-            return INPUT;
         }
+        return SUCCESS;
     }
 
     public String downloadXls() {
         try {
-            stream = new ByteArrayInputStream(XlsGenerationUtil.generateVacancyInXls(id).toByteArray());
-            return SUCCESS;
+            stream = new ByteArrayInputStream(XlsGenerationUtil.generateVacancyInXls(vacancyId).toByteArray());
         } catch (Exception e) {
-            return INPUT;
         }
+        return SUCCESS;
     }
 
-    public int getId() {
-        return id;
+    public int getVacancyId() {
+        return vacancyId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setVacancyId(int vacancyId) {
+        this.vacancyId = vacancyId;
     }
 
     public InputStream getStream() {
@@ -61,4 +61,14 @@ public class DownloadVacancyAction extends ActionSupport {
     public void setStream(InputStream stream) {
         this.stream = stream;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

@@ -101,4 +101,13 @@ public class ProfileAction extends ActionSupport {
     public void setId(int id) {
         this.id = id;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
 }

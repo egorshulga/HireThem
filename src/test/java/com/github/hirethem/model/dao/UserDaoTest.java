@@ -108,14 +108,14 @@ public class UserDaoTest {
     public void promoteUserAsAdmin() throws Exception {
         userDao.promoteUser(userId);
         User user = userDao.getUser(email, userType);
-        assertTrue(user.isAdmin());
+        assertTrue(user.getIsAdmin());
     }
 
     @Test
     public void demoteUser() throws Exception {
         userDao.demoteUser(userId);
         User user = userDao.getUser(email, userType);
-        assertFalse(user.isAdmin());
+        assertFalse(user.getIsAdmin());
     }
 
     @Test

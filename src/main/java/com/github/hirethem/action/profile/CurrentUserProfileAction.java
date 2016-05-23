@@ -23,4 +23,13 @@ public class CurrentUserProfileAction extends ProfileAction {
         return SUCCESS;
     }
 
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

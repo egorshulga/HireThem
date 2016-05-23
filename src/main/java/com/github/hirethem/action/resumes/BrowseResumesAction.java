@@ -1,7 +1,10 @@
 package com.github.hirethem.action.resumes;
 
 import com.github.hirethem.model.entity.Resume;
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.ResumeService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 
@@ -97,4 +100,14 @@ public class BrowseResumesAction extends ActionSupport {
     public void setResumes(List<Resume> resumes) {
         this.resumes = resumes;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

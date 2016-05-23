@@ -36,11 +36,17 @@ public class ManageResumesAction extends ActionSupport {
         this.resumes = resumes;
     }
 
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

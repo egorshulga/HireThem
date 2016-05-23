@@ -39,7 +39,7 @@ public class UserTest {
         user.setAbout(about);
         user.setContactInfo(contactInfo);
         user.setAvatar(avatar);
-        user.setAdmin(isAdmin);
+        user.setIsAdmin(isAdmin);
         user.setResumes(resumes);
         user.setVacancies(vacancies);
     }
@@ -97,7 +97,7 @@ public class UserTest {
 
     @Test
     public void getAdmin() throws Exception {
-        assertEquals(user.isAdmin(), isAdmin);
+        assertEquals(user.getIsAdmin(), isAdmin);
     }
 
 

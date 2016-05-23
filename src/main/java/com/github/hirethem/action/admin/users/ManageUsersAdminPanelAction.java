@@ -1,8 +1,11 @@
 package com.github.hirethem.action.admin.users;
 
+import com.github.hirethem.action.interceptor.AuthorizeAs;
 import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.SessionService;
 import com.github.hirethem.model.service.UserService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;
@@ -10,6 +13,7 @@ import java.util.List;
 /**
  * Created by egorshulga on 12-May-16.
  */
+@AuthorizeAs(admin = true)
 public class ManageUsersAdminPanelAction extends ActionSupport {
 
     private List<User> users;
@@ -40,4 +44,14 @@ public class ManageUsersAdminPanelAction extends ActionSupport {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

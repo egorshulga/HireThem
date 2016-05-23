@@ -1,6 +1,9 @@
 package com.github.hirethem.action.vacancies;
 
+import com.github.hirethem.model.entity.User;
+import com.github.hirethem.model.service.CurrentUserService;
 import com.github.hirethem.model.service.VacancyService;
+import com.github.hirethem.model.service.exception.ServiceException;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -8,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DeleteVacancyAction extends ActionSupport {
 
-    private int vacancyId;
+    protected int vacancyId;
 
     public String execute() {
         new VacancyService().deleteVacancy(vacancyId);
@@ -22,4 +25,14 @@ public class DeleteVacancyAction extends ActionSupport {
     public void setVacancyId(int vacancyId) {
         this.vacancyId = vacancyId;
     }
+
+    public User getCurrentUser()  {
+        try {
+            return new CurrentUserService().getCurrentUserEntity();
+        } catch (ServiceException ignored) {
+            return null;
+        }
+    }
+
+
 }

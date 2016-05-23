@@ -80,10 +80,10 @@
                   </div>
                   <div class="action-btn">
                     <s:url id="editUrl" action="editUserAdmin">
-                      <s:param name="vacancyId" value="%{id}"/>
+                      <s:param name="userId" value="%{id}"/>
                     </s:url>
                     <s:url id="deleteUrl" action="deleteUserAdmin">
-                      <s:param name="vacancyId" value="%{id}"/>
+                      <s:param name="userId" value="%{id}"/>
                     </s:url>
                     <s:a class="btn btn-xs btn-gray" href="%{editUrl}">Edit</s:a>
                     <s:a class="btn btn-xs btn-danger" href="%{deleteUrl}">Delete</s:a>
